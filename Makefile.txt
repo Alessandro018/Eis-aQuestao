@@ -1,0 +1,12 @@
+gabriel:
+	git config --global user.name "gabrielpessoa"
+	git config --global user.email gabrielpessoanascimento@gmail.com
+alessandro:
+	git config --global user.name "Alessandro018"
+	git config --global user.email alessandrosilva325@gmail.com
+tamires:
+	git config --global user.name "siilvatamires"
+	git config --global user.email tamiresmaria561@gmail.com
+geovane:
+	git config --global user.name "geovane"
+	git config --global user.email geovanejose240899@gmail.com
