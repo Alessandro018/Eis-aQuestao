@@ -10,7 +10,9 @@ tamires:
 geovane:
 	git config --global user.name "geovanejose"
 	git config --global user.email geovanejose240899@gmail.com
-
+robson:
+	git config --global user.name "robson-gomes"
+	git config --global user.email robson.gs2630@gmail.com
 conf:
 	sudo apt-get install php7.2 php7.2-mbstring php7.2-mysql php7.2-intl php7.2-xml composer # isso só serve pra sistemas que usam o apt
 	composer install --no-scripts
