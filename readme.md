@@ -30,4 +30,11 @@ Instale o  gerenciador de pacotes (composer)
 $ make conf
 ```
 ## Execução
-> Após a configuração do make conf,coloque no navegador : ```localhost:8000 ``` ou  ``` http://127.0.0.1:8000 ``` e você terá acesso ao nosso projeto.:
+> Após a configuração do make conf,coloque no navegador : ```localhost:8000 ``` ou  ``` http://127.0.0.1:8000 ``` e você terá acesso ao nosso projeto.
+
+## Ferramentas
+- [Laravel](https://laravel.com) - PHP Framework
+- [Bootstrap](https://getbootstrap.com/) - CSS && HTML Framework
+- [Sublime Text](https://www.sublimetext.com/) - Editor de texto
+- [MYSQL](https://www.mysql.com/) -Sistema de gerenciamento de banco de dados
+- [PHP](https://php.net/) - Linguagem de programação
