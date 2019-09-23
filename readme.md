@@ -2,7 +2,7 @@
 
 Este sistema tem como propósito servir como uma plataforma para que os professores possam criar questões baseadas em níveis de dificuldades e gerar provas de forma aleatória. A ideia é facilitar a elaboração das provas e ter um acompanhamento, inteligente e através de análise de dados, da evolução acadêmica dos alunos.
 
-Para realizar a instalação e execução do projeto Eis a Questão siga as seguintes instruções abaixo:
+Para realizar a instalação e execução do projeto "Eis a Questão", siga as seguintes instruções abaixo:
 
 - [Pré-Requisitos](#pré-requisitos)
 - [Instalação](#instalação)
