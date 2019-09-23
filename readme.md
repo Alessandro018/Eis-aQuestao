@@ -23,7 +23,7 @@ Instale o  gerenciador de pacotes (composer)
 > Instalação do Laravel obrigatória para a execução do projeto, veja mais em :
 * [Laravel-Installation](https://laravel.com/docs/5.8/installation) - Instalação completa na documentação do framework -
 ## Instalação
-- Para Clonar o repositório do projeto no seu computador digite : git clone```https://github.com/Alessandro018/Eis-aQuestao.git ```
+- Para Clonar o repositório do projeto no seu computador digite : git clone ```https://github.com/Alessandro018/Eis-aQuestao.git ```
 ### Configuração
 > Em seguida entre na pasta do projeto e utilize o programa make digitando o comando abaixo.
 ```
