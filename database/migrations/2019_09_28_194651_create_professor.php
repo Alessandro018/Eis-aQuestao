@@ -15,6 +15,9 @@ class CreateProfessor extends Migration
     {
         Schema::create('professor', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('siap');
+            $table->string('campus');
+            $table->string('nome');
             $table->timestamps();
         });
     }
