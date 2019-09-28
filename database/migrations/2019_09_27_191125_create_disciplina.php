@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,6 +15,7 @@ class CreateDisciplina extends Migration
     {
         Schema::create('disciplina', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
             $table->timestamps();
         });
     }
