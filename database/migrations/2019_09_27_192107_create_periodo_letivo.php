@@ -15,6 +15,8 @@ class CreatePeriodoLetivo extends Migration
     {
         Schema::create('periodo_letivo', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->year('ano');
+            $table->integer('semestre');
             $table->timestamps();
         });
     }
