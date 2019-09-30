@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             cursoSeeder::class,
             periodoLetivoSeeder::class,
-            disciplinaSeeder::class
+            disciplinaSeeder::class,
+            professorSeeder::class
         ]);
     }
 }
