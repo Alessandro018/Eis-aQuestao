@@ -18,6 +18,7 @@ class CreateProfessor extends Migration
             $table->string('siap');
             $table->string('campus');
             $table->string('nome');
+            $table->string('senha');
             $table->timestamps();
         });
     }
