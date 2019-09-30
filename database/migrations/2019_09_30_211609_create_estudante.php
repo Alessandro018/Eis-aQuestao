@@ -15,6 +15,9 @@ class CreateEstudante extends Migration
     {
         Schema::create('estudante', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('email');
+            $table->string('matricula');
             $table->timestamps();
         });
     }
