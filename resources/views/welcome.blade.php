@@ -70,8 +70,9 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
+                        <a href="{{ route('questao.create') }}">Cadastrar questao</a>
+                        <a href="{{ route('questao.index') }}">Questoes</a>
                         <a href="{{ route('login') }}">Login</a>
-
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
