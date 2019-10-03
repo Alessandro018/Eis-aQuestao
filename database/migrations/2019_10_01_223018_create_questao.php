@@ -15,6 +15,7 @@ class CreateQuestao extends Migration
     {
         Schema::create('questao', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('pergunta');
             $table->string('tipo');
             $table->integer('nivel');
             $table->unsignedInteger('professor_id')->foreign('professor_id')->references('id')->on('professor');
