@@ -15,6 +15,9 @@ class CreateDisciplinaEstudante extends Migration
     {
         Schema::create('disciplina_estudante', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('disciplina_id')->foreign('disciplina_id')->references('id')->on('disciplina');
+            $table->unsignedInteger('estudante_id')->foreign('estudante_id')->references('id')->on('estudante');
+            $table->unsignedInteger('periodo_letivo_id')->foreign('periodo_letivo_id')->references('id')->on('periodo_letivo');
             $table->timestamps();
         });
     }
