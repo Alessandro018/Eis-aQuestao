@@ -1,6 +1,7 @@
 @extends('questao.layout')
  
 @section('content')
+ 
     <form action="{{ route('questao.store') }}" method="POST">
     @csrf
         <div class="form-group">
@@ -21,8 +22,9 @@
         <div class="form-group">
             <label for="exampleFormControlSelect2">Disciplina</label>
             <select class="form-control" id="exampleFormControlSelect2" name="disciplina">
-                <option>Desenvolvimento para web 1</option>
-                <option>Projeto e prática 1</option>
+                @foreach ($professor_disciplina as $disciplina)
+                    <option>{{ $disciplina->nome }}</option>
+                @endforeach
             </select>
             <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>
         </div>

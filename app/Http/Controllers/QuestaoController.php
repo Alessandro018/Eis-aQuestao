@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Questao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuestaoController extends Controller
 {
@@ -16,8 +17,12 @@ class QuestaoController extends Controller
     }
 
     public function create()
-    {
-        return view('questao.create');
+    {   
+        $professor_disciplina = DB::table('professor_disciplina')
+        ->join('disciplina', 'disciplina.id', '=', 'professor_disciplina.disciplina_id')
+        ->select('disciplina.nome')
+        ->where('professor_id', 1)->get();
+        return view('questao.create', ['professor_disciplina' => $professor_disciplina]);
     }
 
     public function store(Request $request)
