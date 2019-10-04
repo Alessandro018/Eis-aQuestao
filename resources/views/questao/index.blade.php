@@ -14,14 +14,10 @@
 				<td>{{ $questao->pergunta }}</td>
 				<td>{{ $questao->tipo }}</td>
 				<td>{{ $questao->nivel }}</td>
-				<td>{{ $questao->disciplina_id }}</td>
+				<td>{{ $questao->nome }}</td>
 				<td>
                 <form action="{{ route('questao.destroy',$questao->id) }}" method="POST">
-   
-                
-    
                     <a class="btn btn-primary" href="{{ route('questao.edit',$questao->id) }}">Editar</a>
-   
                     @csrf
                     @method('DELETE')
         			<button type="submit" class="btn btn-danger">Deletar</button>
@@ -30,5 +26,4 @@
 			</tr>
 			@endforeach
 	</table>
-	{!! $questoes->links() !!}
 @endsection

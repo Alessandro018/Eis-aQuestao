@@ -10,10 +10,11 @@ class QuestaoController extends Controller
 {
     public function index()
     {
-        $questoes = Questao::latest()->paginate(5);
+        $questoes = DB::table('questaos')
+        ->join('disciplina', 'disciplina.id', '=', 'questaos.disciplina_id')
+        ->select('questaos.*', 'disciplina.nome')->get();
 
-        return view('questao.index',compact('questoes'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('questao.index', ['questoes' => $questoes]);
     }
 
     public function create()
