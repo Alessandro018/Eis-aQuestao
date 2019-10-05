@@ -10,9 +10,9 @@ class QuestaoController extends Controller
 {
     public function index()
     {
-        $questoes = DB::table('questaos')
-        ->join('disciplina', 'disciplina.id', '=', 'questaos.disciplina_id')
-        ->select('questaos.*', 'disciplina.nome')->get();
+        $questoes = DB::table('questao')
+        ->join('disciplina', 'disciplina.id', '=', 'questao.disciplina_id')
+        ->select('questao.*', 'disciplina.nome')->get();
 
         return view('questao.index', ['questoes' => $questoes]);
     }
@@ -21,8 +21,8 @@ class QuestaoController extends Controller
     {   
         $professor_disciplina = DB::table('professor_disciplina')
         ->join('disciplina', 'disciplina.id', '=', 'professor_disciplina.disciplina_id')
-        ->select('disciplina.nome')
-        ->where('professor_id', 1)->get();
+        ->select('disciplina.nome', 'disciplina.id')
+        ->where('professor_disciplina.professor_id', 1)->get();
         return view('questao.create', ['professor_disciplina' => $professor_disciplina]);
     }
 
@@ -41,7 +41,10 @@ class QuestaoController extends Controller
 
     public function edit(Questao $questao)
     {
-        return view('questao.edit',compact('questao'));
+        $questoes = $questao::join('disciplina', 'disciplina.id', '=', 'questao.disciplina_id')
+        ->select('questao.*', 'disciplina.nome', 'disciplina.id as disciplina_id')
+        ->where('disciplina.id', $questao->disciplina_id)->where('questao.id', $questao->id)->get();
+        return view('questao.edit', ['questoes'=> $questoes]);
     }
 
     public function update(Request $request, Questao $questao)

@@ -21,9 +21,9 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Disciplina</label>
-            <select class="form-control" id="exampleFormControlSelect2" name="disciplina">
+            <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id">
                 @foreach ($professor_disciplina as $disciplina)
-                    <option>{{ $disciplina->nome }}</option>
+                    <option value="{{ $disciplina->id }}">{{ $disciplina->nome }}</option>
                 @endforeach
             </select>
             <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>
@@ -39,7 +39,6 @@
                 <label class="form-check-label" for="inlineRadio2">Fechada</label>
             </div>
             <input type="hidden" name="professor_id" value="1">
-            <input type="hidden" name="disciplina_id" value="1">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
