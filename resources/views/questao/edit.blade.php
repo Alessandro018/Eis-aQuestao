@@ -10,22 +10,21 @@
             </ul>
         </div>
     @endif
-    @foreach ($questoes as $questao)
-    <form action="{{ route('questao.update',$questao->id) }}"method="POST">
+
+    <form action="{{ route('questao.update',$questoes[0]->id) }}"method="POST">
         @csrf
         @method('PUT')
-   
                 <div class="form-group">
                     <strong>Questão:</strong>
-                    <textarea class="form-control" name="pergunta" rows="3">{{ $questao->pergunta }}</textarea>
+                    <textarea class="form-control" name="pergunta" rows="3">{{ $questoes[0]->pergunta }}</textarea>
                 </div>
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Nível da questão</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="nivel">
-                    <option>{{ $questao->nivel }}</option>
+                    <option>{{ $questoes[0]->nivel }}</option>
                     @for ($i=1; $i<=5; $i++)
-                        @if ($questao->nivel != $i)
+                        @if ($questoes[0]->nivel != $i)
                             <option>{{ $i }}</option>
                         @endif
                     @endfor
@@ -35,7 +34,9 @@
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Disciplina</label>
                 <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id">
-                    <option value="{{ $questao->disciplina_id }}">{{ $questao->nome }}</option>
+                @foreach($questoes as $disciplina)
+                    <option value="{{ $disciplina->id_disciplina }}">{{ $disciplina->nome }}</option>
+                @endforeach
                 </select>
                 <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>
             </div>
@@ -59,5 +60,4 @@
         </div>
    
     </form>
-    @endforeach
 @endsection

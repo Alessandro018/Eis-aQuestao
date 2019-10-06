@@ -41,9 +41,12 @@ class QuestaoController extends Controller
 
     public function edit(Questao $questao)
     {
-        $questoes = $questao::join('disciplina', 'disciplina.id', '=', 'questao.disciplina_id')
-        ->select('questao.*', 'disciplina.nome', 'disciplina.id as disciplina_id')
-        ->where('disciplina.id', $questao->disciplina_id)->where('questao.id', $questao->id)->get();
+        $questoes = $questao::join('professor_disciplina', 'professor_disciplina.professor_id',
+         '=', 'questao.professor_id')
+        ->join('disciplina', 'disciplina.id', '=', 'professor_disciplina.disciplina_id')
+        ->select('questao.*', 'disciplina.nome', 'disciplina.id as id_disciplina')
+        ->where('professor_disciplina.professor_id', $questao->professor_id)
+        ->where('questao.id', $questao->id)->get();
         return view('questao.edit', ['questoes'=> $questoes]);
     }
 
