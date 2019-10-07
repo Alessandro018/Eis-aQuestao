@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             professorSeeder::class,
             estudanteSeeder::class,
             professor_disciplinaSeeder::class
+            disciplina_estudanteSeeder::class
         ]);
     }
 }
