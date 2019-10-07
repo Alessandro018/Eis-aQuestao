@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             periodoLetivoSeeder::class,
             disciplinaSeeder::class,
             professorSeeder::class,
-            estudanteSeeder::class
+            estudanteSeeder::class,
+            professor_disciplinaSeeder::class
         ]);
     }
 }
