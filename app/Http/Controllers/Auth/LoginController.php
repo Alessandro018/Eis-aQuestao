@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    protected $siape = 'siape';
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -19,6 +20,10 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    public function siape()
+    {
+        return 'siape';
+    }
 
     /**
      * Where to redirect users after login.
@@ -36,4 +41,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
 }

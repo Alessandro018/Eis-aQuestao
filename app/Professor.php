@@ -1,13 +1,15 @@
 <?php
 
 namespace App;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Professor extends Model
+class Professor extends \Eloquent implements Authenticatable
 {
-    protected $table="professor";
-protected $fillable = [
+    use AuthenticableTrait;
+    protected $table = 'professor';
+	protected $fillable = [
         'siape','campus', 'nome', 'senha'
     ];
 }
