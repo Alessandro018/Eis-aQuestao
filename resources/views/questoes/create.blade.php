@@ -1,8 +1,8 @@
-@extends('questao.layout')
+@extends('questoes.layout')
  
 @section('content')
  
-    <form action="{{ route('questao.store') }}" method="POST">
+    <form action="{{ route('questoes.store') }}" method="POST">
     @csrf
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Questão</label>

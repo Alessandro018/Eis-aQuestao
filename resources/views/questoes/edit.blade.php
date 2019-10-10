@@ -1,4 +1,4 @@
-@extends('questao.layout')
+@extends('questoes.layout')
    
 @section('content')  
     @if ($errors->any())
@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <form action="{{ route('questao.update',$questoes[0]->id) }}"method="POST">
+    <form action="{{ route('questoes.update', $questoes[0]->id) }}" method="POST">
         @csrf
         @method('PUT')
                 <div class="form-group">

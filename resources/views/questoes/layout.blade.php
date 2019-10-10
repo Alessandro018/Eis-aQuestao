@@ -28,10 +28,10 @@
                 </a>
                 <div class="flex-center position-ref full-height">
                     <div class="top-right links" style="float:right;padding: 10px;">
-                        @if (Route::has('questao.index'))
-                            <a href="{{ route('questao.create') }}" style="padding-right:10px">Cadastrar questao</a>
+                        @if (Route::has('questoes.index'))
+                            <a href="{{ route('questoes.create') }}" style="padding-right:10px">Cadastrar questao</a>
                         
-                            <a href="{{ route('questao.index') }}">Questoes</a>
+                            <a href="{{ route('questoes.index') }}">Questoes</a>
                         @endif
                     </div>
                 </div>

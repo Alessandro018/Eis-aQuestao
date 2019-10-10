@@ -1,4 +1,4 @@
-@extends('questao.layout')
+@extends('questoes.layout')
  
 @section('content')
 	<table class="table table-bordered">
@@ -16,8 +16,8 @@
 				<td>{{ $questao->nivel }}</td>
 				<td>{{ $questao->nome }}</td>
 				<td>
-                <form action="{{ route('questao.destroy',$questao->id) }}" method="POST">
-                    <a class="btn btn-primary" href="{{ route('questao.edit',$questao->id) }}">Editar</a>
+                <form action="{{ route('questoes.destroy',$questao->id) }}" method="POST">
+                    <a class="btn btn-primary" href="{{ route('questoes.edit',$questao->id) }}">Editar</a>
                     @csrf
                     @method('DELETE')
         			<button type="submit" class="btn btn-danger">Deletar</button>
