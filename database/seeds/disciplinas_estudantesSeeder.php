@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class disciplina_estudanteSeeder extends Seeder
+class disciplinas_estudantesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -54,6 +54,6 @@ class disciplina_estudanteSeeder extends Seeder
             'periodo_letivo_id' => 4
             ]
         ];
-        DB::table('disciplina_estudante')->insert($disciplina_estudante);//
+        DB::table('disciplinas_estudantes')->insert($disciplina_estudante);//
     }
 }

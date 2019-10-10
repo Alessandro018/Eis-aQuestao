@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class disciplinaSeeder extends Seeder
+class disciplinasSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -193,6 +193,6 @@ class disciplinaSeeder extends Seeder
                 'curso_id' => 2
             ],
         ];
-        DB::table('disciplina')->insert($disciplina);
+        DB::table('disciplinas')->insert($disciplina);
     }
 }

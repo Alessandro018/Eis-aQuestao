@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class cursoSeeder extends Seeder
+class cursosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,6 +22,6 @@ class cursoSeeder extends Seeder
                 'nome' => 'Gestão da qualidade'
             ]
         ];
-        DB::table('curso')->insert($curso);
+        DB::table('cursos')->insert($curso);
     }
 }

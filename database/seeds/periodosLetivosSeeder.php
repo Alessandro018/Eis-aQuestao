@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class periodoLetivoSeeder extends Seeder
+class periodosLetivosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -53,6 +53,6 @@ class periodoLetivoSeeder extends Seeder
                 'semestre' => 2
             ],
         ];
-        DB::table('periodo_letivo')->insert($periodoLetivo);
+        DB::table('periodos_letivos')->insert($periodoLetivo);
     }
 }
