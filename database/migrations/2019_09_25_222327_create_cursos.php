@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeriodoLetivo extends Migration
+class CreateCursos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePeriodoLetivo extends Migration
      */
     public function up()
     {
-        Schema::create('periodo_letivo', function (Blueprint $table) {
+        Schema::create('cursos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->year('ano');
-            $table->integer('semestre');
+            $table->string('nome');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreatePeriodoLetivo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periodo_letivo');
+        Schema::dropIfExists('cursos');
     }
 }

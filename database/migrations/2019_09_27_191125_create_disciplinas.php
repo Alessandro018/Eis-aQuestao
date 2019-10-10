@@ -1,10 +1,10 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCurso extends Migration
+class CreateDisciplinas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateCurso extends Migration
      */
     public function up()
     {
-        Schema::create('curso', function (Blueprint $table) {
+        Schema::create('disciplinas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
+            $table->unsignedInteger('curso_id')->foreign('curso_id')->references('id')->on('cursos');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateCurso extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curso');
+        Schema::dropIfExists('disciplinas');
     }
 }

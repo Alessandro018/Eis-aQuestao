@@ -1,10 +1,10 @@
-    <?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDisciplina extends Migration
+class CreatePeriodosLetivos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDisciplina extends Migration
      */
     public function up()
     {
-        Schema::create('disciplina', function (Blueprint $table) {
+        Schema::create('periodos_letivos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome');
-            $table->unsignedInteger('curso_id')->foreign('curso_id')->references('id')->on('curso');
+            $table->year('ano');
+            $table->integer('semestre');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateDisciplina extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplina');
+        Schema::dropIfExists('periodos_letivos');
     }
 }
