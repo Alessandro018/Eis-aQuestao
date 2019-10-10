@@ -10,20 +10,20 @@ class QuestaoController extends Controller
 {
     public function index()
     {
-        $questoes = DB::table('questao')
-        ->join('disciplina', 'disciplina.id', '=', 'questao.disciplina_id')
-        ->select('questao.*', 'disciplina.nome')->get();
+        $questoes = DB::table('questoes')
+        ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
+        ->select('questoes.*', 'disciplinas.nome')->get();
 
-        return view('questao.index', ['questoes' => $questoes]);
+        return view('questoes.index', ['questoes' => $questoes]);
     }
 
     public function create()
     {   
-        $professor_disciplina = DB::table('professor_disciplina')
-        ->join('disciplina', 'disciplina.id', '=', 'professor_disciplina.disciplina_id')
-        ->select('disciplina.nome', 'disciplina.id')
-        ->where('professor_disciplina.professor_id', 1)->get();
-        return view('questao.create', ['professor_disciplina' => $professor_disciplina]);
+        $professor_disciplina = DB::table('professores_disciplinas')
+        ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
+        ->select('disciplinas.nome', 'disciplinas.id')
+        ->where('professores_disciplinas.professor_id', 1)->get();
+        return view('questoes.create', ['professor_disciplina' => $professor_disciplina]);
     }
 
     public function store(Request $request)
@@ -35,19 +35,19 @@ class QuestaoController extends Controller
             'disciplina_id' => 'required',
         ]);
         Questao::create($request->all());
-        return redirect()->route('questao.index')
+        return redirect()->route('questoes.index')
             ->with('success','Questão criada com successo.');
     }
 
     public function edit(Questao $questao)
     {
-        $questoes = $questao::join('professor_disciplina', 'professor_disciplina.professor_id',
-         '=', 'questao.professor_id')
-        ->join('disciplina', 'disciplina.id', '=', 'professor_disciplina.disciplina_id')
-        ->select('questao.*', 'disciplina.nome', 'disciplina.id as id_disciplina')
-        ->where('professor_disciplina.professor_id', $questao->professor_id)
-        ->where('questao.id', $questao->id)->get();
-        return view('questao.edit', ['questoes'=> $questoes]);
+        $questoes = $questao::join('professores_disciplinas', 'professores_disciplinas.professor_id',
+         '=', 'questoes.professor_id')
+        ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
+        ->select('questoes.*', 'disciplinas.nome', 'disciplinas.id as id_disciplina')
+        ->where('professores_disciplinas.professor_id', $questao->professor_id)
+        ->where('questoes.id', $questao->id)->get();
+        return view('questoes.edit', ['questoes'=> $questoes]);
     }
 
     public function update(Request $request, Questao $questao)
@@ -61,7 +61,7 @@ class QuestaoController extends Controller
   
         $questao->update($request->all());
   
-        return redirect()->route('questao.index')
+        return redirect()->route('questoes.index')
                         ->with('success','Questão atualizada com successo');
     }
 
@@ -69,7 +69,7 @@ class QuestaoController extends Controller
     {
         $questao->delete();
   
-        return redirect()->route('questao.index')
+        return redirect()->route('questoes.index')
                         ->with('success','Questão apagada com successo');
     }
 }

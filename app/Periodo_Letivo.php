@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Periodo_Letivo extends Model
 {
-    protected $table="periodo_letivo";
+    protected $table="periodos_letivos";
 protected $fillable = [
         'ano', 'semestre'
     ];
