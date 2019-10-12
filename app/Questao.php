@@ -11,5 +11,11 @@ class Questao extends Model
     protected $fillable = [
         'pergunta','tipo', 'nivel', 'professor_id', 'disciplina_id'
     ];
+
+    public function professor()
+    {
+        return $this->hasOne('App\Professor', 'id');
+    }
+    
 }
 ?>

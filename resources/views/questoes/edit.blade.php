@@ -10,21 +10,21 @@
             </ul>
         </div>
     @endif
-
-    <form action="{{ route('questoes.update', $questoes[0]->id) }}" method="POST">
+    <form action="{{ route('questoes.update', $questao->id) }}" method="POST">
         @csrf
         @method('PUT')
                 <div class="form-group">
                     <strong>Questão:</strong>
-                    <textarea class="form-control" name="pergunta" rows="3">{{ $questoes[0]->pergunta }}</textarea>
+                    <textarea class="form-control" name="pergunta" rows="3" maxlength="255"
+                    placeholder="Máximo de 255 caractéres" required>{{ $questao->pergunta }}</textarea>
                 </div>
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Nível da questão</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="nivel">
-                    <option>{{ $questoes[0]->nivel }}</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="nivel" required>
+                    <option>{{ $questao->nivel }}</option>
                     @for ($i=1; $i<=5; $i++)
-                        @if ($questoes[0]->nivel != $i)
+                        @if ($questao->nivel != $i)
                             <option>{{ $i }}</option>
                         @endif
                     @endfor
@@ -33,9 +33,9 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Disciplina</label>
-                <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id">
-                @foreach($questoes as $disciplina)
-                    <option value="{{ $disciplina->id_disciplina }}">{{ $disciplina->nome }}</option>
+                <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id" required>
+                @foreach($questao->professor->disciplinas as $disciplina)
+                    <option value="{{ $disciplina->id }}">{{ $disciplina->id }}</option>
                 @endforeach
                 </select>
                 <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>

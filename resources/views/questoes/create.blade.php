@@ -1,16 +1,18 @@
 @extends('questoes.layout')
  
 @section('content')
- 
+    
     <form action="{{ route('questoes.store') }}" method="POST">
     @csrf
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Questão</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pergunta"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="255" name="pergunta"
+            placeholder="Máximo de 255 caractéres" required></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Nível da questão</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="nivel">
+            <select class="form-control" id="exampleFormControlSelect1" name="nivel" required>
+                <option disabled selected>Selecione</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -21,7 +23,8 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Disciplina</label>
-            <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id">
+            <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id" required>
+                <option disabled selected>Selecione</option>
                 @foreach ($professor_disciplina as $disciplina)
                     <option value="{{ $disciplina->id }}">{{ $disciplina->nome }}</option>
                 @endforeach
@@ -38,8 +41,8 @@
                 <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="fechada">
                 <label class="form-check-label" for="inlineRadio2">Fechada</label>
             </div>
-            <input type="hidden" name="professor_id" value="1">
         </div>
+        <input type="hidden" name="professor_id" value="1">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection

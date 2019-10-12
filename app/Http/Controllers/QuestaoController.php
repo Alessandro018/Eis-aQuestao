@@ -23,40 +23,40 @@ class QuestaoController extends Controller
         ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
         ->select('disciplinas.nome', 'disciplinas.id')
         ->where('professores_disciplinas.professor_id', 1)->get();
-        return view('questoes.create', ['professor_disciplina' => $professor_disciplina]);
+        return view('questoes.create', ['professor_disciplina' => $professor_disciplina])
+        ->with('success', 'Questão cadastrada com sucesso');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'pergunta' => 'required',
+            'pergunta' => 'required|max:255',
             'tipo' => 'required',
             'nivel' => 'required',
             'disciplina_id' => 'required',
+            'professor_id' => 'required',
         ]);
         Questao::create($request->all());
         return redirect()->route('questoes.index')
             ->with('success','Questão criada com successo.');
     }
 
-    public function edit(Questao $questao)
+    public function edit($id)
     {
-        $questoes = $questao::join('professores_disciplinas', 'professores_disciplinas.professor_id',
-         '=', 'questoes.professor_id')
-        ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
-        ->select('questoes.*', 'disciplinas.nome', 'disciplinas.id as id_disciplina')
-        ->where('professores_disciplinas.professor_id', $questao->professor_id)
-        ->where('questoes.id', $questao->id)->get();
-        return view('questoes.edit', ['questoes'=> $questoes]);
+        $questao = Questao::find($id);
+        return view('questoes.edit', ['questao'=> $questao]);
     }
 
-    public function update(Request $request, Questao $questao)
+    public function update(Request $request, $id)
     {
+        $questao = Questao::find($id);
+
         $request->validate([
-            'pergunta' => 'required',
+            'pergunta' => 'required|max:255',
             'tipo' => 'required',
             'nivel' => 'required',
             'disciplina_id' => 'required',
+            'professor_id' => 'required',
         ]);
   
         $questao->update($request->all());
@@ -65,9 +65,9 @@ class QuestaoController extends Controller
                         ->with('success','Questão atualizada com successo');
     }
 
-    public function destroy(Questao $questao)
+    public function destroy($id)
     {
-        $questao->delete();
+        $questao = Questao::find($id)->delete();
   
         return redirect()->route('questoes.index')
                         ->with('success','Questão apagada com successo');
