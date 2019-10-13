@@ -12,9 +12,9 @@ class Professor_Disciplina extends Model
         'disciplina_id','professor_id', 'periodo_letivo_id'
     ];
 
-    public function nome()
+    public function nomes_disciplinas()
     {
-        return $this->hasMany('App\Disciplina', 'id');
+        return $this->hasMany('App\Disciplina', 'id', 'disciplina_id');
     }
 
     public function periodo()

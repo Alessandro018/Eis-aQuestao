@@ -14,7 +14,7 @@ class Questao extends Model
 
     public function professor()
     {
-        return $this->hasOne('App\Professor', 'id');
+        return $this->hasOne('App\Professor', 'id', 'professor_id');
     }
     
 }

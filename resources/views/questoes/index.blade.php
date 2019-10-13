@@ -9,6 +9,7 @@
     @endif
 
 	<table class="table table-bordered">
+	
 		<tr>
 			<th>Pergunta</th>
 			<th>Tipo</th>
@@ -27,7 +28,7 @@
 				<a class="btn btn-primary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 				@csrf
 				@method('DELETE')
-				<button type="submit" class="btn btn-danger">Deletar</button>
+				<button type="submit" class="btn btn-danger">Excluir</button>
 				</form>
 			</td>
 		</tr>
