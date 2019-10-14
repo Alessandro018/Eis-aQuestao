@@ -18,12 +18,12 @@
 		</tr>
 		@foreach ($questoes as $questao)
 		<tr>
-			<td>{{ $questao->pergunta }}</td>
+			<td style="overflow: hidden;text-overflow: ellipsis;white-space: wrap;">{{ $questao->pergunta }}</td>
 			<td>{{ $questao->tipo }}</td>
 			<td>{{ $questao->nivel }}</td>
 			<td>{{ $questao->nome }}</td>
 			<td>
-			<form action="{{ action('QuestaoController@destroy',$questao->id) }}" method="POST">
+			<form action="{{ action('QuestaoController@destroy',$questao->id) }}" id="delete" method="POST">
 				<a class="btn btn-primary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 				@csrf
 				@method('DELETE')
@@ -47,4 +47,11 @@
 		</tr>
 		@endforeach
 	</table>
+	<!-- <script>
+       function pergunta(){
+            if (confirm('Tem certeza que deseja excluir a questão?')){ 
+                document.getElementById('delete').submit();
+            } 
+        } 
+    </script> -->
 @endsection
