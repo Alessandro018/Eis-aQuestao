@@ -27,13 +27,13 @@
 				<a class="btn btn-primary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 				@csrf
 				@method('DELETE')
-				<button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#confirm">Excluir</button>
+				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm_{{ $questao->id }}">Excluir</button>
 				
-				<!-- <div class="modal fade" id="confirm" role="dialog">
+				<div class="modal fade" id="confirm_{{ $questao->id }}" role="dialog">
 					<div class="modal-dialog modal-md">
 						<div class="modal-content">
 							<div class="modal-body" style="">
-								Tem certeza que deseja excluir essa questão? {{$questao->id}}
+								Tem certeza que deseja excluir essa questão?
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
@@ -41,17 +41,11 @@
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			</form>
 			</td>
 		</tr>
 		@endforeach
 	</table>
-	<!-- <script>
-       function pergunta(){
-            if (confirm('Tem certeza que deseja excluir a questão?')){ 
-                document.getElementById('delete').submit();
-            } 
-        } 
-    </script> -->
+	
 @endsection
