@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Questao;
+use App\Alternativa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,6 +30,8 @@ class QuestaoController extends Controller
 
     public function store(Request $request)
     {
+        $alternativa=[];
+        $letras = ["A","B","C","D","E"];
         $request->validate([
             'pergunta' => 'required|max:255',
             'tipo' => 'required',
@@ -36,7 +39,24 @@ class QuestaoController extends Controller
             'disciplina_id' => 'required',
             'professor_id' => 'required',
         ]);
-        Questao::create($request->all());
+            Questao::create($request->all());
+
+            $id_questao = DB::table('questoes')
+            ->select('questoes.id')
+            ->where('questoes.pergunta',$request->pergunta)->get();
+            $alternativa['questao_id']=$id_questao[0]->id;
+
+        foreach ($letras as $letra) {
+            $indice ='alternativa' . $letra;
+            $alternativa['resposta'] = $request->$indice;
+            if ($request->correta == 'correta' . $letra) {
+                $alternativa['correta'] = 1;
+                Alternativa::create($alternativa);
+            }else{
+                $alternativa['correta'] = 0;
+                Alternativa::create($alternativa);
+            }
+        }
         return redirect()->route('questoes.index')
             ->with('success','Questão criada com successo.');
     }
