@@ -46,28 +46,22 @@
             <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>
         </div>
         <div class="form-group">
-            <label>Tipo</label><br>
-            <div class="form-check form-check-inline">
-                @if($questao->tipo=='aberta')
-                    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="aberta" checked>
+            <input type="hidden" name="tipo" value="fechada"> 
+                @foreach ($questao->alternativas as $key => $alternativa)
+                    @if ($alternativa->correta ==1)
+                        <input type="radio" name="correta" value="correta{{$key+1}}" checked>
                     @else
-                    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="aberta">
-                @endif
-                <label class="form-check-label" for="inlineRadio1">Aberta</label>
-            </div>
-            <div class="form-check form-check-inline">
-                @if($questao->tipo=='fechada')
-                    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="fechada" checked>
-                    @else
-                    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="fechada">
-                @endif
-                <label class="form-check-label" for="inlineRadio2">Fechada</label>
-            </div>
+                        <input type="radio" name="correta" value="correta{{$key+1}}">
+                    @endif
+                    <label>{{$key+1}})</label>
+                    <textarea class="form-control" maxlength="255" name="alternativa{{$key+1}}"
+                placeholder="Máximo de 255 caractéres" required >{{$alternativa->resposta}}</textarea>
+                @endforeach
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <input type="hidden" name="professor_id" value="1">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-   
+
     </form>
 @endsection
