@@ -17,5 +17,9 @@ class Questao extends Model
         return $this->hasOne('App\Professor', 'id', 'professor_id');
     }
     
+    public function alternativas()
+    {
+        return $this->hasMany('App\Alternativa', 'questao_id', 'id');
+    }
 }
 ?>

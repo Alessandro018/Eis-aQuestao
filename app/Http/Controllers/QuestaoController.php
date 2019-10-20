@@ -79,9 +79,25 @@ class QuestaoController extends Controller
             'professor_id' => 'required',
             'correta' => 'required',
         ]);
-
-        $questao->update($request->all());
         
+        $questao->update($request->all());
+        $alternativa = DB::table('alternativas')
+        ->select('id')->where('questao_id',$id)->get();
+        var_dump($request->all());
+
+        for($i=0;$i<=4;$i++){
+            $id_alternativa = $alternativa[$i]->id;
+            $i++;
+            $indice = 'alternativa' . $i;
+            $nova_Respota=$request->$indice;
+            $nova_Correta=$request->$indice;
+            if($request->correta == 'correta' . $i){
+                DB::table('alternativas')->where('id',$id_alternativa)->update(['resposta' => $nova_Respota,'correta'=> 1]);
+            }else{
+                DB::table('alternativas')->where('id',$id_alternativa)->update(['resposta' => $nova_Respota,'correta'=> 0]);
+            }
+            $i--;
+        }
         return redirect()->route('questoes.index')
             ->with('success','Questão atualizada com successo');
     }
@@ -94,6 +110,6 @@ class QuestaoController extends Controller
         ->delete();
   
         return redirect()->route('questoes.index')
-                        ->with('success','Questão apagada com successo');
+            ->with('success','Questão apagada com successo');
     }
 }
