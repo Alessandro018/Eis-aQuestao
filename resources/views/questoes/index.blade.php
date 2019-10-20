@@ -1,4 +1,4 @@
-@extends('questoes.layout')
+@extends('layouts.app')
  
 @section('content')
 
