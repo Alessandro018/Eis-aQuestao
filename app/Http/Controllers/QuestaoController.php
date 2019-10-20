@@ -31,13 +31,13 @@ class QuestaoController extends Controller
     public function store(Request $request)
     {
         $alternativa=[];
-        $letras = ["A","B","C","D","E"];
         $request->validate([
             'pergunta' => 'required|max:255',
             'tipo' => 'required',
             'nivel' => 'required',
             'disciplina_id' => 'required',
             'professor_id' => 'required',
+            'correta' => 'required',
         ]);
             Questao::create($request->all());
 
@@ -46,10 +46,10 @@ class QuestaoController extends Controller
             ->where('questoes.pergunta',$request->pergunta)->get();
             $alternativa['questao_id']=$id_questao[0]->id;
 
-        foreach ($letras as $letra) {
-            $indice ='alternativa' . $letra;
+            for ($i=1;$i<=5;$i++){
+            $indice ='alternativa' . $i;
             $alternativa['resposta'] = $request->$indice;
-            if ($request->correta == 'correta' . $letra) {
+            if ($request->correta == 'correta' . $i) {
                 $alternativa['correta'] = 1;
                 Alternativa::create($alternativa);
             }else{
@@ -77,17 +77,21 @@ class QuestaoController extends Controller
             'nivel' => 'required',
             'disciplina_id' => 'required',
             'professor_id' => 'required',
+            'correta' => 'required',
         ]);
-  
+
         $questao->update($request->all());
-  
+        
         return redirect()->route('questoes.index')
-                        ->with('success','Questão atualizada com successo');
+            ->with('success','Questão atualizada com successo');
     }
 
     public function destroy($id)
     {
         $questao = Questao::find($id)->delete();
+        $questao = DB::table('alternativas')
+        ->where('questao_id',$id)
+        ->delete();
   
         return redirect()->route('questoes.index')
                         ->with('success','Questão apagada com successo');

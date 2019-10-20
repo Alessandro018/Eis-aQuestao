@@ -31,15 +31,11 @@
         </div>
         <div class="form-group">
             <input type="hidden" name="tipo" value="fechada"> 
-            <?php
-                $letras=['A','B','C','D','E'];
-            ?>
-            @foreach ($letras as $letra)
-                <input type="radio" name="correta" value="correta{{$letra}}">
-                <label>{{$letra}})</label>
-                <textarea class="form-control" maxlength="255" name="alternativa{{$letra}}"
-            placeholder="Máximo de 255 caractéres" required></textarea>
-            @endforeach
+            @for ($i=0;$i<=4;$i++)
+                <input type="radio" name="correta" value="correta{{$i+1}}">
+                <label>{{$i+1}})</label>
+                <textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" placeholder="Máximo de 255 caractéres" required></textarea>
+            @endfor
         </div>
         <input type="hidden" name="professor_id" value="1">
         <button type="submit" class="btn btn-primary">Submit</button>
