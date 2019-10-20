@@ -22,13 +22,13 @@
             <label for="exampleFormControlSelect1">Nível da questão</label>
             <select class="form-control" id="exampleFormControlSelect1" name="nivel" required>
                 <option>{{ $questao->nivel }}</option>
-                @for ($i=1; $i<=5; $i++)
+                @for ($i=1; $i<=3; $i++)
                     @if ($questao->nivel != $i)
                         <option>{{ $i }}</option>
                     @endif
                 @endfor
             </select>
-            <small id="emailHelp" class="form-text text-muted">O nível é de no mínimo 1 e no máximo 5</small>
+            <small id="emailHelp" class="form-text text-muted">O nível é de no mínimo 1 e no máximo 3</small>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Disciplina</label>

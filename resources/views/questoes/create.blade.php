@@ -16,10 +16,8 @@
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
-                <option>4</option>
-                <option>5</option>
             </select>
-            <small id="emailHelp" class="form-text text-muted">O nível é de no mínimo 1 e no máximo 5</small>
+            <small id="emailHelp" class="form-text text-muted">O nível é de no mínimo 1 e no máximo 3</small>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Disciplina</label>
