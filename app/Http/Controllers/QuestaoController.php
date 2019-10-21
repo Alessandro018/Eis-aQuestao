@@ -83,7 +83,6 @@ class QuestaoController extends Controller
         $questao->update($request->all());
         $alternativa = DB::table('alternativas')
         ->select('id')->where('questao_id',$id)->get();
-        var_dump($request->all());
 
         for($i=0;$i<=4;$i++){
             $id_alternativa = $alternativa[$i]->id;

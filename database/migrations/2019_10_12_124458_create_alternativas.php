@@ -15,7 +15,7 @@ class CreateAlternativas extends Migration
     {
         Schema::create('alternativas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('resposta',250);
+            $table->string('resposta',255);
             $table->boolean('correta');
             $table->unsignedInteger('questao_id')->foreign('questao_id')->references('id')->on('questoes');
             $table->timestamps();
