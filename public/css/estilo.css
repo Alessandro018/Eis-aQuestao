@@ -1,0 +1,49 @@
+.label-form {
+    min-width: 100px;
+}
+
+.label-form-login {
+    min-width: 20px;
+}
+
+.sem_borda td, .sem_borda th {
+    border: none
+}
+
+.nav-link img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: -8px 0;
+    float: left;
+    margin-right: 10px;
+    background-color: #e5e5e5;
+}
+
+.navbar .dropdown-menu {
+    border-radius: 1px;
+    border-color: #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.show {
+    display: unset;
+}
+
+.hide {
+    display: none;
+}
+
+.label-alternativa {
+    cursor: pointer;
+}
+
+.textarea-customizado {
+    min-height: 20px;
+    overflow: hidden;
+    border-radius: 0;
+    border: none;
+    resize: unset;
+    background-color: #f9f9f9 !important;
+    box-shadow: none !important;
+}
