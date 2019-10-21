@@ -6,7 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Eis-a-Questao</title>
+    <title>Eis a Questão</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -15,17 +15,17 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Eis-a-Questao
+                    Eis a Questão
                 </a>
                 <div class="flex-center position-ref full-height">
                     <div class="top-right links" style="float:right;padding: 10px;">
                         @if (Route::has('questoes.index'))
                             <a href="" style="padding-right:10px">Criar prova</a>
-                            <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questao</a>     
-                            <a href="{{ action('QuestaoController@index') }}">Questoes</a>
+                            <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
+                            <a href="{{ action('QuestaoController@index') }}">Questões</a>
                         @endif
                     </div>
                 </div>
