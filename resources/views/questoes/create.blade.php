@@ -38,6 +38,6 @@
             @endfor
         </div>
         <input type="hidden" name="professor_id" value="1">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
 @endsection
