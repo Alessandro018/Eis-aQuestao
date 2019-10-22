@@ -5,9 +5,9 @@
     <form action="{{ route('questoes.store') }}" method="POST">
     @csrf
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Questão</label>
+            <label for="exampleFormControlTextarea1">Texto</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="255" name="pergunta"
-            placeholder="Máximo de 255 caractéres" required></textarea>
+            placeholder="Pergunta" required></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Nível da questão</label>
@@ -34,7 +34,7 @@
             @for ($i=0;$i<=4;$i++)
                 <input type="radio" name="correta" value="correta{{$i+1}}">
                 <label>{{$i+1}})</label>
-                <textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" placeholder="Máximo de 255 caractéres" required></textarea>
+                <textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" placeholder="Alternativa" required></textarea>
             @endfor
         </div>
         <input type="hidden" name="professor_id" value="1">
