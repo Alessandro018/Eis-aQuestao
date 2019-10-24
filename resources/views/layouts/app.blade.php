@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Eis a Questão</title>
      <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -13,7 +11,6 @@
     <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
     <div id="app">
@@ -25,7 +22,7 @@
                 <div class="flex-center position-ref full-height">
                     <div class="top-right links" style="float:right;padding: 10px;">
                         @if (Route::has('questoes.index'))
-                            <a href="" style="padding-right:10px">Criar prova</a>
+                            <a href="{{ action('ProvaController@index') }}" style="padding-right:10px">Criar prova</a>
                             <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
                             <a href="{{ action('QuestaoController@index') }}">Questões</a>
                         @endif
@@ -81,5 +78,6 @@
             </div>
         </div>
     </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
