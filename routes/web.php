@@ -21,3 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/questoes','QuestaoController');
 Route::resource('/periodos_letivos', 'PeriodoLetivoController');
 Route::resource('/prova', 'ProvaController');
+Route::post('/login', 'LoginController@login');
+Route::get('/logout', function(){
+        Auth::logout();
+        return view('login');
+    });
