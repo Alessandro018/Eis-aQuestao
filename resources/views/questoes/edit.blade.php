@@ -14,9 +14,9 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <strong>Questão:</strong>
+            <strong>Texto</strong>
             <textarea class="form-control" name="pergunta" rows="3" maxlength="255"
-            placeholder="Máximo de 255 caractéres" required>{{ $questao->pergunta }}</textarea>
+            placeholder="Pergunta" required>{{ $questao->pergunta }}</textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Nível da questão</label>
@@ -55,12 +55,12 @@
                     @endif
                     <label>{{$key+1}})</label>
                     <textarea class="form-control" maxlength="255" name="alternativa{{$key+1}}"
-                placeholder="Máximo de 255 caractéres" required >{{$alternativa->resposta}}</textarea>
+                placeholder="Alternativa" required >{{$alternativa->resposta}}</textarea>
                 @endforeach
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <input type="hidden" name="professor_id" value="1">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
+            <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
 
     </form>

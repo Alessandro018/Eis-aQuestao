@@ -21,36 +21,18 @@ class LoginController extends Controller
         
         $request->validate([
             'siape' => 'required',
-            'senha' => 'required'
-            //'senha' => Hash::make($data['senha']
+            'senha' => 'required',
         ]);
 
         $lembrar = empty($request->lembrar) ? false : true;
 
         $usuario = User::where('siape', $request->siape)->first();
             
-        if($usuario && $request->senha === $usuario->senha){
+        if($usuario && Hash::check($request->senha, $usuario->senha)){
             Auth::loginUsingId($usuario->id, $lembrar);
-            return view('home');
+            return redirect()->route('home');
         }
         
         return view('login');
     }
-
-   /* public function create(){
-        return view('cadastro');
-    }
-
-    public function store(Request $request){
-        $usuario = new User;
-        $usuario->email = $request->login;
-        $usuario->password = bcrypt($request->senha);
-        $usuario->ativo = 1;
-        $usuario->save();
-
-        return redirect()->action('LoginController@form');
-
-    }
-     */
-
 }

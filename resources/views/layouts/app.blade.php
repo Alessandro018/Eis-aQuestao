@@ -26,6 +26,9 @@
                             <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
                             <a href="{{ action('QuestaoController@index') }}">Questões</a>
                         @endif
+                        @if(Auth::check())
+                            <a href="{{ route('logout') }}" style="padding-left:10px">Sair</a>
+                        @endif
                     </div>
                 </div>
         </nav>

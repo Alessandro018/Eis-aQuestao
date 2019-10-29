@@ -24,5 +24,5 @@ Route::resource('/prova', 'ProvaController');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout', function(){
         Auth::logout();
-        return view('login');
+        return redirect()->route('login');
     });

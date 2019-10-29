@@ -13,8 +13,8 @@
 			<th>Pergunta</th>
 			<th>Tipo</th>
 			<th>Nível</th>
-			<th>Diciplina</th>
-			<th>Action</th>
+			<th>Disciplina</th>
+			<th>Ações</th>
 		</tr>
 		@foreach ($questoes as $questao)
 		<tr>

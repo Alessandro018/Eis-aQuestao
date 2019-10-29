@@ -37,7 +37,7 @@
                 <textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" placeholder="Alternativa" required></textarea>
             @endfor
         </div>
-        <input type="hidden" name="professor_id" value="1">
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
+        <button type="submit" class="btn btn-primary">Inserir</button>
     </form>
 @endsection

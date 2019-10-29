@@ -10,6 +10,6 @@ $factory->define(Professor::class, function (Faker $faker) {
         'siape' => $faker->unique()->swiftBicNumber(),
         'campus' => 'Igarassu',
         'nome' => $faker->name,
-        'senha' => '123'
+        'senha' => Hash::make('123'),
     ];
 });
