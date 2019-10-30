@@ -21,13 +21,16 @@
                 </a>
                 <div class="flex-center position-ref full-height">
                     <div class="top-right links" style="float:right;padding: 10px;">
-                        @if (Route::has('questoes.index'))
-                            <a href="{{ action('ProvaController@index') }}" style="padding-right:10px">Criar prova</a>
-                            <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
-                            <a href="{{ action('QuestaoController@index') }}">Questões</a>
-                        @endif
                         @if(Auth::check())
+                            @if (Route::has('questoes.index'))
+                                <a href="{{ action('ProvaController@index') }}" style="padding-right:10px">Criar prova</a>
+                                <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
+                                <a href="{{ action('QuestaoController@index') }}">Questões</a>
+                            @endif
                             <a href="{{ route('logout') }}" style="padding-left:10px">Sair</a>
+                        @endif
+                        @if(!Auth::check())
+                            <a href="{{ route('login') }}">Login</a>
                         @endif
                     </div>
                 </div>
