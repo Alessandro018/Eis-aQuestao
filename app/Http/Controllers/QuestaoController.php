@@ -11,21 +11,29 @@ class QuestaoController extends Controller
 {
     public function index()
     {
-        $questoes = DB::table('questoes')
-        ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
-        ->select('questoes.*', 'disciplinas.nome')->get();
-
-        return view('questoes.index', ['questoes' => $questoes]);
+        if(auth()->check())
+        {
+            $questoes = DB::table('questoes')
+            ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
+            ->select('questoes.*', 'disciplinas.nome')->get();
+    
+            return view('questoes.index', ['questoes' => $questoes]);
+        }
+        return redirect()->route('login');
     }
 
     public function create()
     {   
-        $professor_disciplina = DB::table('professores_disciplinas')
-        ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
-        ->select('disciplinas.nome', 'disciplinas.id')
-        ->where('professores_disciplinas.professor_id', 1)->get();
-        return view('questoes.create', ['professor_disciplina' => $professor_disciplina])
-        ->with('success', 'Questão cadastrada com sucesso');
+        if(auth()->check())
+        {
+            $professor_disciplina = DB::table('professores_disciplinas')
+            ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
+            ->select('disciplinas.nome', 'disciplinas.id')
+            ->where('professores_disciplinas.professor_id', 1)->get();
+            return view('questoes.create', ['professor_disciplina' => $professor_disciplina])
+            ->with('success', 'Questão cadastrada com sucesso');
+        }
+        return redirect()->route('login');
     }
 
     public function store(Request $request)
@@ -63,8 +71,12 @@ class QuestaoController extends Controller
 
     public function edit($id)
     {
-        $questao = Questao::find($id);
-        return view('questoes.edit', ['questao'=> $questao]);
+        if(auth()->check())
+        {
+            $questao = Questao::find($id);
+            return view('questoes.edit', ['questao'=> $questao]);
+        }
+        return redirect()->route('login');
     }
 
     public function update(Request $request, $id)
@@ -103,12 +115,16 @@ class QuestaoController extends Controller
 
     public function destroy($id)
     {
-        $questao = Questao::find($id)->delete();
-        $questao = DB::table('alternativas')
-        ->where('questao_id',$id)
-        ->delete();
-  
-        return redirect()->route('questoes.index')
-            ->with('success','Questão apagada com successo');
+        if(auth()->check())
+        {
+            $questao = Questao::find($id)->delete();
+            $questao = DB::table('alternativas')
+            ->where('questao_id',$id)
+            ->delete();
+      
+            return redirect()->route('questoes.index')
+                ->with('success','Questão apagada com successo');
+        }
+        return redirect()->route('login');
     }
 }
