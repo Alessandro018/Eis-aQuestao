@@ -35,6 +35,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Criar prova</button>
         </div>
+        <select v-model="professor"></select>
     </form>
     
 @endsection

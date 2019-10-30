@@ -30,7 +30,7 @@ class HomeController extends Controller
         {
             $prof_periodo = Professor_Disciplina::join('periodos_letivos', 'periodos_letivos.id', '=', 'professores_disciplinas.periodo_letivo_id' )
             ->select('periodos_letivos.*')
-            ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
+            ->where('professores_disciplinas.professor_id', auth()->user()->id)->distinct()->get();
             return view('home', ['professor_periodo' => $prof_periodo]);
         }
         return redirect()->route('login');

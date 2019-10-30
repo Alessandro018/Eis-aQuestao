@@ -16,4 +16,5 @@ class ProvaController extends Controller
         ->where('professores_disciplinas.professor_id', 1)->get();
         return view('provas.index', ['professor_disciplina' => $professor_disciplina]);
     }
+
 }
