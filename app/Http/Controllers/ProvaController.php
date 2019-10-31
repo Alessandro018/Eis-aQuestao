@@ -13,8 +13,12 @@ class ProvaController extends Controller
         $professor_disciplina = DB::table('professores_disciplinas')
         ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
         ->select('disciplinas.nome', 'disciplinas.id')
-        ->where('professores_disciplinas.professor_id', 1)->get();
+        ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
         return view('provas.index', ['professor_disciplina' => $professor_disciplina]);
     }
 
+    public function store()
+    {
+        return "c";
+    }
 }
