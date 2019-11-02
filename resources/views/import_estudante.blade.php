@@ -2,31 +2,20 @@
 
 @section('content')
 <div class="container">
-    @if(count($errors) > 0)
-        <div class="alert alert-danger">
-            Upload Validation Error<br><br>
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-        </div>
-   @endif
 
-    @if($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }}</strong>
+   @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            {{ $message }}
         </div>
-   @endif
+    @endif
    <form method="post" enctype="multipart/form-data" action="{{ url('/import_estudante/import') }}">
         {{ csrf_field() }}
         <div class="form-group">
             <table class="table">
                 <tr>
-                    <td width="40%" align="right"><label>Selecione o arquivo </label><span class="form-text text-muted">.xls ou .xslx</span></td></td>
+                    <td width="40%" align="right"><label>Padrão da planilha nome, email, matrícula.</label><span class="form-text text-muted">.xls ou .xslx   </span></td></td>
                     <td width="30">
-                        <input type="file" name="file" />
+                        <input type="file" name="file">
                     </td>
                     <td width="30%" align="left">
                         <input type="submit" name="upload" class="btn btn-primary" value="Upload">

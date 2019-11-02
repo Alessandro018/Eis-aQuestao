@@ -23,6 +23,7 @@
                     <div class="top-right links" style="float:right;padding: 10px;">
                         @if(Auth::check())
                             @if (Route::has('questoes.index'))
+                                <a href="{{ action('ImportEstudanteController@index') }}" style="padding-right:10px">Importar estudantes</a>
                                 <a href="{{ action('ProvaController@index') }}" style="padding-right:10px">Criar prova</a>
                                 <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
                                 <a href="{{ action('QuestaoController@index') }}">Questões</a>
