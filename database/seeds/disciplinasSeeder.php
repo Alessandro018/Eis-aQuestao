@@ -25,7 +25,7 @@ class disciplinasSeeder extends Seeder
                 'curso_id' =>1
             ],
             3 => [
-                'nome' => 'Matemãtica aplicada',
+                'nome' => 'Matemática aplicada',
                 'curso_id' => 1
             ],
             4 => [
