@@ -10,6 +10,7 @@ class Prova extends Model
 
     protected $fillable = [
         'professor_id',
+        'disciplina_id',
         'cabecalho',
     ];
 }
