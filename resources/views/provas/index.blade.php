@@ -8,14 +8,14 @@
             @endforeach
         </div>
     @endif
-    <form action="{{ action('ProvaController@teste') }}" method="POST">
+    <form action="{{ action('ProvaController@store') }}" method="POST">
         @csrf
         <h2>Criar prova</h2><br>
         <div class="form-group">
             <div class="row">
                 <div class="col-sm">
                     <label>Disciplina</label>
-                    <select class="custom-select" name="disciplina" required>
+                    <select class="custom-select" name="disciplina_id" required>
                         <option selected disabled>Selecione</option>
                         @foreach ($professor_disciplina as $disciplina)
                             <option value="{{ $disciplina->id }}">{{ $disciplina->nome }}</option>
