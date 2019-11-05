@@ -10,17 +10,19 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('questoes.update', $questao->id) }}" method="POST">
+    <form action="{{ route('questoes.update', $questao->id) }}" method="POST" style="width: 60%; margin: auto;">
         @csrf
         @method('PUT')
         <div class="form-group">
             <strong>Texto</strong>
-            <textarea class="form-control" name="pergunta" rows="3" maxlength="255"
+            <textarea class="form-control" name="pergunta" rows="3" maxlength="2000"
             placeholder="Pergunta" required>{{ $questao->pergunta }}</textarea>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Nível da questão</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="nivel" required>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text label-form">Nivel</label>
+            </div>
+            <select name="nivel" class="custom-select" required="" id="exampleFormControlSelect1">
                 <option>{{ $questao->nivel }}</option>
                 @for ($i=1; $i<=3; $i++)
                     @if ($questao->nivel != $i)
@@ -28,11 +30,12 @@
                     @endif
                 @endfor
             </select>
-            <small id="emailHelp" class="form-text text-muted">O nível é de no mínimo 1 e no máximo 3</small>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect2">Disciplina</label>
-            <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id" required>
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text label-form">Disciplina</label>
+        </div>
+        <select name="disciplina_id" class="custom-select" required="" id="exampleFormControlSelect2">
             @foreach($questao->professor->disciplinas as $professores_disciplinas)
                 @foreach($professores_disciplinas->nomes_disciplinas as $disciplinas)
                     @if($questao->disciplina_id==$disciplinas->id)
@@ -43,7 +46,6 @@
                 @endforeach
             @endforeach
             </select>
-            <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>
         </div>
         <div class="form-group">
             <input type="hidden" name="tipo" value="fechada"> 

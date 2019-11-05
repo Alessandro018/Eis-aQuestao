@@ -40,11 +40,11 @@ class QuestaoController extends Controller
     {
         $alternativa=[];
         $request->validate([
-            'pergunta' => 'required|max:255',
-            'tipo' => 'required',
-            'nivel' => 'required',
-            'disciplina_id' => 'required',
-            'professor_id' => 'required',
+            'pergunta' => 'required|max:2000',
+            'tipo' => 'required|numeric',
+            'nivel' => 'required|numeric',
+            'disciplina_id' => 'required|numeric',
+            'professor_id' => 'required|numeric',
             'correta' => 'required',
         ]);
             Questao::create($request->all());
@@ -84,11 +84,11 @@ class QuestaoController extends Controller
         $questao = Questao::find($id);
 
         $request->validate([
-            'pergunta' => 'required|max:255',
-            'tipo' => 'required',
-            'nivel' => 'required',
-            'disciplina_id' => 'required',
-            'professor_id' => 'required',
+            'pergunta' => 'required|min:10|max:2000',
+            'tipo' => 'required|numeric',
+            'nivel' => 'required|numeric',
+            'disciplina_id' => 'required|numeric',
+            'professor_id' => 'required|numeric',
             'correta' => 'required',
         ]);
         

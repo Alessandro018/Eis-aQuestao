@@ -47,3 +47,7 @@
     background-color: #FFE53E !important;
     box-shadow: none !important;
 }
+textarea{
+    resize: none;
+    height: 150px;
+}
