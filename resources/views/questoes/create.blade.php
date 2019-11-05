@@ -4,9 +4,9 @@
     
     <form action="{{ route('questoes.store') }}" method="POST">
     @csrf
-        <div class="form-group">
+       <div class="form-group">
             <label for="exampleFormControlTextarea1">Texto</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="255" name="pergunta"
+            <textarea class="form-control" cols="40" rows="10" id="exampleFormControlTextarea1" name="pergunta"
             placeholder="Pergunta" required></textarea>
         </div>
         <div class="form-group">
