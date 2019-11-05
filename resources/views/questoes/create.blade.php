@@ -9,16 +9,17 @@
             <textarea class="form-control" cols="40" rows="10" id="exampleFormControlTextarea1" name="pergunta"
             placeholder="Pergunta" required></textarea>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Nível da questão</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="nivel" required>
-                <option disabled selected>Selecione</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select>
-            <small id="emailHelp" class="form-text text-muted">O nível é de no mínimo 1 e no máximo 3</small>
+       <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text label-form">Nivel</label>
         </div>
+        <select name="nivel" class="custom-select" required="" id="exampleFormControlSelect1">
+  <option value="" selected="">Nível...</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+</select>
+    </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Disciplina</label>
             <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id" required>
