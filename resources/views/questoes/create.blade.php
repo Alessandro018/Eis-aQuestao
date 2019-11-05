@@ -20,15 +20,17 @@
   <option value="3">3</option>
 </select>
     </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect2">Disciplina</label>
-            <select class="form-control" id="exampleFormControlSelect2" name="disciplina_id" required>
-                <option disabled selected>Selecione</option>
+<div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text label-form">Disciplina</label>
+        </div>
+        <select name="disciplina_id" class="custom-select" required="" id="exampleFormControlSelect2">
+                <option disabled selected>Disciplina...</option>
                 @foreach ($professor_disciplina as $disciplina)
                     <option value="{{ $disciplina->id }}">{{ $disciplina->nome }}</option>
                 @endforeach
             </select>
-            <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small>
+           <!--  <small id="emailHelp" class="form-text text-muted">Disciplina em que a questão pertence</small> -->
         </div>
         <div class="form-group">
             <input type="hidden" name="tipo" value="fechada"> 
