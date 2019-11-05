@@ -17,7 +17,7 @@ class CreateEstudantes extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('email');
-            $table->string('matricula');
+            $table->string('matricula')->unique();
             $table->timestamps();
         });
     }
