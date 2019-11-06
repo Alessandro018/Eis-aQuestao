@@ -20,10 +20,10 @@ alex:
 	git config --global user.name "AlexpGuedes"
 	git config --global user.email alex.p.guedes1610@gmail.com
 conf:
-	sudo apt-get install php7.2 php7.2-mbstring php7.2-mysql php7.2-intl php7.2-xml composer # isso só serve pra sistemas que usam o apt
+	sudo apt-get install libapache2-mod-php7.3 php7.3-cgi php7.3-cli php7.3-curl php7.3-imap php7.3-gd php7.3-mysql php7.3-pgsql php7.3-sqlite3 php7.3-mbstring php7.3-json php7.3-bz2 php7.3-xmlrpc php7.3-gmp php7.3-xsl php7.3-soap php7.3-xml php7.3-zip php7.3-dba
 	composer install --no-scripts
-	# npm install
-	# npm run dev
+	npm install
+	npm run prod
 	cp .env.example .env # copia o example
 	php artisan key:generate # gera a chave
 	sudo apt-get install mysql-server-5.7 # instala o bd

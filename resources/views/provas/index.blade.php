@@ -8,10 +8,27 @@
             @endforeach
         </div>
     @endif
-    <form action="{{ action('ProvaController@store') }}" method="POST">
+    <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <h2>Criar prova</h2><br>
         <div class="form-group">
+            <div class="row">
+                <div class="col-sm">
+                    <table class="table">
+                        <tr>
+                            <td width="40%" align="right"><label>Padrão da planilha nome, email, matrícula.</label><span class="form-text text-muted">.xls ou .xslx   </span></td></td>
+                            <td width="30">
+                                <input type="file" name="file">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%" align="right"></td>
+                            <td width="30">
+                            <td width="30%" align="left"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm">
                     <label>Disciplina</label>

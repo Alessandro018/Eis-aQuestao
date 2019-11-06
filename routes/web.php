@@ -22,8 +22,6 @@ Route::resource('/questoes','QuestaoController');
 Route::resource('/periodos_letivos', 'PeriodoLetivoController');
 Route::resource('/prova', 'ProvaController');
 Route::post('/login', 'LoginController@login');
-Route::get('/import_estudante', 'ImportEstudanteController@index');
-Route::post('/import_estudante/import', 'ImportEstudanteController@update');
 Route::get('/logout', function(){
         Auth::logout();
         return redirect()->route('login');

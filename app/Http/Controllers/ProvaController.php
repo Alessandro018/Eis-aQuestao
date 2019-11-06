@@ -9,6 +9,7 @@ use App\Prova_Gerada;
 use App\Questao;
 use App\Estudante;
 use Illuminate\Support\Facades\DB;
+use Excel;
 
 class ProvaController extends Controller
 {
@@ -31,10 +32,23 @@ class ProvaController extends Controller
             'nivel2' => 'required',
             'nivel3' => 'required',
         ]);
-
+        $data = Excel::toArray(null, request()->file('file'));
+        $rows = $data[0];
+        foreach ($rows as $row) 
+        {
+            if(DB::table('estudantes')->where('matricula', $row[2])->count() == 0){
+                Estudante::create([
+                    'nome' => $row[0],
+                    'email' => $row[1],
+                    'matricula' => $row[2],
+                ]);
+                $values[] = intval(DB::getPdo()->lastInsertId());
+            }else{
+                $values[] = DB::table('estudantes')->select('id')->where('matricula', $row[2])->first()->id;
+            }
+        }
         $prova = Prova::create($request->all());
-        $estudante = Estudante::all();
-        foreach($estudante as $personalizada)
+        foreach($values as $value)
         {
             if($request->nivel1 == 0 && $request->nivel2 == 0 && $request->nivel3 == 0)
             {
@@ -57,7 +71,7 @@ class ProvaController extends Controller
             }
             $prova_estudante = new Prova_Gerada;
             $prova_estudante->prova_id = $prova->id;
-            $prova_estudante->estudante_id = $personalizada->id;
+            $prova_estudante->estudante_id = $value;
             $prova_estudante->save();
         }
     }
