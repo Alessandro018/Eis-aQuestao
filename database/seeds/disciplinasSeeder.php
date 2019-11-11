@@ -192,6 +192,14 @@ class disciplinasSeeder extends Seeder
                 'nome' => 'Tecnologia e sistemas de informação logística',
                 'curso_id' => 2
             ],
+            45 => [
+                'nome' => 'Estatística Basica',
+                'curso_id' => 2
+            ],
+            46 => [
+                'nome' => 'Oratoria e Retorica',
+                'curso_id' => 2
+            ],
         ];
         DB::table('disciplinas')->insert($disciplina);
     }
