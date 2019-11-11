@@ -10,16 +10,21 @@ use App\Questao;
 use App\Estudante;
 use Illuminate\Support\Facades\DB;
 use Excel;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProvaController extends Controller
 {
     public function index()
     {
-        $professor_disciplina = DB::table('professores_disciplinas')
-        ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
-        ->select('disciplinas.nome', 'disciplinas.id')
-        ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
-        return view('provas.index', ['professor_disciplina' => $professor_disciplina]);
+        if(auth()->check())
+        {
+            $professor_disciplina = DB::table('professores_disciplinas')
+            ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
+            ->select('disciplinas.nome', 'disciplinas.id')
+            ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
+            return view('provas.index', ['professor_disciplina' => $professor_disciplina]);    
+        }
+        return redirect()->route('login');
     }
 
     public function store(Request $request)
@@ -31,6 +36,7 @@ class ProvaController extends Controller
             'nivel1' => 'required',
             'nivel2' => 'required',
             'nivel3' => 'required',
+            'file' => 'required'
         ]);
         $data = Excel::toArray(null, request()->file('file'));
         $rows = $data[0];
@@ -73,6 +79,12 @@ class ProvaController extends Controller
             $prova_estudante->prova_id = $prova->id;
             $prova_estudante->estudante_id = $value;
             $prova_estudante->save();
+
+            $provas['questoes'][0] = $questao1;
+            $provas['questoes'][1] = $questao2;
+            $provas['questoes'][2] = $questao3;
+            $provas['cabecalho'] = $request->cabecalho;
+            return PDF::loadView('provas.pdf', ['provas' => $provas])->download('teste.pdf');
         }
     }
 }

@@ -41,7 +41,7 @@ class QuestaoController extends Controller
         $alternativa=[];
         $request->validate([
             'pergunta' => 'required|max:2000',
-            'tipo' => 'required|numeric',
+            'tipo' => 'required',
             'nivel' => 'required|numeric',
             'disciplina_id' => 'required|numeric',
             'professor_id' => 'required|numeric',
