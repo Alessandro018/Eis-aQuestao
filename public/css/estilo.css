@@ -17,7 +17,7 @@
     margin: -8px 0;
     float: left;
     margin-right: 10px;
-    background-color: #B5AEEE;
+    background-color: #e5e5e5;
 }
 
 .navbar .dropdown-menu {
@@ -44,7 +44,7 @@
     border-radius: 0;
     border: none;
     resize: unset;
-    background-color: #C0C0C0 !important;
+    background-color: #FFE53E !important;
     box-shadow: none !important;
 }
 textarea{
