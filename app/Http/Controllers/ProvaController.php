@@ -54,7 +54,7 @@ class ProvaController extends Controller
             }
         }
         $prova = Prova::create($request->all());
-        foreach($values as $value)
+        foreach($values as $key => $value)
         {
             if($request->nivel1 == 0 && $request->nivel2 == 0 && $request->nivel3 == 0)
             {
@@ -80,11 +80,11 @@ class ProvaController extends Controller
             $prova_estudante->estudante_id = $value;
             $prova_estudante->save();
 
-            $provas['questoes'][0] = $questao1;
-            $provas['questoes'][1] = $questao2;
-            $provas['questoes'][2] = $questao3;
-            $provas['cabecalho'] = $request->cabecalho;
-            return PDF::loadView('provas.pdf', ['provas' => $provas])->download('teste.pdf');
+            $provas[$key]['questoes'][0] = $questao1;
+            $provas[$key]['questoes'][1] = $questao2;
+            $provas[$key]['questoes'][2] = $questao3;
+            $provas[$key]['cabecalho'] = $request->cabecalho;
         }
+        return PDF::loadView('provas.pdf', ['provas' => $provas])->stream('teste.pdf');
     }
 }
