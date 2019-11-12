@@ -51,3 +51,13 @@ textarea{
     resize: none;
     height: 150px;
 }
+nav{
+    background: #F2B705;
+}
+.links{
+    float:right;
+    padding: 10px;
+}
+.links a {
+    padding-right:10px;
+}

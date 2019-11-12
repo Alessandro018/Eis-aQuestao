@@ -14,20 +14,20 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Eis a Questão
                 </a>
                 <div class="flex-center position-ref full-height">
-                    <div class="top-right links" style="float:right;padding: 10px;">
+                    <div class="top-right links">
                         @if(Auth::check())
                             @if (Route::has('questoes.index'))
-                                <a href="{{ action('ProvaController@index') }}" style="padding-right:10px">Criar prova</a>
-                                <a href="{{ action('QuestaoController@create') }}" style="padding-right:10px">Cadastrar questão</a>     
+                                <a href="{{ action('ProvaController@index') }}">Criar prova</a>
+                                <a href="{{ action('QuestaoController@create') }}">Cadastrar questão</a>     
                                 <a href="{{ action('QuestaoController@index') }}">Questões</a>
                             @endif
-                            <a href="{{ route('logout') }}" style="padding-left:10px">Sair</a>
+                            <a href="{{ route('logout') }}">Sair</a>
                         @endif
                         @if(!Auth::check())
                             <a href="{{ route('login') }}">Login</a>
