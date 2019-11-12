@@ -30,12 +30,12 @@ class ProvaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'disciplina_id' => 'required',
-            'professor_id' => 'required',
-            'cabecalho' => 'required',
-            'nivel1' => 'required',
-            'nivel2' => 'required',
-            'nivel3' => 'required',
+            'disciplina_id' => 'required|numeric',
+            'professor_id' => 'required|numeric',
+            'cabecalho' => 'required|string',
+            'nivel1' => 'required|numeric',
+            'nivel2' => 'required|numeric',
+            'nivel3' => 'required|numeric',
             'file' => 'required'
         ]);
         $data = Excel::toArray(null, request()->file('file'));
