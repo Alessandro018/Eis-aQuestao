@@ -8,20 +8,22 @@
 </head>
 <body>
     <div>
-        @foreach($provas as $id => $prova)
-        <?php shuffle($prova['questoes']); ?>
-        <pre>{{$prova['cabecalho']}}</pre>
-            @for($i=0; $i<=2; $i++)
-                @foreach($prova['questoes'][$i] as $key => $questoes)
-                    <p>{{ $i+$key+1 }}º) {{ $questoes->pergunta }}</p>
-                    <ul style="list-style: none;">
-                        <?php  $letras = ['A', 'B', 'C', 'D', 'E'];?>
-                        @foreach($questoes->alternativas as $id => $alternativas)
-                            <li>{{ $letras[$id] }}) {{ $alternativas->resposta }}</li><br><br>
-                        @endforeach
-                    </ul><br>
-                @endforeach
-            @endfor
+        @foreach($provas as $prova)
+            <?php shuffle($prova['questoes']); ?>
+            <div style='page-break-after: always;'>
+                <pre>{{$prova['cabecalho']}}</pre>
+                @for($i=0; $i<=2; $i++)
+                    @foreach($prova['questoes'][$i] as $key => $questoes)
+                        <p>{{ $i+$key+1 }}º) {{ $questoes->pergunta }}</p>
+                        <ul style="list-style: none;">
+                            <?php  $letras = ['A', 'B', 'C', 'D', 'E'];?>
+                            @foreach($questoes->alternativas as $id => $alternativas)
+                                <li>{{ $letras[$id] }}) {{ $alternativas->resposta }}</li><br><br>
+                            @endforeach
+                        </ul><br>
+                    @endforeach
+                @endfor
+            </div>
         @endforeach
     </div>
 </body>
