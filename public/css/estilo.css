@@ -51,7 +51,7 @@ textarea{
     resize: none;
     height: 150px;
 }
-nav{
+nav.navbar-title {
     background: #F2B705;
 }
 .links{

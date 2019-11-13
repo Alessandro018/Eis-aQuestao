@@ -22,7 +22,7 @@
 			<td>{{ $questao->tipo }}</td>
 			<td>{{ $questao->nivel }}</td>
 			<td>{{ $questao->nome }}</td>
-			<td>
+			<td>	
 			<form action="{{ action('QuestaoController@destroy',$questao->id) }}" id="delete" method="POST">
 				<a class="btn btn-primary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 				@csrf
@@ -47,5 +47,6 @@
 		</tr>
 		@endforeach
 	</table>
+{{ $questoes->links() }}
 	
 @endsection

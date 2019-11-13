@@ -15,7 +15,8 @@ class QuestaoController extends Controller
         {
             $questoes = DB::table('questoes')
             ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
-            ->select('questoes.*', 'disciplinas.nome')->get();
+            ->select('questoes.*', 'disciplinas.nome')->simplePaginate(5);
+
     
             return view('questoes.index', ['questoes' => $questoes]);
         }
