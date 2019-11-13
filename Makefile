@@ -18,7 +18,16 @@ ricardo:
 	git config --global user.email cranioscaner@gmail.com
 alex:
 	git config --global user.name "AlexpGuedes"
-	git config --global user.email alex.p.guedes1610@gmail.com
+	git config --global user.email alex.p.guedes1610@gmail.coma
+alisson:
+	git config --global user.name "AlissonThyago"
+	git config --global user.email alissonthiagoamorim@gmail.com
+guilherme:
+	git config --global user.name "GuilhermeH6"
+	git config --global user.email guilhermeholanda870@gmail.com
+filipe:
+	git config --global user.name "filipeandrev"
+	git config --global user.email filipe.andrev7@gmail.com
 conf:
 	sudo apt-get install libapache2-mod-php7.3 php7.3-cgi php7.3-cli php7.3-curl php7.3-imap php7.3-gd php7.3-mysql php7.3-pgsql php7.3-sqlite3 php7.3-mbstring php7.3-json php7.3-bz2 php7.3-xmlrpc php7.3-gmp php7.3-xsl php7.3-soap php7.3-xml php7.3-zip php7.3-dba
 	composer install --no-scripts
