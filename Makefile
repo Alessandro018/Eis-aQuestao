@@ -18,7 +18,7 @@ ricardo:
 	git config --global user.email cranioscaner@gmail.com
 alex:
 	git config --global user.name "AlexpGuedes"
-	git config --global user.email alex.p.guedes1610@gmail.coma
+	git config --global user.email alex.p.guedes1610@gmail.com
 alisson:
 	git config --global user.name "AlissonThyago"
 	git config --global user.email alissonthiagoamorim@gmail.com
