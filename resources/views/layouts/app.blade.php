@@ -14,26 +14,37 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light navbar-title">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-header nav-fill">
+            <div class="w-25 navbar-brand">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Eis a Questão
                 </a>
-                <div class="flex-center position-ref full-height">
-                    <div class="top-right links">
-                        @if(Auth::check())
-                            @if (Route::has('questoes.index'))
-                                <a href="{{ action('ProvaController@index') }}">Criar prova</a>
-                                <a href="{{ action('QuestaoController@create') }}">Cadastrar questão</a>     
-                                <a href="{{ action('QuestaoController@index') }}">Questões</a>
-                            @endif
-                            <a href="{{ route('logout') }}">Sair</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="w-50 navbar-collapse collapse order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav nav-header-pills mr-auto justify-content-center w-100">    
+                    @if(Auth::check())
+                        @if (Route::has('questoes.index'))
+                            <li class="nav-item"><a class="nav-link" href="{{ action('ProvaController@index') }}">Criar prova</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ action('QuestaoController@create') }}">Cadastrar questão</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ action('QuestaoController@index') }}">Questões</a></li>
                         @endif
-                        @if(!Auth::check())
-                            <a href="{{ route('login') }}">Login</a>
-                        @endif
-                    </div>
-                </div>
+                    @endif
+                </ul>
+            </div>
+
+            <div class="navbar-collapse collapse w-25 order-3 dual-collapse2">
+                <ul class="navbar-nav nav-header-pills ml-auto">
+                    @if(Auth::check() && Route::has('questoes.index'))
+                        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Sair</a></li>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
+                    @endif
+                </ul>
+            </div>
         </nav>
 
         <main class="py-4" style="width: 90%; margin: auto;">

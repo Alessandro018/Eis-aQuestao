@@ -51,8 +51,13 @@ textarea{
     resize: none;
     height: 150px;
 }
-nav.navbar-title {
-    background: #F2B705;
+.bg-header {
+    background: #F2B705
+}
+.nav-header-pills .nav-item {
+    background: hsla(0, 0%, 0%, 0.1);
+    margin: .5em;
+    border-radius: 15px;
 }
 .links{
     float:right;
