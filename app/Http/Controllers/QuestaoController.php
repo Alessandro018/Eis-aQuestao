@@ -30,7 +30,7 @@ class QuestaoController extends Controller
             $professor_disciplina = DB::table('professores_disciplinas')
             ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
             ->select('disciplinas.nome', 'disciplinas.id')
-            ->where('professores_disciplinas.professor_id', 1)->get();
+            ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
             return view('questoes.create', ['professor_disciplina' => $professor_disciplina])
             ->with('success', 'Questão cadastrada com sucesso');
         }
@@ -48,12 +48,8 @@ class QuestaoController extends Controller
             'professor_id' => 'required|numeric',
             'correta' => 'required',
         ]);
-            Questao::create($request->all());
-
-            $id_questao = DB::table('questoes')
-            ->select('questoes.id')
-            ->where('questoes.pergunta',$request->pergunta)->get();
-            $alternativa['questao_id']=$id_questao[0]->id;
+            $questao = Questao::create($request->all());
+            $alternativa['questao_id'] = $questao->id;
 
             for ($i=1;$i<=5;$i++){
             $indice ='alternativa' . $i;
@@ -86,7 +82,7 @@ class QuestaoController extends Controller
 
         $request->validate([
             'pergunta' => 'required|min:10|max:2000',
-            'tipo' => 'required|numeric',
+            'tipo' => 'required',
             'nivel' => 'required|numeric',
             'disciplina_id' => 'required|numeric',
             'professor_id' => 'required|numeric',
