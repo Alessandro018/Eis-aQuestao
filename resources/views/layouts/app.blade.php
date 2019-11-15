@@ -30,7 +30,7 @@
                         @if (Route::has('questoes.index'))
                             <li class="nav-item"><a class="nav-link" href="{{ action('ProvaController@index') }}">Criar prova</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ action('QuestaoController@create') }}">Cadastrar questão</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ action('QuestaoController@index') }}">Questões</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ action('TurmaController@index') }}">Turmas</a></li>
                         @endif
                     @endif
                 </ul>
