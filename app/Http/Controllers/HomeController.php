@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Professor;
-use App\Professor_Disciplina;
+use App\Turma_Professor;
 
 class HomeController extends Controller
 {
@@ -28,9 +27,10 @@ class HomeController extends Controller
     {
         if(auth()->check())
         {
-            $prof_periodo = Professor_Disciplina::join('periodos_letivos', 'periodos_letivos.id', '=', 'professores_disciplinas.periodo_letivo_id' )
+            $prof_periodo = Turma_Professor::join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
+            ->join('periodos_letivos', 'periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
             ->select('periodos_letivos.*')
-            ->where('professores_disciplinas.professor_id', auth()->user()->id)->distinct()->get();
+            ->where('turmas_has_professores.professor_id', auth()->user()->id)->distinct()->get();
             return view('home', ['professor_periodo' => $prof_periodo]);
         }
         return redirect()->route('login');

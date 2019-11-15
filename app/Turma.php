@@ -10,7 +10,16 @@ class Turma extends Model
 
     protected $fillable = [
         'disciplina_id',
-        'estudante_id',
         'periodo_letivo_id'
     ];
+
+    public function disciplinas()
+    {
+        return $this->hasMany('App\Disciplina', 'id', 'disciplina_id');
+    }
+
+    public function periodo()
+    {
+        return $this->hasOne('App\Periodo_Letivo', 'id', 'periodo_letivo_id');
+    }
 }

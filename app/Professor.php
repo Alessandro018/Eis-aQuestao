@@ -10,9 +10,9 @@ class Professor extends Authenticatable
         'siape','campus', 'nome', 'senha'
     ];
 
-    public function disciplinas()
+    public function turmas_professor()
     {
-        return $this->hasMany('App\Professor_Disciplina', 'professor_id');
+        return $this->hasMany('App\Turma_Professor', 'professor_id');
     }
 
     public function questoes()

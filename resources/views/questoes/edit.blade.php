@@ -36,13 +36,15 @@
             <label class="input-group-text label-form">Disciplina</label>
         </div>
         <select name="disciplina_id" class="custom-select" required="" id="exampleFormControlSelect2">
-            @foreach($questao->professor->disciplinas as $professores_disciplinas)
-                @foreach($professores_disciplinas->nomes_disciplinas as $disciplinas)
-                    @if($questao->disciplina_id==$disciplinas->id)
-                        <option value="{{ $disciplinas->id }}" selected>{{ $disciplinas->nome }}</option>
-                        @else
-                        <option value="{{ $disciplinas->id }}">{{ $disciplinas->nome }}</option>
-                    @endif
+            @foreach($questao->professor->turmas_professor as $professores_disciplinas)
+                @foreach($professores_disciplinas->turmas as $turmas)
+                    @foreach($turmas->disciplinas as $disciplinas)
+                        @if($questao->disciplina_id==$disciplinas->id)
+                            <option value="{{ $disciplinas->id }}" selected>{{ $disciplinas->nome }}</option>
+                            @else
+                            <option value="{{ $disciplinas->id }}">{{ $disciplinas->nome }}</option>
+                        @endif
+                    @endforeach
                 @endforeach
             @endforeach
             </select>

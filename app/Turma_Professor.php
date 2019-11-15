@@ -13,13 +13,8 @@ class Turma_Professor extends Model
         'professor_id',
     ];
 
-    public function nomes_disciplinas()
+    public function turmas()
     {
-        return $this->hasMany('App\Disciplina', 'id', 'disciplina_id');
-    }
-
-    public function periodo()
-    {
-        return $this->hasOne('App\Periodo_Letivo', 'id');
+        return $this->hasMany('App\Turma', 'id', 'turma_id');
     }
 }
