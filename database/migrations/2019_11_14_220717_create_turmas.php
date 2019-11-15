@@ -16,7 +16,6 @@ class CreateTurmas extends Migration
         Schema::create('turmas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('disciplina_id')->foreign('disciplina_id')->references('disciplinas')->on('id');
-            $table->unsignedInteger('estudante_id')->foreign('estudante_id')->references('estudantes')->on('id');
             $table->unsignedInteger('periodo_letivo_id')->foreign('periodo_letivo_id')->references('periodos_letivos')->on('id');
             $table->timestamps();
         });
