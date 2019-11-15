@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
             disciplinasSeeder::class,
             professoresSeeder::class,
             estudantesSeeder::class,
-            professores_disciplinasSeeder::class,
-            disciplinas_estudantesSeeder::class
+            turmasSeeder::class,
+            turmas_estudantesSeeder::class,
+            turmas_professoresSeeder::class,
         ]);
     }
 }
