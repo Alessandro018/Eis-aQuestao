@@ -49,6 +49,7 @@
         <tr>
 			<th>Matrícula</th>
 			<th>Nome completo</th>
+            <th>Curso</th>
 			<th>Disciplina</th>
 			<th>Período letivo</th>
 			<th>Situação</th>
@@ -57,6 +58,7 @@
             <tr>
                 <td>{{$turma->matricula}}</td>
                 <td>{{$turma->nome}}</td>
+                <td>{{$turma->curso}}</td>
                 <td>{{$turma->materia}}</td>
                 <td>{{$turma->ano}}.{{$turma->semestre}}</td>
                 <td><a class="btn btn-secondary" href="">Detalhe</a></td>
