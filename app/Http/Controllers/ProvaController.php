@@ -18,10 +18,11 @@ class ProvaController extends Controller
     {
         if(auth()->check())
         {
-            $professor_disciplina = DB::table('professores_disciplinas')
-            ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
+            $professor_disciplina = DB::table('turmas_has_professores')
+            ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
+            ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')
             ->select('disciplinas.nome', 'disciplinas.id')
-            ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
+            ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
             return view('provas.index', ['professor_disciplina' => $professor_disciplina]);    
         }
         return redirect()->route('login');
