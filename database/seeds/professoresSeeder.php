@@ -20,7 +20,7 @@ class professoresSeeder extends Seeder
             'senha' => '$2y$10$Y86a1BgsLH1bN77rTw8eyuW3gOm3EdjeGTd8hjiXZojgRbjjVs7ES',
            ],
            1 => [
-            'siape' => 'ABC321',
+            'siape' => 'bcde12345',
             'campus' => 'Igarassu',
             'nome' => 'Liliane',
             'senha' => '$2y$10$Y86a1BgsLH1bN77rTw8eyuW3gOm3EdjeGTd8hjiXZojgRbjjVs7ES',
