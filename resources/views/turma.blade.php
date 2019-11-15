@@ -53,7 +53,15 @@
 			<th>Período letivo</th>
 			<th>Situação</th>
 		</tr>
-        
+        @foreach($turmas as $turma)
+            <tr>
+                <td>{{$turma->matricula}}</td>
+                <td>{{$turma->nome}}</td>
+                <td>{{$turma->materia}}</td>
+                <td>{{$turma->ano}}.{{$turma->semestre}}</td>
+                <td><a class="btn btn-secondary" href="">Detalhe</a></td>
+            </tr>
+        @endforeach
     </table>
-    
+    {{ $turmas->links() }}
 @endsection
