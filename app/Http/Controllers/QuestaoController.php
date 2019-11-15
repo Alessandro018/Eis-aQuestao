@@ -16,8 +16,6 @@ class QuestaoController extends Controller
             $questoes = DB::table('questoes')
             ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
             ->select('questoes.*', 'disciplinas.nome')->simplePaginate(5);
-
-    
             return view('questoes.index', ['questoes' => $questoes]);
         }
         return redirect()->route('login');
@@ -27,10 +25,11 @@ class QuestaoController extends Controller
     {   
         if(auth()->check())
         {
-            $professor_disciplina = DB::table('professores_disciplinas')
-            ->join('disciplinas', 'disciplinas.id', '=', 'professores_disciplinas.disciplina_id')
+            $professor_disciplina = DB::table('turmas_has_professores')
+            ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
+            ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')
             ->select('disciplinas.nome', 'disciplinas.id')
-            ->where('professores_disciplinas.professor_id', auth()->user()->id)->get();
+            ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
             return view('questoes.create', ['professor_disciplina' => $professor_disciplina])
             ->with('success', 'Questão cadastrada com sucesso');
         }

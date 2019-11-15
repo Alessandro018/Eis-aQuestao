@@ -13,7 +13,7 @@ class turmasSeeder extends Seeder
     {
         $turmas = [
             0 => [
-                'disciplina_id' => 0,
+                'disciplina_id' => 1,
                 'periodo_letivo_id' => 2
             ],
             1 => [

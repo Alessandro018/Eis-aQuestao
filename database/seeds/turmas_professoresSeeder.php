@@ -14,7 +14,7 @@ class turmas_professoresSeeder extends Seeder
         $turmas_professores = 
         [
            0 => [
-               'turma_id' => 0,
+               'turma_id' => 1,
                'professor_id' => 1
             ],
            1 => [
