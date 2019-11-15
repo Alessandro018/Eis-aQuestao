@@ -1,7 +1,7 @@
 @extends('layouts.app')
  
 @section('content')
-    @if ($errors->any())
+    <!-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -9,8 +9,26 @@
                 @endforeach
             </ul>
         </div>
-    @endif
-    <form action="{{ route('questoes.store') }}" method="POST" style="width: 60%; margin: auto;">
+    @endif -->
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <form action="{{ route('questoes.store') }}" method="POST" style="width: 60%; margin: auto;">
     @csrf
        <div class="form-group">
             <label for="exampleFormControlTextarea1">Texto</label>
@@ -50,4 +68,14 @@
         <input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
         <button type="submit" class="btn btn-primary">Inserir</button>
     </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
 @endsection
