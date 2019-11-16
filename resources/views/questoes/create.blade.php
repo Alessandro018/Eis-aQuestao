@@ -67,13 +67,8 @@
         </div>
         <input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
         <button type="submit" class="btn btn-primary">Inserir</button>
-    </form>
-        
-      </div>
-      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+    </form>
     </div>
   </div>
 </div>
