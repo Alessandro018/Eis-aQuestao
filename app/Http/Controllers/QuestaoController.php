@@ -107,9 +107,13 @@ class QuestaoController extends Controller
         if(auth()->check())
         {
             DB::table('questoes')->where('id',$request->id)->update(['situacao' => $request->situacao]);
-            
-            return redirect()->route('questoes.index')
-                ->with('success','Questão Desabilitada');
+            if($request->situacao == 'Habilitado'){
+                return redirect()->route('questoes.index')
+                ->with('success','Questão Habilitada.');
+            }else{
+                return redirect()->route('questoes.index')
+                ->with('success','Questão Desabilitada.');
+            }
         }
         return redirect()->route('login');
     }
