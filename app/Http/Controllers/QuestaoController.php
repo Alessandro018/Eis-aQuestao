@@ -15,26 +15,18 @@ class QuestaoController extends Controller
         {
             $questoes = DB::table('questoes')
             ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
-            ->select('questoes.*', 'disciplinas.nome')->simplePaginate(5);
-            return view('questoes.index', ['questoes' => $questoes]);
-        }
-        return redirect()->route('login');
-    }
-
-    public function create()
-    {   
-        if(auth()->check())
-        {
+            ->join('professores', 'professores.id', '=', 'questoes.professor_id')
+            ->select('questoes.*', 'disciplinas.nome','professores.nome as nome_professor')->simplePaginate(5);
             $professor_disciplina = DB::table('turmas_has_professores')
             ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
             ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')
             ->select('disciplinas.nome', 'disciplinas.id')
             ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
-            return view('questoes.create', ['professor_disciplina' => $professor_disciplina])
-            ->with('success', 'Questão cadastrada com sucesso');
+            return view('questoes.index', ['questoes' => $questoes, 'professor_disciplina' => $professor_disciplina]);
         }
         return redirect()->route('login');
     }
+
 
     public function store(Request $request)
     {
@@ -46,6 +38,7 @@ class QuestaoController extends Controller
             'disciplina_id' => 'required|numeric',
             'professor_id' => 'required|numeric',
             'correta' => 'required',
+            'situacao' => 'required',
         ]);
             $questao = Questao::create($request->all());
             $alternativa['questao_id'] = $questao->id;
@@ -109,17 +102,14 @@ class QuestaoController extends Controller
             ->with('success','Questão atualizada com successo');
     }
 
-    public function destroy($id)
+    public function desabilitar(Request $request)
     {
         if(auth()->check())
         {
-            $questao = Questao::find($id)->delete();
-            $questao = DB::table('alternativas')
-            ->where('questao_id',$id)
-            ->delete();
-      
+            DB::table('questoes')->where('id',$request->id)->update(['situacao' => $request->situacao]);
+            
             return redirect()->route('questoes.index')
-                ->with('success','Questão apagada com successo');
+                ->with('success','Questão Desabilitada');
         }
         return redirect()->route('login');
     }

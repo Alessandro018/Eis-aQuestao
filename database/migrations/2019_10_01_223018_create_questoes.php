@@ -20,6 +20,7 @@ class CreateQuestoes extends Migration
             $table->integer('nivel');
             $table->unsignedInteger('professor_id')->foreign('professor_id')->references('id')->on('professores');
             $table->unsignedInteger('disciplina_id')->foreign('disciplina_id')->references('id')->on('disciplinas');
+            $table->enum('situacao', ['Habilitado', 'Desabilitado']);
             $table->timestamps();
         });
     }
