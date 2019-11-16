@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-sm-3 info">
                     <h5>Informações</h5>
-                    <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                    <p>Este sistema tem como propósito servir como uma plataforma para que os professores possam criar questões baseadas em níveis de dificuldades e gerar provas de forma aleatória.</p>
                 </div>
             </div>
         </div>
