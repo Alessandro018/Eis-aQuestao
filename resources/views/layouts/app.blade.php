@@ -34,7 +34,7 @@
                     @if(Auth::check())
                         @if (Route::has('questoes.index'))
                             <li class="nav-item"><a class="nav-link" href="{{ action('QuestaoController@index') }}">Questões</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ action('ProvaController@index') }}">Criar prova</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ action('ProvaController@index') }}">Provas</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ action('TurmaController@index') }}">Turmas</a></li>
                         @endif
                     @endif
@@ -103,7 +103,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         $(document).ready(function(){
-            $('select[name="curso"]').on('change', function(){
+            $('form#import select[name="curso"]').on('change', function(){
                 var curso = $(this).val();
                 $.ajax({
                     url: '/api/curso',
@@ -119,7 +119,26 @@
                 })
             })
 
-        });
+            $('form#prova, select[name="curso"]').on('change', function(){
+                var curso = $(this).val();
+                var professor = '{{ Auth::user()->id }}';
+                $.ajax({
+                    url: '/api/turmas',
+                    type: 'POST',
+                    data: { curso: curso, professor: professor },
+                    success: function (retorno){
+                        console.log(retorno);
+                        $('form#prova, select[name="turma"]').empty();
+                        $('form#prova, select[name="turma"]').removeAttr("disabled");
+                        for(let i in retorno){
+                            $('form#prova,select[name="turma"]').append("<option value="+retorno[i].id+">"+retorno[i].nome
+                            +" - "+retorno[i].ano+"."+retorno[i].semestre+" | "+retorno[i].turno+"</option>");
+                        }
+                    }
+                })
+            })
+
+        })
     </script>
 </body>
 </html>

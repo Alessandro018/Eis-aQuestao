@@ -18,14 +18,30 @@ class ProvaController extends Controller
     {
         if(auth()->check())
         {
-            $professor_disciplina = DB::table('turmas_has_professores')
-            ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
-            ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')
-            ->select('disciplinas.nome', 'disciplinas.id')
-            ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
-            return view('provas.index', ['professor_disciplina' => $professor_disciplina]);    
+            $disciplina = \App\Disciplina::all();
+
+            $professor_prova = Prova::where('provas.professor_id', auth()->user()->id)->get();
+
+            $periodo_letivo = \App\Periodo_Letivo::all();
+            $cursos = \App\Curso::all();
+
+            return view('provas.index', ['disciplinas' => $disciplina,
+             'provas' => $professor_prova, 'periodos_letivos' => $periodo_letivo, 'cursos' => $cursos]);    
         }
         return redirect()->route('login');
+    }
+
+    public function turmas(Request $request)
+    {
+        $turmas = DB::table('turmas_has_professores')
+        ->join('turmas', 'turmas.id', 'turmas_has_professores.turma_id')
+        ->join('disciplinas', 'disciplinas.id', 'turmas.disciplina_id')
+        ->join('cursos', 'cursos.id', 'disciplinas.curso_id')
+        ->join('periodos_letivos', 'periodos_letivos.id', 'turmas.periodo_letivo_id')
+        ->select('turmas.id as id', 'turmas.turno as turno', 'disciplinas.nome as nome', 'periodos_letivos.ano as ano', 'periodos_letivos.semestre as semestre')
+        ->where('turmas_has_professores.professor_id', $request->professor)
+        ->where('cursos.id', $request->curso)->get();
+        return $turmas;
     }
 
     public function store(Request $request)
