@@ -48,9 +48,9 @@ class TurmaController extends Controller
         ]);
         $data = Excel::toArray(null, request()->file('file'));
         $rows = $data[0];
-        echo($request->disciplina);
-        if(DB::table('turmas')->where('disciplina_id',$request->disciplina and 'periodo_letivo_id',$request->periodo_letivo)->count() == 0){
-            Turmas::create([
+        $check_turma = DB::table('turmas')->where('disciplina_id',$request->disciplina)->where('periodo_letivo_id',$request->periodo_letivo)->count();
+        if($check_turma == 0){
+            Turma::create([
                 'disciplina_id' => $request->disciplina,
                 'periodo_letivo_id' => $request->periodo_letivo,
             ]);
@@ -61,9 +61,13 @@ class TurmaController extends Controller
             ]);
         }else{
             $turma_id = DB::table('turmas')->select('id')->where('disciplina_id', $request->disciplina and 'periodo_letivo_id', $request->periodo_letivo)->first()->id;
-            echo 'test';
+            if(DB::table('turmas_has_professores')->where('turma_id',$turma_id and 'professor_id', auth()->user()->id)->count()==0){
+                Turma_Professor::create([
+                    'turma_id' => $turma_id,
+                    'professor_id' =>auth()->user()->id,
+                ]);
+            }
         }
-        var_dump($turma_id);
         foreach ($rows as $row) 
         {
             if(DB::table('estudantes')->where('matricula', $row[2])->count() == 0){
