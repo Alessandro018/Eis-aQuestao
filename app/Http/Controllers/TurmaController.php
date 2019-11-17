@@ -16,19 +16,26 @@ class TurmaController extends Controller
 {
     public function index(){
         if(auth()->check()){
-            $turmas = DB::table('turmas_has_estudantes')
-            ->join('turmas', 'turmas.id', '=', 'turmas_has_estudantes.turma_id')
-            ->join('estudantes', 'estudantes.id', '=', 'turmas_has_estudantes.estudante_id')
+            $turmas = DB::table('turmas_has_professores')
+            ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
             ->join('disciplinas','disciplinas.id', '=', 'turmas.disciplina_id')
             ->join('cursos','cursos.id', '=', 'disciplinas.curso_id')
             ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
-            ->select('turmas.*','estudantes.matricula','estudantes.nome','disciplinas.nome as materia','cursos.nome as curso','periodos_letivos.*')
+            ->select('turmas.*','disciplinas.nome as materia','cursos.nome as curso','periodos_letivos.*')
             ->simplePaginate(5);
 
             return view('turma', ['turmas' => $turmas]);
         }
         return redirect()->route('login');
     }
+
+    public function disciplinas(Request $request)
+    {
+        $disciplinas = DB::table('disciplinas')
+        ->select('disciplinas.id', 'disciplinas.nome')->where('disciplinas.curso_id', '=', $request->curso)->get();
+        return $disciplinas;
+    } 
+
     public function store(Request $request){
         $request->validate([
             'curso' => 'required|numeric',
