@@ -44,7 +44,8 @@ class TurmaController extends Controller
             'curso' => 'required|numeric',
             'disciplina' => 'required|numeric',
             'periodo_letivo' => 'required|numeric',
-            'file' => 'required'
+            'file' => 'required',
+            'turno' => 'required'
         ]);
         $data = Excel::toArray(null, request()->file('file'));
         $rows = $data[0];

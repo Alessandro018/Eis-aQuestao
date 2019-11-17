@@ -10,7 +10,8 @@ class Turma extends Model
 
     protected $fillable = [
         'disciplina_id',
-        'periodo_letivo_id'
+        'periodo_letivo_id',
+        'turno'
     ];
 
     public function disciplinas()
