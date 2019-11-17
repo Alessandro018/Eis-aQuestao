@@ -23,17 +23,21 @@
                                     <div>
                                         <label>Curso</label>
                                         <select class="form-control" name="curso" required>
-                                            <option value="1">Informática para internet</option>
-                                            <option value="2">Logística</option>
-                                            <option value="2">Gestão da qualidade</option>
+                                            <option selected disabled>Selecione</option>
+                                            @foreach($cursos as $curso)
+                                                <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                                            @endforeach
                                         </select>
                                         <label>Disciplina</label>
                                         <select class="form-control" name="disciplina" disabled required>
-                                            <option selected disabled>Disciplina</option>
+                                            <option selected disabled>Selecione o curso</option>
                                         </select>
                                         <label>Período letivo</label>
                                         <select class="form-control" name="periodo_letivo" required>
-                                            <option value="2">Período letivo</option>
+                                            <option selected disabled>Selecione</option>
+                                        @foreach($periodos_letivos as $periodo_letivo)
+                                            <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
+                                        @endforeach
                                         </select>
                                         <br>
                                         <label>Selecione o arquivo</label>
@@ -63,20 +67,27 @@
                 <label>Curso: </label>
                 <select class="form-control" name="curso">
                     <option disabled selected>Todos</option>
-                    <option value="1">curso</option>
-                    <option value="2">curso2</option>
+                    @foreach($cursos as $curso)
+                        <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-sm-3">
                 <label>Disciplina: </label>
                 <select class="form-control" name="disciplina">
                     <option value="" disabled selected>Todos</option>
+                    @foreach($disciplinas as $disciplina)
+                        <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-sm-3">
                 <label>Período letivo: </label>
                 <select class="form-control" name="periodo_letivo">
-                    <option value="">Todos</option>
+                <option selected disabled>Todos</option>
+                    @foreach($periodos_letivos as $periodo_letivo)
+                        <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>

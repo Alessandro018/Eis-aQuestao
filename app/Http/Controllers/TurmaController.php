@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Turma;
+use App\Curso;
 use App\Disciplina;
 use App\Periodo_letivo;
 use App\Estudante;
@@ -23,8 +24,10 @@ class TurmaController extends Controller
             ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
             ->select('turmas.*','disciplinas.nome as materia','cursos.nome as curso','periodos_letivos.*')
             ->simplePaginate(5);
-
-            return view('turma', ['turmas' => $turmas]);
+            $periodos_letivos = \App\Periodo_Letivo::all();
+            $cursos = \App\Curso::all();
+            $disciplinas = \App\Disciplina::all();
+            return view('turma', ['turmas' => $turmas, 'periodos_letivos' => $periodos_letivos, 'cursos' => $cursos, 'disciplinas' => $disciplinas]);
         }
         return redirect()->route('login');
     }
@@ -79,6 +82,6 @@ class TurmaController extends Controller
             $Turma_Estudante->save();
         }
 
-        return view('turma')->with('success','Turma criada com successo.');
+        return redirect()->route('turma.index')->with('success','Turma criada com successo.');
     }
 }
