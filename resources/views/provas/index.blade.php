@@ -35,9 +35,10 @@
                                             <select class="form-control" name="turma" disabled required>
                                                 <option selected>Selecione o curso</option>
                                             </select>
-                                            </div>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
+                                        <input type="hidden" name="professor" value="{{ Auth::user()->id }}">
                                         <button type="submit" class="btn btn-success">Criar</button>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
                                     </div>

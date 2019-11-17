@@ -121,7 +121,7 @@
 
             $('form#prova, select[name="curso"]').on('change', function(){
                 var curso = $(this).val();
-                var professor = '{{ Auth::user()->id }}';
+                var professor = $('form#prova, input[name="professor"]').val();
                 $.ajax({
                     url: '/api/turmas',
                     type: 'POST',
