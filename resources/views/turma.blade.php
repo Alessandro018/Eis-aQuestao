@@ -39,6 +39,13 @@
                                             <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
                                         @endforeach
                                         </select>
+                                        <label>Turno</label>
+                                        <select class="form-control" name="turno">
+                                            <option selected disabled>Selecione</option>
+                                            <option value="Manhã">Manhã</option>
+                                            <option value="Tarde">Tarde</option>
+                                            <option value="Noite">Noite</option>
+                                        </select>
                                         <br>
                                         <label>Selecione o arquivo</label>
                                         <input name="file" class="form-control-file" type="file" required>
@@ -61,8 +68,6 @@
                 <label>Matrícula: </label>
                 <input type="text" class="form-control" name="matricula" placeholder="" required>
             </div>
-        </div>
-        <div class="row align-items-center">
             <div class="col-sm-3">
                 <label>Curso: </label>
                 <select class="form-control" name="curso">
@@ -70,6 +75,17 @@
                     @foreach($cursos as $curso)
                         <option value="{{$curso->id}}">{{$curso->nome}}</option>
                     @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <label>Turno</label>
+                <select class="form-control" name="turno">
+                    <option selected disabled>Selecione</option>
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noite">Noite</option>
                 </select>
             </div>
             <div class="col-sm-3">
@@ -105,6 +121,7 @@
             <th>Curso</th>
 			<th>Disciplina</th>
 			<th>Período letivo</th>
+            <th>Turno</th>
 			<th>Situação</th>
 		</tr>
         @foreach($turmas as $turma)
@@ -112,6 +129,7 @@
                 <td>{{$turma->curso}}</td>
                 <td>{{$turma->materia}}</td>
                 <td>{{$turma->ano}}.{{$turma->semestre}}</td>
+                <td>{{$turma->turno}}</td>
                 <td><a class="btn btn-secondary" href="">Detalhe</a></td>
             </tr>
         @endforeach

@@ -54,6 +54,7 @@ class TurmaController extends Controller
             Turma::create([
                 'disciplina_id' => $request->disciplina,
                 'periodo_letivo_id' => $request->periodo_letivo,
+                'turno' => $request->turno,
             ]);
             $turma_id = intval(DB::getPdo()->lastInsertId());
             Turma_Professor::create([

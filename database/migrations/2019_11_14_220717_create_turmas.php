@@ -17,7 +17,7 @@ class CreateTurmas extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('disciplina_id')->foreign('disciplina_id')->references('disciplinas')->on('id');
             $table->unsignedInteger('periodo_letivo_id')->foreign('periodo_letivo_id')->references('periodos_letivos')->on('id');
-            $table->enum('turno', ['manhã', 'tarde', 'noite']);
+            $table->enum('turno', ['Manhã', 'Tarde', 'Noite']);
             $table->timestamps();
         });
     }
