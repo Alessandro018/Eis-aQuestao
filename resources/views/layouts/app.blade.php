@@ -101,5 +101,25 @@
         </div>
     </footer>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('select[name="curso"]').on('change', function(){
+                var curso = $(this).val();
+                $.ajax({
+                    url: '/api/curso',
+                    type: 'POST',
+                    data: { curso: curso },
+                    success: function (retorno){
+                        $('form#import select[name="disciplina"]').empty();
+                        $('form#import select[name="disciplina"]').removeAttr("disabled");
+                        for(let i in retorno){
+                            $('form#import select[name="disciplina"]').append("<option value="+retorno[i].id+">"+retorno[i].nome+"</option>");
+                        }
+                    }
+                })
+            })
+
+        });
+    </script>
 </body>
 </html>
