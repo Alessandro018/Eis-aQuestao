@@ -8,6 +8,11 @@
             @endforeach
         </div>
     @endif
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            {{ $message }}
+        </div>
+    @endif
     <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <h2>Minhas provas</h2><br>
@@ -24,17 +29,37 @@
                                             Criar prova
                                         </h4>
                                         <div>
-                                            <label>Curso</label>
+                                            <label class="mt-2">Curso</label>
                                             <select class="form-control" name="curso" required>
                                                 <option selected disabled>Selecione</option>
                                                 @foreach($cursos as $curso)
                                                     <option value="{{$curso->id}}">{{$curso->nome}}</option>
                                                 @endforeach
                                             </select>
-                                            <label>Turma</label>
-                                            <select class="form-control" name="turma" disabled required>
+                                            <label class="mt-2">Turma</label>
+                                            <select class="form-control" name="turma_id" disabled required>
                                                 <option selected>Selecione o curso</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label>Quantidade de questões</label>
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <label>Nível 1</label>
+                                                    <input type="number" class="form-control" name="questoes_nivel_1" value="0" min="0" max="50" required>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <label>Nível 2</label>
+                                                    <input type="number" class="form-control" name="questoes_nivel_2" value="0" min="0" max="50" required>
+                                                </div><div class="col-sm">
+                                                    <label>Nível 3</label>
+                                                    <input type="number" class="form-control" name="questoes_nivel_3" value="0" min="0" max="50" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <label>Cabeçalho</label>
+                                            <textarea class="w-100" name="cabecalho" style="resize:none;border-radius: 4px;"></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">

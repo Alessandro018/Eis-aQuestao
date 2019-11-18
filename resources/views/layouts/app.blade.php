@@ -127,12 +127,12 @@
                     type: 'POST',
                     data: { curso: curso, professor: professor },
                     success: function (retorno){
-                        console.log(retorno);
-                        $('form#prova, select[name="turma"]').empty();
-                        $('form#prova, select[name="turma"]').removeAttr("disabled");
+                        $('form#prova, select[name="turma_id"]').empty();
+                        $('form#prova, select[name="turma_id"]').removeAttr("disabled");
                         for(let i in retorno){
-                            $('form#prova,select[name="turma"]').append("<option value="+retorno[i].id+">"+retorno[i].nome
+                            $('form#prova, select[name="turma_id"]').append("<option value="+retorno[i].id+">"+retorno[i].nome
                             +" - "+retorno[i].ano+"."+retorno[i].semestre+" | "+retorno[i].turno+"</option>");
+                        $('form#prova').append('<input type="hidden" name="disciplina_id" value="'+ retorno[i].disciplina+'">');
                         }
                     }
                 })
