@@ -1,10 +1,11 @@
 #myFooter {
+    position: static;
     background-color: #3a3f46;
     color: white;
 }
 
 #myFooter .row {
-    margin-bottom: 60px;
+    margin-bottom: 90px;
 }
 
 #myFooter .info{
