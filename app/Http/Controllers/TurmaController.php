@@ -22,14 +22,37 @@ class TurmaController extends Controller
             ->join('disciplinas','disciplinas.id', '=', 'turmas.disciplina_id')
             ->join('cursos','cursos.id', '=', 'disciplinas.curso_id')
             ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
-            ->select('turmas.*','disciplinas.nome as materia','cursos.nome as curso','periodos_letivos.*')
-            ->simplePaginate(5);
+            ->select('turmas.*','disciplinas.nome as disciplina','cursos.nome as curso','periodos_letivos.ano as ano','periodos_letivos.semestre as semestre')
+            ->where('professor_id','=',auth()->user()->id)
+            ->paginate(6);
             $periodos_letivos = \App\Periodo_Letivo::all();
             $cursos = \App\Curso::all();
             $disciplinas = \App\Disciplina::all();
             return view('turma', ['turmas' => $turmas, 'periodos_letivos' => $periodos_letivos, 'cursos' => $cursos, 'disciplinas' => $disciplinas]);
         }
         return redirect()->route('login');
+    }
+
+    public function detalhe(Request $request){
+        $id = $request->id;
+        $detalhes = DB::table('turmas_has_estudantes')
+        ->join('estudantes','estudantes.id','=','turmas_has_estudantes.estudante_id')
+        ->join('turmas','turmas.id','=','turmas_has_estudantes.turma_id')
+        ->join('disciplinas','disciplinas.id','=','turmas.disciplina_id')
+        ->join('cursos','cursos.id', '=', 'disciplinas.curso_id')
+        ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
+        ->select('estudantes.*','turmas.turno','periodos_letivos.semestre','periodos_letivos.ano','cursos.nome as curso','disciplinas.nome as disciplina')
+        ->where('turmas_has_estudantes.turma_id',$id)
+        ->orderBy('estudantes.nome','asc')
+        ->get();
+        
+        $professores = DB::table('professores')
+        ->join('turmas_has_professores','turmas_has_professores.professor_id','=','professores.id')
+        ->join('turmas','turmas.id','=','turmas_has_professores.turma_id')
+        ->select('professores.*')
+        ->where('turmas_has_professores.turma_id','=',$id)
+        ->get();
+        return view('turma_detalhe',['detalhes' => $detalhes, 'professores' => $professores]);
     }
 
     public function disciplinas(Request $request)

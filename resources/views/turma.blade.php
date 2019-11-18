@@ -6,7 +6,7 @@
             {{ $message }}
         </div>
     @endif
-    <h2>Minhas turmas</h2>
+    <h2>Minhas Turmas</h2>
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
@@ -40,7 +40,7 @@
                                         @endforeach
                                         </select>
                                         <label>Turno</label>
-                                        <select class="form-control" name="turno">
+                                        <select class="form-control" name="turno" required>
                                             <option selected disabled>Selecione</option>
                                             <option value="Manhã">Manhã</option>
                                             <option value="Tarde">Tarde</option>
@@ -61,31 +61,12 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <label>Nome do aluno: </label>
-                <input type="text" class="form-control" name="nome" placeholder="" required>
-            </div>
-            <div class="col-sm-3">
-                <label>Matrícula: </label>
-                <input type="text" class="form-control" name="matricula" placeholder="" required>
-            </div>
-            <div class="col-sm-3">
                 <label>Curso: </label>
                 <select class="form-control" name="curso">
                     <option disabled selected>Todos</option>
                     @foreach($cursos as $curso)
                         <option value="{{$curso->id}}">{{$curso->nome}}</option>
                     @endforeach
-                </select>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-sm-3">
-                <label>Turno</label>
-                <select class="form-control" name="turno">
-                    <option selected disabled>Selecione</option>
-                    <option value="Manhã">Manhã</option>
-                    <option value="Tarde">Tarde</option>
-                    <option value="Noite">Noite</option>
                 </select>
             </div>
             <div class="col-sm-3">
@@ -97,6 +78,18 @@
                     @endforeach
                 </select>
             </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-sm-3">
+                <label>Turno</label>
+                <select class="form-control" name="turno">
+                    <option selected disabled>Todos</option>
+                    <option value="Manhã">Manhã</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noite">Noite</option>
+                </select>
+            </div>
+            
             <div class="col-sm-3">
                 <label>Período letivo: </label>
                 <select class="form-control" name="periodo_letivo">
@@ -107,16 +100,16 @@
                 </select>
             </div>
         </div>
-        <div class="row justify-content-center m-3">
-            <div class="col-2">
+        <div class="row align-items-start mt-3 text-center">
+            <div class="col-sm-3">
                 <a class="btn btn-success" href="">Buscar</a>
             </div>
-            <div class="col-2">
-                <a style="color:#fff;" class="btn btn-info" href="">Limpar filtros</a>
+            <div class="col-sm-3">
+                <a style="color:#fff;" class="btn btn-info" href="">Limpar</a>
             </div>
         </div>
     </div>
-    <table class="table table-sm text-center mt-5">
+    <table class="table table-sm mt-5">
         <tr>
             <th>Curso</th>
 			<th>Disciplina</th>
@@ -127,12 +120,21 @@
         @foreach($turmas as $turma)
             <tr>
                 <td>{{$turma->curso}}</td>
-                <td>{{$turma->materia}}</td>
+                <td>{{$turma->disciplina}}</td>
                 <td>{{$turma->ano}}.{{$turma->semestre}}</td>
                 <td>{{$turma->turno}}</td>
-                <td><a class="btn btn-secondary" href="">Detalhe</a></td>
+                <td>
+                   <form action="{{ action('TurmaController@detalhe') }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" value="{{$turma->id}}" name="id">
+                            <button type="submit" class="btn btn-secondary">Detalhe</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>
-    {{ $turmas->links() }}
+    <div class="nav justify-content-center">
+        {{ $turmas->links() }}
+    </div>
 @endsection
