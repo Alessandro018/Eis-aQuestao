@@ -15,8 +15,10 @@ class CreateProvas extends Migration
     {
         Schema::create('provas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('professor_id')->foreign('professor_id')->references('id')->on('professores');
-            $table->unsignedInteger('disciplina_id')->foreign('disciplina_id')->references('id')->on('disciplinas');
+            $table->unsignedInteger('turma_id')->foreign('turma_id')->references('id')->on('turmas');
+            $table->Integer('questoes_nivel_1');
+            $table->Integer('questoes_nivel_2');
+            $table->Integer('questoes_nivel_3');
             $table->string('cabecalho', 255);
             $table->timestamps();
         });

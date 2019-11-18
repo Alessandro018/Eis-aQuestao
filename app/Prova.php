@@ -9,8 +9,10 @@ class Prova extends Model
     protected $table = "provas";
 
     protected $fillable = [
-        'professor_id',
-        'disciplina_id',
+        'turma_id',
         'cabecalho',
+        'questoes_nivel_1',
+        'questoes_nivel_2',
+        'questoes_nivel_3'
     ];
 }
