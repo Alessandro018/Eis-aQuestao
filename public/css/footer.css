@@ -96,29 +96,29 @@
     }
 }
 
-/* <footer class="fixar-rodape">
-    <p>O Rodapé é para ser clocado aqui!, my brodher.</p>
-</footer>
+/*
 
 CSS used for positioning the footers at the bottom of the page. */
 /* You can remove this. */
 
-html, * {
-  margin: 0;
-  padding: 0;
+html {
+     height: 100%;
 }
 body{
-    font-family: 'calibri light', calibri, arial, sans-serif;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    height: 100%;
+    
 }
-div.body-content{
-  margin-bottom: 40px;
+.content{
+   flex: 1 0 auto;
+   -webkit-flex: 1 0 auto;
+   min-height: 200px;
 }
 
-footer.fixar-rodape{
-  border-top: 1px solid #333;
-  bottom: 0;
-  left: 0;
-  height: 40px;
-  position: fixed;
-  width: 100%;
+#myFooter{
+   flex: 0 0 auto;
+   -webkit-flex: 0 0 auto;
 }
