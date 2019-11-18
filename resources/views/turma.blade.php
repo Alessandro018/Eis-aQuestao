@@ -6,6 +6,15 @@
             {{ $message }}
         </div>
     @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h2>Minhas Turmas</h2>
     <div class="form-group">
         <div class="row justify-content-start">
@@ -29,7 +38,7 @@
                                             @endforeach
                                         </select>
                                         <label>Disciplina</label>
-                                        <select class="form-control" name="disciplina" disabled required>
+                                        <select class="form-control" name="disciplina" required>
                                             <option selected disabled>Selecione o curso</option>
                                         </select>
                                         <label>Período letivo</label>
