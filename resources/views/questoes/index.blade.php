@@ -7,9 +7,10 @@
             {{ $message }}
         </div>
     @endif
+<h2>Minhas Questões</h2>
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
-	<button type="button" class="btn btn-dark float-right w-25" data-toggle="modal" data-target="#exampleModalLong">+ Criar Questão</button>
+	<button type="button" class="btn btn-secondary float-right w-25" data-toggle="modal" data-target="#exampleModalLong">+ Criar Questão</button>
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

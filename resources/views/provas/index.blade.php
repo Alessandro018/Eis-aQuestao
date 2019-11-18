@@ -15,7 +15,7 @@
     @endif
     <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <h2>Minhas provas</h2><br>
+        <h2>Minhas Provas</h2>
         <div class="form-group">
             <div class="row justify-content-start">
                 <div class="col-sm-6 offset-sm-6">
