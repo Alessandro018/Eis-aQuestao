@@ -103,7 +103,7 @@
             </div>                    
                 <div class="row justify-content-center m-3">
                     <div class="col-2">
-                        <button type="submit" class="btn btn-success">Buscar</button>
+                        <a href="" class="btn btn-success">Buscar</a>
                     </div>
                     <div class="col-2">
                         <button type="reset" style="color:#fff;" class="btn btn-info">Limpar filtros</button>
@@ -130,7 +130,7 @@
                 <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
 					@csrf
                     @method('DELETE')
-                    <a href="#" class="btn btn-success">Editar</a>
+                        <a href="{{ action('ProvaController@edit',$prova->id) }}" class="btn btn-primary">Editar</a>
                     <button type="submit" class="btn btn-danger">Excluir</button>
 				</form>		
             </td>
