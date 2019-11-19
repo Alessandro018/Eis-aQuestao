@@ -130,8 +130,23 @@
                 <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
 					@csrf
                     @method('DELETE')
+
                         <a href="{{ action('ProvaController@edit',$prova->id) }}" class="btn btn-primary">Editar</a>
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
+
+                            <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
+                                <div class="modal-dialog modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-body" style="">
+                                            Tem certeza que deseja excluir a Prova?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 				</form>		
             </td>
 		</tr>
