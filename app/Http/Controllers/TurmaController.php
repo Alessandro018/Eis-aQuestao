@@ -111,6 +111,6 @@ class TurmaController extends Controller
             $Turma_Estudante->save();
         }
 
-        return redirect()->route('turma.index')->with('success','Turma criada com successo.');
+        return redirect()->route('turma.index')->with('success','Turma criada com sucesso.');
     }
 }

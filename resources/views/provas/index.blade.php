@@ -111,5 +111,30 @@
                 </div>
         </div>
     </form>
-    
+
+    <table class="table table-sm mt-4 text-center">
+		<tr>
+			<th>Disciplina</th>
+			<th>Período letivo</th>
+			<th>Turno</th>
+            <th>Data de criação</th>
+		</tr>
+
+		@foreach ($provas as $prova)
+		<tr>
+			<td>{{ $prova->nome }}</td>
+			<td>{{ $prova->ano }}.{{ $prova->semestre }}</td>
+			<td>{{ $prova->turno }}</td>
+			<td>{{ $prova->created_at }}</td>
+            <td>
+                <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
+					@csrf
+                    @method('DELETE')
+                    <a href="#" class="btn btn-success">Editar</a>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+				</form>		
+            </td>
+		</tr>
+		@endforeach
+	</table>
 @endsection

@@ -22,7 +22,10 @@ class ProvaController extends Controller
 
             $professor_prova = Prova::join('turmas', 'turmas.id', 'provas.turma_id')
             ->join('turmas_has_professores', 'turmas_has_professores.turma_id', 'turmas.id')
-            ->select('provas.*')
+            ->join('periodos_letivos', 'periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
+            ->join('disciplinas', 'disciplinas.id', 'turmas.disciplina_id')
+            ->select('disciplinas.nome', 'periodos_letivos.ano', 'periodos_letivos.semestre',
+             'turmas.turno', 'turmas.id', 'provas.created_at')
             ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
 
             $periodo_letivo = \App\Periodo_Letivo::all();
@@ -92,5 +95,11 @@ class ProvaController extends Controller
         // }
         // return PDF::loadView('provas.pdf', ['provas' => $provas])->stream('teste.pdf');
         return view('provas.index')->with('successs', 'Prova criada com sucesso');
+    }
+
+    public function destroy($id)
+    {
+        Prova::find($id)->delete();
+        return redirect('/prova')->with('success', 'Prova excluída com sucesso');
     }
 }

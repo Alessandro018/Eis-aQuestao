@@ -38,8 +38,8 @@
                                             @endforeach
                                         </select>
                                         <label>Disciplina</label>
-                                        <select class="form-control" name="disciplina" required>
-                                            <option selected disabled>Selecione o curso</option>
+                                        <select class="form-control" name="disciplina" disabled required>
+                                            <option selected>Selecione o curso</option>
                                         </select>
                                         <label>Período letivo</label>
                                         <select class="form-control" name="periodo_letivo" required>
