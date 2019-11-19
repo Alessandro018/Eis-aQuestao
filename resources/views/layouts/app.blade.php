@@ -12,17 +12,22 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <style>
-    textarea{
-        resize:none;
-    }
+        textarea{
+            resize:none;
+        }
+        img{
+            width: 50%;
+            height: 30%;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-header nav-fill">
+        <nav class="navbar navbar-expand-md navbar-light bg-header nav-fill ">
             <div class="w-25 navbar-brand">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Eis a Questão
+                    <img src="{{ asset('img/logo.jpg') }}">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
@@ -33,9 +38,9 @@
                 <ul class="navbar-nav nav-header-pills mr-auto justify-content-center w-100">    
                     @if(Auth::check())
                         @if (Route::has('questoes.index'))
-                            <li class="nav-item"><a class="nav-link" href="{{ action('QuestaoController@index') }}">Questões</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ action('ProvaController@index') }}">Provas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ action('TurmaController@index') }}">Turmas</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="{{ action('QuestaoController@index') }}">Questões</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="{{ action('ProvaController@index') }}">Provas</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="{{ action('TurmaController@index') }}">Turmas</a></li>
                         @endif
                     @endif
                 </ul>
@@ -44,9 +49,9 @@
             <div class="navbar-collapse collapse w-25 order-3 dual-collapse2">
                 <ul class="navbar-nav nav-header-pills ml-auto">
                     @if(Auth::check() && Route::has('questoes.index'))
-                        <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Sair</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="{{ route('logout') }}">Sair</a></li>
                     @else
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">Entrar</a></li>
                     @endif
                 </ul>
             </div>
