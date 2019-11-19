@@ -144,6 +144,6 @@
         @endforeach
     </table>
     <div class="nav justify-content-center">
-        {{ $turmas->links() }}
+        {{ $turmas->onEachSide(5)->links() }}
     </div>
 @endsection
