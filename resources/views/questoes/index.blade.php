@@ -150,6 +150,6 @@
 		</tr>
 		@endforeach
 	</table>
-{{ $questoes->links() }}
+{{ $questoes->onEachSide(5)->links() }}
 	
 @endsection

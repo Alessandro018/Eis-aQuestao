@@ -26,7 +26,7 @@ class ProvaController extends Controller
             ->join('disciplinas', 'disciplinas.id', 'turmas.disciplina_id')
             ->select('disciplinas.nome', 'periodos_letivos.ano', 'periodos_letivos.semestre',
              'turmas.turno', 'provas.id', 'provas.created_at')
-            ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
+            ->where('turmas_has_professores.professor_id', auth()->user()->id)->simplePaginate(5);;
             
             $periodo_letivo = \App\Periodo_Letivo::all();
             $cursos = \App\Curso::all();

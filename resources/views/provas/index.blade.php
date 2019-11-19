@@ -152,4 +152,5 @@
 		</tr>
 		@endforeach
 	</table>
+    {{ $provas->onEachSide(5)->links() }}
 @endsection
