@@ -4,10 +4,6 @@
     color: white;
 }
 
-#myFooter .row {
-    margin-bottom: 90px;
-}
-
 #myFooter .info{
     text-align: justify; 
     color: #afb0b1;
@@ -21,7 +17,7 @@
 
 #myFooter h5 {
     font-size: 18px;
-    color: white;
+    color: #ed9c2e;
     font-weight: bold;
     margin-top: 30px;
 }
@@ -103,6 +99,7 @@ CSS used for positioning the footers at the bottom of the page. */
 
 html {
      height: 100%;
+     min-height: 100%;
 }
 body{
     display: flex;
@@ -110,7 +107,7 @@ body{
     flex-direction: column;
     -webkit-flex-direction: column;
     height: 100%;
-    
+    min-height: 100%;
 }
 .content{
    flex: 1 0 auto;
@@ -121,4 +118,8 @@ body{
 #myFooter{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
+}
+
+footer {
+    margin-top: auto;
 }
