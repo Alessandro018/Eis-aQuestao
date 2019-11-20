@@ -51,16 +51,34 @@ textarea{
     resize: none;
     height: 150px;
 }
-.bg-header {
-    background: #e6b800;
-}
+
 .nav-header-pills .nav-item {
-    background: #4d4d4d;
     font-weight: bold;
     margin: .5em;
-    border-radius: 15px;
 }
 .links{
     float:right;
     padding: 10px;
+}
+textarea{
+    resize:none;
+}
+.carousel-caption-center {
+    position: absolute;
+    right: 15%;
+    bottom: 60%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+.img-logo{
+    margin-left: 10%;
+    width: 50%;
+    border-radius: 6px;
+}
+.img-car{
+    border-radius: 40px;
 }
