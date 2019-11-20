@@ -1,5 +1,6 @@
 #myFooter {
-    position: static;
+    position: relative;
+    top: 25%;
     background-color: #3a3f46;
     color: white;
 }
@@ -93,7 +94,6 @@
 }
 
 /*
-
 CSS used for positioning the footers at the bottom of the page. */
 /* You can remove this. */
 
