@@ -11,47 +11,35 @@
     <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-    <style>
-        textarea{
-            resize:none;
-        }
-        img{
-            width: 50%;
-            height: 30%;
-            border-radius: 6px;
-        }
-    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-header nav-fill ">
+        <nav class="navbar navbar-expand-md navbar-light nav-fill border border-left rounded">
             <div class="w-25 navbar-brand">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo.jpg') }}">
+                    <img class="img-logo" src="{{ asset('img/logo.png') }}">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="w-50 navbar-collapse collapse order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav nav-header-pills mr-auto justify-content-center w-100">    
+            <div class="navbar-collapse collapse w-25 order-3 dual-collapse2">
+
+                <ul class="navbar-nav nav-header-pills ml-auto">
+
                     @if(Auth::check())
                         @if (Route::has('questoes.index'))
-                            <li class="nav-item"><a class="nav-link text-white" href="{{ action('QuestaoController@index') }}">Questões</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="{{ action('ProvaController@index') }}">Provas</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="{{ action('TurmaController@index') }}">Turmas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ action('QuestaoController@index') }}">Questões</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ action('ProvaController@index') }}">Provas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ action('TurmaController@index') }}">Turmas</a></li>
                         @endif
                     @endif
-                </ul>
-            </div>
 
-            <div class="navbar-collapse collapse w-25 order-3 dual-collapse2">
-                <ul class="navbar-nav nav-header-pills ml-auto">
                     @if(Auth::check() && Route::has('questoes.index'))
-                        <li class="nav-item"><a class="nav-link text-white" href="{{ route('logout') }}">Sair</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ route('logout') }}">Sair</a></li>
                     @else
-                        <li class="nav-item"><a class="nav-link text-white" href="{{ route('login') }}">Entrar</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ route('login') }}">Entrar</a></li>
                     @endif
                 </ul>
             </div>
@@ -61,11 +49,11 @@
             @yield('content')
         </main>
     </div>
-    <footer id="myFooter">
+    <footer class="mt-5" id="myFooter">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <h5>Iniciar</h5>
+                    <h5 class="link-color">Iniciar</h5>
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Sign up</a></li>
@@ -73,7 +61,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h5>Sobre nós</h5>
+                    <h5 class="link-color">Sobre nós</h5>
                     <ul>
                         <li><a href="#">Company Information</a></li>
                         <li><a href="#">Contact us</a></li>
@@ -81,7 +69,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h5>Suporte</h5>
+                    <h5 class="link-color">Suporte</h5>
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Help desk</a></li>
@@ -89,14 +77,16 @@
                     </ul>
                 </div>
                 <div class="col-sm-3 info">
-                    <h5>Informações</h5>
+                    <h5 class="link-color">Informações</h5>
                     <p>Este sistema tem como propósito servir como uma plataforma para que os professores possam criar questões baseadas em níveis de dificuldades e gerar provas de forma aleatória.</p>
                 </div>
             </div>
         </div>
         <div class="second-bar">
            <div class="container">
-                <h2 class="logo"><a href="#"> LOGO </a></h2>
+                <div class="logo">
+                    <a href="#"><img class="w-25" src="">LOGO</a>
+                </div>
                 <div class="social-icons">
                     <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
