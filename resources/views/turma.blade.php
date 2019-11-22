@@ -143,7 +143,7 @@
             </tr>
         @endforeach
     </table>
-    <div class="nav justify-content-center">
-        {{ $turmas->onEachSide(5)->links() }}
+    <div class="row justify-content-center text-center mx-auto w-25">
+         {{ $turmas->links('vendor.pagination.simple-bootstrap-4') }}
     </div>
 @endsection
