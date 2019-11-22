@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        </div>
-    @endif
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            {{ $message }}
-        </div>
-    @endif
     <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <h2>Minhas Provas</h2>
@@ -111,7 +99,27 @@
                 </div>
         </div>
     </form>
+    <div class="row justify-content-center mt-5">
+        @if ($errors->any())
+            <div class="alert alert-danger text-center w-50">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
+            </div>
+        @endif
 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success text-center w-50">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ $message }}
+            </div>
+        @endif
+    </div>
     <table class="table table-sm mt-4 text-center">
 		<tr>
 			<th>Disciplina</th>
