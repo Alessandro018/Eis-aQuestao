@@ -16,7 +16,7 @@ class QuestaoController extends Controller
             $questoes = DB::table('questoes')
             ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
             ->join('professores', 'professores.id', '=', 'questoes.professor_id')
-            ->select('questoes.*', 'disciplinas.nome','professores.nome as nome_professor')->simplePaginate(5);
+            ->select('questoes.*', 'disciplinas.nome','professores.nome as nome_professor')->Paginate(5);
             $professor_disciplina = DB::table('turmas_has_professores')
             ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
             ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')

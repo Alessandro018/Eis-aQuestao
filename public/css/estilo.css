@@ -76,9 +76,15 @@ textarea{
 }
 .img-logo{
     margin-left: 10%;
-    width: 50%;
+    width: 100px;
     border-radius: 6px;
 }
 .img-car{
     border-radius: 40px;
+}
+td {
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

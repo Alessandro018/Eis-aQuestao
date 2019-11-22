@@ -2,17 +2,11 @@
  
 @section('content')
 
-	@if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            {{ $message }}
-        </div>
-    @endif
+<div class='content'>	
 <h2>Minhas Questões</h2>
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
 	<button type="button" class="btn btn-secondary float-right w-25" data-toggle="modal" data-target="#exampleModalLong">+ Criar Questão</button>
-
-	<!-- Modal -->
 	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -50,21 +44,31 @@
 					@endforeach
 			</select>
 			</div>
+			<div class="form-group">
 				<label for="exampleFormControlTextarea1">Texto</label>
 				<textarea class="form-control" cols="40" rows="3" maxlength="2000" name="pergunta"
 				placeholder="Pergunta" required></textarea>
+			</div>
 			<div class="form-group">
-				<input type="hidden" name="tipo" value="fechada"> 
+				<label for="exampleFormControlTextarea1">Alternativas</label>
+				<input type="hidden" name="tipo" value="fechada">
 				@for ($i=0;$i<=4;$i++)
-					<input type="radio" name="correta" value="correta{{$i+1}}">
-					<label>{{$i+1}})</label>
-					<textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" placeholder="Alternativa" required></textarea>
+					<div class="input-group mt-2">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<input type="radio" name="correta"  aria-label="Radio button for following text input" value="correta{{$i+1}}">
+							</div>
+						</div>
+						<textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" aria-label="Text input with radio button" required></textarea>
+					</div>
 				@endfor
 			</div>
-			<input type="hidden" name="situacao" value="1">
-			<input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
-			<button type="submit" class="btn btn-primary">Salvar</button>
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+			<div class="modal-footer border-0">
+				<input type="hidden" name="situacao" value="1">
+				<input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
+				<button type="submit" class="btn btn-success">Salvar</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+			</div>
 		</form>
 		</div>
 		</div>
@@ -72,7 +76,7 @@
 	</div>
 </div>
 </div>
-	<div class="row align-items-center">
+	<div class="row align-items-center justify-content-center">
 		<div class="col-sm-3">
 			<label>Curso: </label>
 			<select class="form-control" name="curso">
@@ -115,6 +119,28 @@
 		</div>
 	</div>
 </div>
+	<div class="row justify-content-center mt-5">
+		@if ($errors->any())
+			<div class="alert alert-danger text-center w-50">
+				<button type="button" class="close" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				@foreach ($errors->all() as $error)
+					{{ $error }}
+				@endforeach
+			</div>
+		@endif
+
+		@if ($message = Session::get('success'))
+			<div class="alert alert-success text-center w-50">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				{{ $message }}
+			</div>
+		@endif
+	</div>
+
 	<table class="table table-sm mt-4 text-center">
 		<tr>
 			<th>Pergunta</th>
@@ -150,6 +176,8 @@
 		</tr>
 		@endforeach
 	</table>
-{{ $questoes->onEachSide(5)->links() }}
+	<div class="row justify-content-center text-center mx-auto w-25">
+		{{ $questoes->onEachSide(5)->links() }}
+	</div>
 	
 @endsection
