@@ -39,7 +39,7 @@
                     @if(Auth::check() && Route::has('questoes.index'))
                         <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ route('logout') }}">Sair</a></li>
                     @else
-                        <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ route('login') }}">Entrar</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark btn-orange" href="{{ route('login') }}">Entrar</a></li>
                     @endif
                 </ul>
             </div>

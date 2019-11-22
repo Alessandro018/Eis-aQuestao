@@ -88,3 +88,9 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.btn-orange{
+    background-color: #ED9C2E;
+    border-radius: 10%;
+    width: 70px;
+
+}
