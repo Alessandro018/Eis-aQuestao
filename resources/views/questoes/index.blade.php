@@ -59,7 +59,7 @@
 								<input type="radio" name="correta"  aria-label="Radio button for following text input" value="correta{{$i+1}}">
 							</div>
 						</div>
-						<textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" aria-label="Text input with radio button" required></textarea>
+						<textarea class="form-control" maxlength="255" name="alternativa{{$i+1}}" aria-label="Text input with radio button"  placeholder="Alternativa {{$i+1}}" required ></textarea>
 					</div>
 				@endfor
 			</div>
