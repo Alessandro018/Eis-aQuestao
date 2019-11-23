@@ -15,7 +15,7 @@
             </ul>
         </div>
     @endif
-    <h2>Minhas Turmas</h2>
+    <h2>Minhas turmas</h2>
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
