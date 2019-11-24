@@ -161,6 +161,6 @@
 		@endforeach
 	</table>
     <div class="row justify-content-center text-center mx-auto w-25">
-         {{ $provas->links('vendor.pagination.simple-bootstrap-4') }}
+         {{ $provas->links() }}
     </div>
 @endsection
