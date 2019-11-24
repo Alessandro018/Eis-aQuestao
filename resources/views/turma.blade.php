@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label>Curso: </label>
                 <select class="form-control" name="curso">
                     <option disabled selected>Todos</option>
@@ -78,7 +78,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label>Disciplina: </label>
                 <select class="form-control" name="disciplina">
                     <option value="" disabled selected>Todos</option>
@@ -87,9 +87,8 @@
                     @endforeach
                 </select>
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-sm-3">
+        
+            <div class="col-sm-2">
                 <label>Turno</label>
                 <select class="form-control" name="turno">
                     <option selected disabled>Todos</option>
@@ -99,7 +98,7 @@
                 </select>
             </div>
             
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <label>Período letivo: </label>
                 <select class="form-control" name="periodo_letivo">
                 <option selected disabled>Todos</option>
@@ -108,17 +107,18 @@
                     @endforeach
                 </select>
             </div>
+ 
         </div>
-        <div class="row align-items-start mt-3 text-center">
-            <div class="col-sm-3">
+        <div class="row justify-content-md-center mt-3 text-center">
+            <div class="col-sm-2">
                 <a class="btn btn-success" href="">Buscar</a>
             </div>
-            <div class="col-sm-3">
-                <a style="color:#fff;" class="btn btn-info" href="">Limpar</a>
+            <div class="col-sm-2">
+                <a style="color:#fff;" class="btn btn-info" href="">Limpar filtros</a>
             </div>
         </div>
     </div>
-    <table class="table table-sm mt-5">
+    <table class="table table-sm mt-5 text-center">
         <tr>
             <th>Curso</th>
 			<th>Disciplina</th>

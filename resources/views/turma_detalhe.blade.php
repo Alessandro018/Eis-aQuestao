@@ -7,7 +7,8 @@
                 <th>Professores</th>
                 <th>Curso</th>
                 <th>Disciplina</th>
-                <th>Peiodo_letivo|turno</th>
+                <th>Periodo letivo</th>
+                <th>turno</th>
             </tr>
                 <tr>
                 <td>
@@ -17,7 +18,8 @@
                 </td>
                     <td>{{$detalhes->first()->curso}}</td>
                     <td>{{$detalhes->first()->disciplina}}</td>
-                    <td>{{$detalhes->first()->ano}}.{{$detalhes->first()->semestre}}|{{$detalhes->first()->turno}}</td>
+                    <td>{{$detalhes->first()->ano}}.{{$detalhes->first()->semestre}}</td>
+                    <td>{{$detalhes->first()->turno}}</td>
                 </tr>
         </table>
     </div>

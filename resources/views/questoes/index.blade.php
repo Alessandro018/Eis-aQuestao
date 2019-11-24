@@ -76,7 +76,7 @@
 	</div>
 </div>
 </div>
-	<div class="row align-items-center justify-content-center">
+	<div class="row align-items-center">
 		<div class="col-sm-3">
 			<label>Curso: </label>
 			<select class="form-control" name="curso">
@@ -118,7 +118,6 @@
 			<a style="color:#fff;" class="btn btn-info" href="">Limpar filtros</a>
 		</div>
 	</div>
-</div>
 	<div class="row justify-content-center mt-5">
 		@if ($errors->any())
 			<div class="alert alert-danger text-center w-50">
@@ -179,5 +178,5 @@
 	<div class="row justify-content-center text-center mx-auto w-25">
 		{{ $questoes->links('vendor.pagination.simple-bootstrap-4') }}
 	</div>
-	
+</div>
 @endsection
