@@ -99,3 +99,8 @@ td {
     border-radius: 10%;
     border-radius: .25rem;
 }
+.btn-grey{
+    background-color: #343A40;
+    border-radius: 10%;
+    border-radius: .25rem;
+    opacity: 0.8;
