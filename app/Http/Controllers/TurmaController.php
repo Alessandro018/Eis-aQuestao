@@ -23,7 +23,7 @@ class TurmaController extends Controller
             ->join('cursos','cursos.id', '=', 'disciplinas.curso_id')
             ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
             ->select('turmas.*','disciplinas.nome as disciplina','cursos.nome as curso','periodos_letivos.ano as ano','periodos_letivos.semestre as semestre')
-            ->where('professor_id','=',auth()->user()->id)->simplePaginate(5);
+            ->where('professor_id','=',auth()->user()->id)->paginate(5);
             $periodos_letivos = \App\Periodo_Letivo::all();
             $cursos = \App\Curso::all();
             $disciplinas = \App\Disciplina::all();
