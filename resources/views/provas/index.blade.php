@@ -141,8 +141,8 @@
 					@csrf
                     @method('DELETE')
 
-                        <a href="{{ action('ProvaController@edit',$prova->id) }}" class="btn btn-primary">Editar</a>
-                           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
+                        <a style="color:#fff;" class="btn btn-grey"href="{{ action('ProvaController@edit',$prova->id) }}">Editar</a>
+                           <button type="button" class="btn btn-orange1" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
 
                             <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
                                 <div class="modal-dialog modal-md">
