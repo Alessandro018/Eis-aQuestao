@@ -6,7 +6,7 @@
 <h2>Minhas questões</h2>
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
-	<button type="button" class="btn btn-orange1 float-right w-25" data-toggle="modal" data-target="#exampleModalLong">Criar questão</button>
+	<button type="button" class="btn btn-orange1 btn-lg float-right w-25" data-toggle="modal" data-target="#exampleModalLong">Criar questão</button>
 	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
