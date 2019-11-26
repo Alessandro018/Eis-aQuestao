@@ -91,10 +91,10 @@
             </div>                    
                 <div class="row justify-content-center m-3">
                     <div class="col-2">
-                        <a href="" class="btn btn-success">Buscar</a>
+                        <a href="" class="btn btn-orange1">Buscar</a>
                     </div>
                     <div class="col-2">
-                        <button type="reset" style="color:#fff;" class="btn btn-info">Limpar filtros</button>
+                        <a style="color:#fff;" class="btn btn-grey" href="">Limpar filtros</a>
                     </div>
                 </div>
         </div>
