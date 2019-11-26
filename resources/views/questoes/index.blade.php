@@ -121,7 +121,7 @@
 	<div class="row justify-content-center mt-5">
 		@if ($errors->any())
 			<div class="alert alert-danger text-center w-50">
-				<button type="button" class="close" aria-label="Close">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				@foreach ($errors->all() as $error)
@@ -132,6 +132,15 @@
 
 		@if ($message = Session::get('success'))
 			<div class="alert alert-success text-center w-50">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				{{ $message }}
+			</div>
+		@endif
+
+		@if ($message = Session::get('warning'))
+			<div class="alert alert-warning text-center w-50">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>

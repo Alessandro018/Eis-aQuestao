@@ -109,10 +109,10 @@ class QuestaoController extends Controller
             DB::table('questoes')->where('id',$request->id)->update(['situacao' => $request->situacao]);
             if($request->situacao == 'Habilitado'){
                 return redirect()->route('questoes.index')
-                ->with('success','Questão Habilitada.');
+                ->with('success','Questão habilitada.');
             }else{
                 return redirect()->route('questoes.index')
-                ->with('success','Questão Desabilitada.');
+                ->with('warning','Questão desabilitada.');
             }
         }
         return redirect()->route('login');

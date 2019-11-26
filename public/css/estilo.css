@@ -104,3 +104,8 @@ td {
     border-radius: 10%;
     border-radius: .25rem;
     opacity: 0.8;
+}
+.alert-warning{
+    color: #84700e;
+    background: #ffff99;
+}
