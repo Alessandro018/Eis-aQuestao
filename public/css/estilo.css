@@ -88,6 +88,17 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+#link1{
+    padding: 10px 20px;
+}
+#link2{
+    padding: 10px 20px;
+}
+#link3{
+    padding: 10px 20px;
+}
+
 .btn-orange{
     background-color: #ED9C2E;
     border-radius: 10%;
