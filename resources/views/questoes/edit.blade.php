@@ -23,10 +23,11 @@
               <label class="input-group-text label-form">Nivel</label>
             </div>
             <select name="nivel" class="custom-select" required="" id="exampleFormControlSelect1">
-                <option>{{ $questao->nivel }}</option>
                 @for ($i=1; $i<=3; $i++)
-                    @if ($questao->nivel != $i)
-                        <option>{{ $i }}</option>
+                    @if ($questao->nivel == $i)
+                        <option selected>{{ $i }}</option>
+                    @else
+                    <option>{{ $i }}</option>
                     @endif
                 @endfor
             </select>
