@@ -30,9 +30,9 @@
 
                     @if(Auth::check())
                         @if (Route::has('questoes.index'))
-                            <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ action('QuestaoController@index') }}">Questões</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ action('ProvaController@index') }}">Provas</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ action('TurmaController@index') }}">Turmas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-light" id="link1" href="{{ action('QuestaoController@index') }}">Questões</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-light" id="link2" href="{{ action('ProvaController@index') }}">Provas</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark btn-light" id="link3" href="{{ action('TurmaController@index') }}">Turmas</a></li>
                         @endif
                     @endif
 
