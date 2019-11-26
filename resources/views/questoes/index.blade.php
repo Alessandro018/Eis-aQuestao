@@ -18,7 +18,7 @@
 		</div>
 		<div class="modal-body">
 			
-		<form action="{{ route('questoes.store') }}" method="POST" >
+		<form action="{{ route('questoes.store') }}" id="questao" method="POST" >
 		@csrf
 		<div class="form-group">
 			</div>
