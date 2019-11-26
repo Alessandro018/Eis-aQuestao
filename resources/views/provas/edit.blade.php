@@ -60,6 +60,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Salvar</button>
+            <a class="btn btn-danger" href="{{ route('prova.index') }}">Cancelar</a>
         </div>
     </form>
 @endsection
