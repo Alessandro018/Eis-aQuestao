@@ -102,12 +102,14 @@
     <div class="row justify-content-center mt-5">
         @if ($errors->any())
             <div class="alert alert-danger text-center w-50">
-                <button type="button" class="close" aria-label="Close">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                @foreach ($errors->all() as $error)
-                    {{ $error }}
-                @endforeach
+                <ul class="mb-n1">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
 
@@ -146,7 +148,7 @@
                                 <div class="modal-dialog modal-md">
                                     <div class="modal-content">
                                         <div class="modal-body" style="">
-                                            Tem certeza que deseja excluir a Prova?
+                                            Tem certeza que deseja excluir a prova?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>

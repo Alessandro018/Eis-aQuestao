@@ -33,7 +33,7 @@ $(document).ready(function(){
             }
         })
     })
-    $('form#questao').on('keydown', function(event) {
+    $('form').on('keydown', function(event) {
         if (event.ctrlKey && event.keyCode === 13) {
             $(this).trigger('submit');
         }
