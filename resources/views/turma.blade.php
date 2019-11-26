@@ -111,10 +111,10 @@
         </div>
         <div class="row justify-content-md-center mt-3 text-center">
             <div class="col-sm-2">
-                <a class="btn btn-success" href="">Buscar</a>
+                <a class="btn btn-orange1" href="">Buscar</a>
             </div>
             <div class="col-sm-2">
-                <a style="color:#fff;" class="btn btn-info" href="">Limpar filtros</a>
+                <a style="color:#fff;" class="btn btn-grey" href="">Limpar filtros</a>
             </div>
         </div>
     </div>
