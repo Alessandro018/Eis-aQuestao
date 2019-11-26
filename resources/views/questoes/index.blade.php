@@ -151,28 +151,32 @@
 		</tr>
 
 		@foreach ($questoes as $questao)
-		<tr>
-			<td>{{ $questao->pergunta }}</td>
-			<td>{{ $questao->nome }}</td>
-			<td>{{ $questao->nivel }}</td>
-			<td>{{ $questao->nome_professor }}</td>
-			<td>{{ $questao->situacao }}</td>
-			<td>
-				<form action="{{ action('QuestaoController@desabilitar') }}" method="POST">
-					<a style="color:#fff;" class="btn btn-grey" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
-					@csrf
-					@method('PUT')
-					<input type="hidden" value="{{$questao->id}}" name="id">
-					@if($questao->situacao =='Habilitado')
-						<input type="hidden" value="Desabilitado" name="situacao">
-						<button type="submit" class="btn btn-orange1">Desabilitar</button>
-					@else
-						<input type="hidden" value="Habilitado" name="situacao">
-						<button type="submit" class="btn btn-success">Habilitar</button>
-					@endif
-				</form>		
-			</td>
-		</tr>
+			@if($questao->situacao=='Desabilitado')
+				<tr class="text-secondary">
+			@else
+				<tr>
+			@endif
+					<td>{{ $questao->pergunta }}</td>
+					<td>{{ $questao->nome }}</td>
+					<td>{{ $questao->nivel }}</td>
+					<td>{{ $questao->nome_professor }}</td>
+					<td>{{ $questao->situacao }}</td>
+					<td>
+						<form action="{{ action('QuestaoController@desabilitar') }}" method="POST">
+							<a style="color:#fff;" class="btn btn-grey" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
+							@csrf
+							@method('PUT')
+							<input type="hidden" value="{{$questao->id}}" name="id">
+							@if($questao->situacao =='Habilitado')
+								<input type="hidden" value="Desabilitado" name="situacao">
+								<button type="submit" class="btn btn-orange1">Desabilitar</button>
+							@else
+								<input type="hidden" value="Habilitado" name="situacao">
+								<button type="submit" class="btn btn-success">Habilitar</button>
+							@endif
+						</form>		
+					</td>
+				</tr>
 		@endforeach
 	</table>
 	<div class="row justify-content-center text-center mx-auto w-25">
