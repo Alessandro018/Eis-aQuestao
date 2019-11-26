@@ -37,7 +37,15 @@
                     @endif
 
                     @if(Auth::check() && Route::has('questoes.index'))
-                        <li class="nav-item"><a class="nav-link text-dark btn-light" href="{{ route('logout') }}">Sair</a></li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link text-dark btn-light dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->nome }}
+                                <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark btn-light" href="{{ route('logout') }}">Sair</a>
+                            </div>
+                        </li>
                     @else
                         <li class="nav-item"><a class="nav-link text-dark btn-orange" href="{{ route('login') }}">Entrar</a></li>
                     @endif
