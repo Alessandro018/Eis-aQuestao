@@ -93,7 +93,7 @@
         <div class="second-bar">
            <div class="container">
                 <div class="logo float-left w-25 ml-n5 mt-n4">
-                    <a href="#"><img class="w-75" src="{{ asset('img/logo1.png') }}"></a>
+                    <a href="#"><img class="w-75" src="{{ asset('img/footer-logo.png') }}"></a>
                 </div>
                 <div class="social-icons">
                     <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
