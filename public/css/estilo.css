@@ -60,8 +60,9 @@ textarea{
     float:right;
     padding: 10px;
 }
-textarea{
-    resize:none;
+.color{
+    border-color: #ed9c2e;
+    color: #ed9c2e;
 }
 .carousel-caption-center {
     position: absolute;
@@ -79,16 +80,15 @@ textarea{
     width: 150px;
     border-radius: 6px;
 }
-.img-car{
-    border-radius: 40px;
-}
 td {
     max-width: 120px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.mt-7{
+    margin-top: 8rem;
+}
 #link1{
     padding: 10px 20px;
 }
@@ -103,12 +103,12 @@ td {
     background-color: #ED9C2E;
     border-radius: 10%;
     width: 70px;
-
 }
 .btn-orange1{
     background-color: #ED9C2E;
     border-radius: 10%;
     border-radius: .25rem;
+    text-decoration: none;
 }
 .btn-grey{
     background-color: #343A40;
@@ -120,4 +120,12 @@ td {
     color: black;
     background: #f8d45f;
     opacity: 0.5;
+}
+.carousel-control-prev-icon { 
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%458089' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
+    transform: scaleX(1);
+}
+.carousel-control-next-icon { 
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%458089' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    transform: scaleX(1);
 }
