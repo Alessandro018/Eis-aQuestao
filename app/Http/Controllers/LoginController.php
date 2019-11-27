@@ -30,7 +30,7 @@ class LoginController extends Controller
             
         if($usuario && Hash::check($request->senha, $usuario->senha)){
             Auth::loginUsingId($usuario->id, $lembrar);
-            return redirect()->route('home');
+            return redirect('/questoes');
         }
         
         return view('login');
