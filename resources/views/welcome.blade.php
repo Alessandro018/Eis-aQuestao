@@ -47,4 +47,36 @@
     </a>
 </div>
 
+<div class="row mt-7">
+    <div class="col-sm-4">
+        <div class="card color mb-3">
+            <img class="card-img-top" src="https://user-images.githubusercontent.com/48129117/69589950-a7222800-0fcc-11ea-97fa-ec40ab54f99e.jpeg" alt="Card image">
+            <div class="card-body text-warning">
+                <h5 class="color text-center">Coreção com QRcode.</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card border-dark mb-3">
+            <img class="card-img-top" src="https://user-images.githubusercontent.com/48128957/69599472-e57b0f80-0feb-11ea-8789-1a4be517679a.png" alt="Card image">
+            <div class="card-body text-dark">
+                <h5 class="card-title text-center">Provas geradas em PDF ou DOC.</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card color mb-3">
+            <img class="card-img-top" src="http://sindimetalcanoas.org.br/novo/wp-content/uploads/2019/04/como-elaborar-um-formulario-de-pesquisa.png" alt="Card image">
+            <div class="card-body text-warning">
+                <h5 class="color text-center">Questões com nives de dificuldade.</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="mx-auto">
+        <a class="p-3 mw-100 btn-lg btn btn-orange1" href="{{ action('QuestaoController@index') }}">Começar</a>
+    </div>
+</div>
 @endsection
