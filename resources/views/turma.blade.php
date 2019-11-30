@@ -111,10 +111,10 @@
         </div>
         <div class="row justify-content-md-center mt-3 text-center">
             <div class="col-sm-2">
-                <a class="btn btn-orange1" href="">Buscar</a>
+                <a class="btn btn-warning" href="">Pesquisar</a>
             </div>
             <div class="col-sm-2">
-                <a style="color:#fff;" class="btn btn-grey" href="">Limpar filtros</a>
+                <a class="btn btn-secondary" href="">Limpar filtros</a>
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
                         @csrf
                         @method('PUT')
                         <input type="hidden" value="{{$turma->id}}" name="id">
-                            <button type="submit" class="btn btn-secondary">Detalhe</button>
+                            <button type="submit" class="btn btn-dark">Detalhe</button>
                     </form>
                 </td>
             </tr>
