@@ -90,7 +90,7 @@
 			</select>
 		</div>
 		<div class="col-sm-3">
-			<label>Nivel</label>
+			<label>Nível: </label>
 			<select class="form-control" name="nivel">
 				<option value="todos">Selecione</option>
 				<option value="1">1</option>

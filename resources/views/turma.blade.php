@@ -89,7 +89,7 @@
             </div>
         
             <div class="col-sm-2">
-                <label>Turno</label>
+                <label>Turno: </label>
                 <select class="form-control" name="turno">
                     <option selected disabled>Selecione</option>
                     <option value="Manhã">Manhã</option>
