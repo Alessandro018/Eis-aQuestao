@@ -115,7 +115,7 @@
 			<a class="btn btn-orange1" href="">Buscar</a>
 		</div>
 		<div class="col-2">
-			<a style="color:#fff;" class="btn btn-grey" href="">Limpar filtros</a>
+			<a style="color:#fff;" class="btn btn-secondary" href="">Limpar filtros</a>
 		</div>
 	</div>
 	<div class="row justify-content-center mt-5">
@@ -174,13 +174,13 @@
 					<td>{{ $questao->situacao }}</td>
 					<td>
 						<form action="{{ action('QuestaoController@desabilitar') }}" method="POST">
-							<a style="color:#fff;" class="btn btn-grey" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
+							<a class="btn btn-orange1" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 							@csrf
 							@method('PUT')
 							<input type="hidden" value="{{$questao->id}}" name="id">
 							@if($questao->situacao =='Habilitado')
 								<input type="hidden" value="Desabilitado" name="situacao">
-								<button type="submit" class="btn btn-orange1">Desabilitar</button>
+								<button type="submit" class="btn btn-secondary">Desabilitar</button>
 							@else
 								<input type="hidden" value="Habilitado" name="situacao">
 								<button type="submit" class="btn btn-success">Habilitar</button>
