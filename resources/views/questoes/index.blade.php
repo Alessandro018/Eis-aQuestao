@@ -80,19 +80,19 @@
 		<div class="col-sm-3">
 			<label>Curso: </label>
 			<select class="form-control" name="curso">
-				<option value="">Todos</option>
+				<option value="">Selecione</option>
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label>Disciplina: </label>
 			<select class="form-control" name="disciplina">
-				<option value="">Todos</option>
+				<option value="">Selecione</option>
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label>Nivel</label>
 			<select class="form-control" name="nivel">
-				<option value="todos">Todos</option>
+				<option value="todos">Selecione</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
