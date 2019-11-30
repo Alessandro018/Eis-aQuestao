@@ -19,7 +19,7 @@
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
-                <a class="btn btn-orange1 btn-lg float-right w-25 text-black" data-toggle="modal" data-target="#confirm">Importar</a>
+                <a class="btn btn-info btn-lg float-right w-25 text-white" data-toggle="modal" data-target="#confirm">Importar</a>
                 <div class="modal fade" id="confirm">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">

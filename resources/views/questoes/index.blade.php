@@ -6,7 +6,7 @@
 <h2>Minhas questões</h2>
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
-	<button type="button" class="btn btn-orange1 btn-lg float-right w-25" data-toggle="modal" data-target="#exampleModalLong">Criar questão</button>
+	<button type="button" class="btn btn-info btn-lg float-right w-25 text-white" data-toggle="modal" data-target="#exampleModalLong">Criar questão</button>
 	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -112,7 +112,7 @@
 	</div>
 	<div class="row justify-content-center m-3">
 		<div class="col-2">
-			<a class="btn btn-orange1" href="">Buscar</a>
+			<a class="btn btn-success" href="">Buscar</a>
 		</div>
 		<div class="col-2">
 			<a style="color:#fff;" class="btn btn-secondary" href="">Limpar filtros</a>
@@ -174,7 +174,7 @@
 					<td>{{ $questao->situacao }}</td>
 					<td>
 						<form action="{{ action('QuestaoController@desabilitar') }}" method="POST">
-							<a class="btn btn-orange1" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
+							<a class="btn btn-outline-primary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 							@csrf
 							@method('PUT')
 							<input type="hidden" value="{{$questao->id}}" name="id">

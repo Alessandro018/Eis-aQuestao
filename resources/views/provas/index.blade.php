@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-orange1 btn-lg float-right w-25 text-black" data-toggle="modal" data-target="#confirm">Criar prova</a>
+                    <a class="btn btn-info btn-lg float-right w-25 text-white" data-toggle="modal" data-target="#confirm">Criar prova</a>
                 </div>
                 <div class="col-sm-3">
                     <label>Curso: </label>
@@ -91,10 +91,10 @@
             </div>                    
                 <div class="row justify-content-center m-3">
                     <div class="col-2">
-                        <a href="" class="btn btn-orange1">Buscar</a>
+                        <a href="" class="btn btn-success">Buscar</a>
                     </div>
                     <div class="col-2">
-                        <a style="color:#fff;" class="btn btn-grey" href="">Limpar filtros</a>
+                        <a style="color:#fff;" class="btn btn-secondary" href="">Limpar filtros</a>
                     </div>
                 </div>
         </div>
@@ -141,8 +141,8 @@
 					@csrf
                     @method('DELETE')
 
-                        <a style="color:#fff;" class="btn btn-grey"href="{{ action('ProvaController@edit',$prova->id) }}">Editar</a>
-                           <button type="button" class="btn btn-orange1" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
+                        <a class="btn btn-outline-primary"href="{{ action('ProvaController@edit',$prova->id) }}">Editar</a>
+                           <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
 
                             <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
                                 <div class="modal-dialog modal-md">
