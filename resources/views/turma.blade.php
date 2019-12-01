@@ -15,11 +15,11 @@
             </ul>
         </div>
     @endif
-    <h2>Minhas turmas</h2>
+    <h3 class="text-center">Minhas turmas</h3>
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
-                <a class="btn btn-info btn-lg float-right w-25 text-white" data-toggle="modal" data-target="#confirm">Importar</a>
+                <a class="btn btn-orange1 btn-lg float-right text-black" data-toggle="modal" data-target="#confirm">Importar</a>
                 <div class="modal fade" id="confirm">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -78,7 +78,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <label>Disciplina: </label>
                 <select class="form-control" name="disciplina">
                     <option value="" disabled selected>Selecione</option>
@@ -111,10 +111,10 @@
         </div>
         <div class="row justify-content-md-center mt-3 text-center">
             <div class="col-sm-2">
-                <a class="btn btn-warning" href="">Pesquisar</a>
+                <a class="btn btn-orange1" href="">Buscar</a>
             </div>
             <div class="col-sm-2">
-                <a class="btn btn-secondary" href="">Limpar filtros</a>
+                <a class="btn btn-grey" href="">Limpar filtros</a>
             </div>
         </div>
     </div>
@@ -137,7 +137,7 @@
                         @csrf
                         @method('PUT')
                         <input type="hidden" value="{{$turma->id}}" name="id">
-                            <button type="submit" class="btn btn-dark">Detalhe</button>
+                            <button type="submit" class="btn btn-secondary">Detalhe</button>
                     </form>
                 </td>
             </tr>
