@@ -62,7 +62,7 @@ $(document).ready(function(){
 
         //     }
         // })
-        console.log(value);
+        // console.log(value);
     })
     
 

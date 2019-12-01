@@ -59,12 +59,12 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-info btn-lg float-right w-25 text-white" data-toggle="modal" data-target="#confirm">Criar prova</a>
+                    <a class="btn btn-orange1 btn-lg float-right w-25 text-black" data-toggle="modal" data-target="#confirm">Criar prova</a>
                 </div>
                 <div class="col-sm-3">
                     <label>Curso: </label>
                     <select class="form-control" name="curso">
-                        <option disabled selected>Selecione</option>
+                        <option disabled selected>Todos</option>
                         @foreach($cursos as $curso)
                             <option value="{{$curso->id}}">{{$curso->nome}}</option>
                         @endforeach
@@ -73,7 +73,7 @@
                 <div class="col-sm-3">
                     <label>Disciplina: </label>
                     <select class="form-control" name="disciplina">
-                        <option value="" disabled selected>Selecione</option>
+                        <option value="" disabled selected>Todos</option>
                         @foreach($disciplinas as $disciplina)
                             <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
                         @endforeach
@@ -82,7 +82,7 @@
                 <div class="col-sm-3">
                     <label>Período letivo: </label>
                     <select class="form-control" name="periodo_letivo">
-                    <option selected disabled>Selecione</option>
+                    <option selected disabled>Todos</option>
                         @foreach($periodos_letivos as $periodo_letivo)
                             <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
                         @endforeach
@@ -91,10 +91,10 @@
             </div>                    
                 <div class="row justify-content-center m-3">
                     <div class="col-2">
-                        <a href="" class="btn btn-success">Buscar</a>
+                        <a href="" class="btn btn-orange1">Buscar</a>
                     </div>
                     <div class="col-2">
-                        <a style="color:#fff;" class="btn btn-secondary" href="">Limpar filtros</a>
+                        <a style="color:#fff;" class="btn btn-grey" href="">Limpar filtros</a>
                     </div>
                 </div>
         </div>
@@ -141,22 +141,24 @@
 					@csrf
                     @method('DELETE')
 
-                        <a class="btn btn-outline-primary"href="{{ action('ProvaController@edit',$prova->id) }}">Editar</a>
-                           <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
+                        <!-- <a style="color:#fff;" class="btn btn-grey"href="{{ action('ProvaController@edit',$prova->id) }}">Editar</a> -->
+                        <button type="button" id="editar" class="btn btn-secondary" value="{{$prova}}"data-toggle="modal" data-target="#modal_{{ $prova->id }}">Editar</button>
 
-                            <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
-                                <div class="modal-dialog modal-md">
-                                    <div class="modal-content">
-                                        <div class="modal-body" style="">
-                                            Tem certeza que deseja excluir a prova?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                                            <button type="submit" class="btn btn-danger">Excluir</button>
-                                        </div>
+                        <button type="button" class="btn btn-orange1" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
+
+                        <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-body" style="">
+                                        Tem certeza que deseja excluir a prova?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 				</form>		
             </td>
 		</tr>
