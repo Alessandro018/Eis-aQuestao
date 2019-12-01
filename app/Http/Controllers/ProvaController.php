@@ -24,7 +24,7 @@ class ProvaController extends Controller
             ->join('turmas_has_professores', 'turmas_has_professores.turma_id', 'turmas.id')
             ->join('periodos_letivos', 'periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
             ->join('disciplinas', 'disciplinas.id', 'turmas.disciplina_id')
-            ->select('disciplinas.nome', 'periodos_letivos.ano', 'periodos_letivos.semestre',
+            ->select('disciplinas.*', 'disciplinas.id as disc_id', 'periodos_letivos.ano', 'periodos_letivos.semestre',
              'turmas.turno', 'provas.id', 'provas.created_at')
             ->where('turmas_has_professores.professor_id', auth()->user()->id)->paginate(5);
             

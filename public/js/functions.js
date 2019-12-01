@@ -39,4 +39,31 @@ $(document).ready(function(){
         }
     })
 
+    $('button#editar').on('click', function(e){
+        e.preventDefault();
+        const value = JSON.parse($(this).attr('value'));
+        var target = $(this).attr('data-target');
+        $('body').toggleClass('modal-open');
+        $('div#confirm').toggleClass('show');
+        $('body').append('<div class="modal-backdrop fade show"></div>');
+        $('div#confirm').css('display', 'block');
+        $('div#confirm').attr('aria-modal', 'true');
+        $('div#confirm').attr('id', target);
+        $('form#prova, select[name="turma_id"]').html('<option>'+value.nome+' - '+value.ano + value.semestre + ' | ' + value.turno);
+        $('form#prova, select[name="curso"], option[value="'+value.curso_id+'"]').attr('selected', "");
+        $('form#prova, button[type="submit"]').html('Atualizar');
+        $('form#prova, select[name="turma_id"]').removeAttr("disabled");
+
+        // $.ajax({
+        //     url: '',
+        //     type: 'POST',
+        //     data: {id_curso: value.curso_id},
+        //     success: function(retorno){
+
+        //     }
+        // })
+        console.log(value);
+    })
+    
+
 })
