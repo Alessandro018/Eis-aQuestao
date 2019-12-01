@@ -46,7 +46,7 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleFormControlTextarea1">Texto</label>
-				<textarea class="form-control" cols="40" rows="3" maxlength="2000" name="pergunta"
+				<textarea class="form-control" id="pergunta" cols="40" rows="3" maxlength="2000" name="pergunta"
 				placeholder="Pergunta" required></textarea>
 			</div>
 			<div class="form-group">
@@ -63,7 +63,7 @@
 					</div>
 				@endfor
 			</div>
-			<div class="modal-footer border-0" style="display: flex; justify-content: center;">
+			<div class="modal-footer border-0">
 				<input type="hidden" name="situacao" value="1">
 				<input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
 				<button type="submit" class="btn btn-success">Salvar</button>
