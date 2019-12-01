@@ -63,7 +63,7 @@
 					</div>
 				@endfor
 			</div>
-			<div class="modal-footer border-0">
+			<div class="modal-footer border-0" style="display: flex; justify-content: center;">
 				<input type="hidden" name="situacao" value="1">
 				<input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
 				<button type="submit" class="btn btn-success">Salvar</button>
