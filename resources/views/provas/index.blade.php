@@ -64,7 +64,7 @@
                 <div class="col-sm-3">
                     <label>Curso: </label>
                     <select class="form-control" name="curso">
-                        <option disabled selected>Todos</option>
+                        <option disabled selected>Selecione</option>
                         @foreach($cursos as $curso)
                             <option value="{{$curso->id}}">{{$curso->nome}}</option>
                         @endforeach
@@ -73,7 +73,7 @@
                 <div class="col-sm-3">
                     <label>Disciplina: </label>
                     <select class="form-control" name="disciplina">
-                        <option value="" disabled selected>Todos</option>
+                        <option value="" disabled selected>Selecione</option>
                         @foreach($disciplinas as $disciplina)
                             <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
                         @endforeach
@@ -82,7 +82,7 @@
                 <div class="col-sm-3">
                     <label>Período letivo: </label>
                     <select class="form-control" name="periodo_letivo">
-                    <option selected disabled>Todos</option>
+                    <option selected disabled>Selecione</option>
                         @foreach($periodos_letivos as $periodo_letivo)
                             <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
                         @endforeach
