@@ -3,7 +3,7 @@
 @section('content')
     <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <h2>Minhas provas</h2>
+        <h3 class="text-center">Minhas provas</h3>
         <div class="form-group">
             <div class="row justify-content-start">
                 <div class="col-sm-6 offset-sm-6">
