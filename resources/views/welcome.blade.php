@@ -13,10 +13,8 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                           <img class="card-img-top w-100" src="{{ asset('img/ifpe3.png') }}" alt="Card image">
-                           <br>
-                           <br>
-                            <h4 class="text-dark text-center">Questões com níveis de dificuldades.  
+                           <img class="card-img-top img-width-1" src="{{ asset('img/ifpe3.png') }}" alt="Card image">
+                            <h4 class="mt-5 text-dark text-center">Questões com níveis de dificuldades.  
                             </h4>
                         </div>
                     </div>
@@ -26,10 +24,8 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                             <img class="card-img-top w-100" src="{{ asset('img/ifpe2.png') }}" alt="Card image">
-                             <br>
-                             <br>
-                             <h4 class="text-dark text-center">Correção com QRcode.</h4>
+                             <img class="card-img-top img-width-2" src="{{ asset('img/ifpe2.png') }}" alt="Card image">
+                             <h4 class="mt-5 text-dark text-center">Correção com QRcode.</h4>
                         </div>
                     </div>
                 </div>
@@ -38,10 +34,8 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                            <img class="card-img-top w-100" src="{{ asset('img/ifpe1.png') }}"alt="Card image">
-                              <br>
-                              <br>
-                             <h4 class="card-title text-center">Provas geradas em PDF.</h4>
+                            <img class="card-img-top img-width-3" src="{{ asset('img/ifpe1.png') }}"alt="Card image">
+                             <h4 class="mt-5 card-title text-center">Provas geradas em PDF.</h4>
                         </div>
                     </div>
                 </div>
