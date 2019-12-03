@@ -56,37 +56,4 @@
             <span class="sr-only pink">Next</span>
         </a>
     </div>
-
-  <!--   <div class="row mt-7">
-        <div class="col-sm-4">
-            <div class="card color mb-3">
-                <img class="card-img-top" src="https://user-images.githubusercontent.com/48129117/69589950-a7222800-0fcc-11ea-97fa-ec40ab54f99e.jpeg" alt="Card image">
-                <div class="card-body text-warning">
-                    <h5 class="color text-center">Correção com QRcode.</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card color mb-3">
-                <img class="card-img-top" src="https://t2.uc.ltmcdn.com/pt/images/6/4/1/img_como_criar_um_arquivo_pdf_online_15146_600.jpg" alt="Card image">
-                <div class="card-body text-btn-orange">
-                    <h5 class="card-title text-center">Provas geradas em PDF.</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card color mb-3">
-                <img class="card-img-top" src="http://sindimetalcanoas.org.br/novo/wp-content/uploads/2019/04/como-elaborar-um-formulario-de-pesquisa.png" alt="Card image">
-                <div class="card-body text-warning">
-                    <h5 class="color text-center">Questões com níveis de dificuldades.</h5>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-   <!--  <div class="row mt-5">
-        <div class="mx-auto">
-            <a class="p-3 mw-100 btn-lg btn btn-outline-primary" href="{{ action('QuestaoController@index') }}">Começar</a>
-        </div>
-    </div> -->
     @endsection
