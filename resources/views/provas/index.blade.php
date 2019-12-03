@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-info btn-lg float-right w-25 text-white" data-toggle="modal" data-target="#confirm">Criar prova</a>
+                    <a class="btn btn-info btn-lg float-right text-white" data-toggle="modal" data-target="#confirm">Criar prova</a>
                 </div>
                 <div class="col-sm-3">
                     <label>Curso: </label>
