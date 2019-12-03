@@ -119,6 +119,7 @@
         </div>
     </div>
     <table class="table table-sm mt-5 text-center">
+    <thead class="thead-dark">
         <tr>
             <th>Curso</th>
 			<th>Disciplina</th>
