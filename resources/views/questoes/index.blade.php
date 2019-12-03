@@ -152,6 +152,7 @@
 	</div>
 
 	<table class="table table-sm mt-4 text-center">
+	<thead class="thead-dark">
 		<tr>
 			<th>Pergunta</th>
 			<th>Disciplina</th>
