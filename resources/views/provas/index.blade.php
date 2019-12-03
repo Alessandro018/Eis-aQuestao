@@ -129,6 +129,7 @@
 			<th>Período letivo</th>
 			<th>Turno</th>
             <th>Data de criação</th>
+            <th>Ação</th>
 		</tr>
 
 		@foreach ($provas as $prova)
