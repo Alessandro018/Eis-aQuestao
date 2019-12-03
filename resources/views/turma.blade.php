@@ -111,7 +111,7 @@
         </div>
         <div class="row justify-content-md-center mt-3 text-center">
             <div class="col-sm-2">
-                 <a class="btn btn-warning" href="">Pesquisar</a>
+                 <a class="btn btn-success" href="">Buscar</a>
             </div>
             <div class="col-sm-2">
                <a class="btn btn-secondary" href="">Limpar filtros</a>
