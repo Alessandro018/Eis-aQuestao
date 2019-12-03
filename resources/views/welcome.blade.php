@@ -13,10 +13,11 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                           <img class="card-img-top w-100" src="https://www.gradepen.com/img/slider03.png" alt="Card image">
+                           <img class="card-img-top w-100" src="{{ asset('img/ifpe3.png') }}" alt="Card image">
                            <br>
                            <br>
-                           <h4 class="text-dark text-center">Correção com QRcode.</h4>
+                            <h4 class="text-dark text-center">Questões com níveis de dificuldades.  
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -25,23 +26,22 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col-md-auto">
-                             <img class="card-img-top w-100" src="http://pw.blog.br/wp-content/uploads/2017/04/pdf.png" alt="Card image">
+                             <img class="card-img-top w-100" src="{{ asset('img/ifpe2.png') }}" alt="Card image">
                              <br>
                              <br>
+                             <h4 class="text-dark text-center">Correção com QRcode.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                            <img class="card-img-top w-100" src="{{ asset('img/ifpe1.png') }}"alt="Card image">
+                              <br>
+                              <br>
                              <h4 class="card-title text-center">Provas geradas em PDF.</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-auto">
-                            <img class="card-img-top w-100" src="http://portal.metodista.br/++theme++enade-2019-c-contagem/img/prova-contador.png"alt="Card image">
-                              <br>
-                              <br>
-                              <h4 class="text-dark text-center">Questões com níveis de dificuldades.  
-                              </h4>
                         </div>
                     </div>
                 </div>
