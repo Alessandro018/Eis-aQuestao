@@ -124,3 +124,7 @@ td {
 #pergunta{
     height: 150px;
 }
+.breadcrumb{
+    background-color:#f8fafc;
+    width:250px;
+}

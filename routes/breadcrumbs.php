@@ -1,8 +1,8 @@
 <?php
-Breadcrumbs::for('home', function ($trail) {
+Breadcrumbs::for('questoes', function ($trail) {
     $trail->push('Questões', action('QuestaoController@index'));
 });
-Breadcrumbs::for('questoes', function ($trail) {
-    $trail->parent('home');
-    $trail->push('Editar questão', action('HomeController@index'));
+Breadcrumbs::for('breadcrumb', function ($trail) {
+    $trail->parent('questoes');
+    $trail->push('Editar questão');
 });
