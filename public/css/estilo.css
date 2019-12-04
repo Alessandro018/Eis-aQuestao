@@ -51,7 +51,9 @@ textarea{
     resize: none;
     height: 150px;
 }
-
+.dropdown{
+   min-width: 1rem; 
+}
 .nav-header-pills .nav-item {
     font-weight: bold;
     margin: .5em;

@@ -42,8 +42,8 @@
                                 {{ Auth::user()->nome }}
                                 <span class="caret"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="nav-link text-dark btn-light" href="{{ route('logout') }}">Sair</a>
+                            <div class="dropdown dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item dropdown-item-left" href="{{ route('logout') }}">Sair</a>
                             </div>
                         </li>
                     @else
