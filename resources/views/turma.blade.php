@@ -57,7 +57,8 @@
                                         </select>
                                         <br>
                                         <label>Selecione o arquivo</label>
-                                        <input name="file" class="form-control-file" type="file" required>
+                                        <input name="file" class="form-control-file" type="file" required accept=".xls,.xlsx">
+                                        <span>.xml ou .xlsx</span>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
