@@ -60,31 +60,19 @@
     <footer class="mt-5" id="myFooter">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3">
-                    <h5 class="link-color">Iniciar</h5>
+                <div class="col-sm-4">
+                    <h5 class="link-color">Sobre Nós</h5>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Contatos</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-3">
-                    <h5 class="link-color">Sobre nós</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <h5 class="link-color">Suporte</h5>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-3 info">
+                <div class="col-sm-4 info">
                     <h5 class="link-color">Informações</h5>
                     <p>Este sistema tem como propósito servir como uma plataforma para que os professores possam criar questões baseadas em níveis de dificuldades e gerar provas de forma aleatória.</p>
                 </div>
@@ -94,6 +82,9 @@
            <div class="container">
                 <div class="logo float-left w-25 ml-n5 mt-n4">
                     <a href="#"><img class="w-75" src="{{ asset('img/footer-logo.png') }}"></a>
+                <ul>
+                    <li>© 2019 Eis a Questão </li>
+                </ul>
                 </div>
                 <div class="social-icons">
                     <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
