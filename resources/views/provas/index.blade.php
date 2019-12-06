@@ -53,7 +53,7 @@
                                     <div class="modal-footer">
                                         <input type="hidden" name="professor" value="{{ Auth::user()->id }}">
                                         <button type="submit" class="btn btn-success">Criar</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" class="btn btn-default">Cancelar</button>
                                     </div>
                                 </form>
                             </div>
