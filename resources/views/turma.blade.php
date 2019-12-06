@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success">Importar</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal" class="btn btn-default">Cancelar</button>
                                 </div>
                             </form>
                         </div>
