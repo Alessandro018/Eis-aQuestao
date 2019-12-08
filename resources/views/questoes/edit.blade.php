@@ -10,7 +10,6 @@
             </ul>
         </div>
     @endif
-    {{ Breadcrumbs::render('breadcrumb') }}
     <form action="{{ route('questoes.update', $questao->id) }}" method="POST" style="width: 60%; margin: auto;">
         @csrf
         @method('PUT')
