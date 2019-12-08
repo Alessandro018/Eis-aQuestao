@@ -70,55 +70,62 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2">
-                <label>Curso: </label>
-                <select class="form-control" name="curso">
-                    <option disabled selected>Selecione</option>
-                    @foreach($cursos as $curso)
-                        <option value="{{$curso->id}}">{{$curso->nome}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label>Disciplina: </label>
-                <select class="form-control" name="disciplina">
-                    <option value="" disabled selected>Selecione</option>
-                    @foreach($disciplinas as $disciplina)
-                        <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
-                    @endforeach
-                </select>
-            </div>
-        
-            <div class="col-sm-2">
-                <label>Turno: </label>
-                <select class="form-control" name="turno">
-                    <option selected disabled>Selecione</option>
-                    <option value="Manhã">Manhã</option>
-                    <option value="Tarde">Tarde</option>
-                    <option value="Noite">Noite</option>
-                </select>
-            </div>
-            
-            <div class="col-sm-2">
-                <label>Período letivo: </label>
-                <select class="form-control" name="periodo_letivo">
-                <option selected disabled>Selecione</option>
-                    @foreach($periodos_letivos as $periodo_letivo)
-                        <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
-                    @endforeach
-                </select>
-            </div>
- 
-        </div>
-        <div class="row justify-content-md-center mt-3 text-center">
-            <div class="col-sm-2">
-                 <a class="btn btn-success" href="">Buscar</a>
-            </div>
-            <div class="col-sm-2">
-               <a class="btn btn-secondary" href="">Limpar filtros</a>
-            </div>
         </div>
     </div>
+    <form id="turma" action="{{ route('turma') }}" method="POST">
+    @csrf
+        <div class="form-group">
+            <div class="row justify-content-start">
+                <div class="col-sm-2">
+                    <label>Curso: </label>
+                    <select class="form-control" name="curso">
+                        <option disabled selected>Selecione</option>
+                        @foreach($cursos as $curso)
+                        <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label>Disciplina: </label>
+                    <select class="form-control" name="disciplina">
+                        <option value="" disabled selected>Selecione</option>
+                        @foreach($disciplinas as $disciplina)
+                            <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            
+                <div class="col-sm-2">
+                    <label>Turno: </label>
+                    <select class="form-control" name="turno">
+                        <option selected disabled>Selecione</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                    </select>
+                </div>
+                
+                <div class="col-sm-2">
+                    <label>Período letivo: </label>
+                    <select class="form-control" name="periodo_letivo">
+                    <option selected disabled>Selecione</option>
+                        @foreach($periodos_letivos as $periodo_letivo)
+                            <option value="{{$periodo_letivo->id}}">{{$periodo_letivo->ano}}.{{$periodo_letivo->semestre}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-md-center mt-3 text-center">
+                <div class="col-sm-2">
+                    <button class="btn btn-success" type="submit">Buscar</button>
+                </div>
+                <div class="col-sm-2">
+                    <input class="btn btn-secondary" type="reset" value="Limpar filtros">
+                </div>
+            </div>
+        </div>
+    </form>
+
     <table class="table table-sm mt-5 text-center">
     <thead class="thead-dark">
         <tr>
@@ -146,6 +153,10 @@
         @endforeach
     </table>
     <div class="row justify-content-center text-center mx-auto w-25">
-         {{ $turmas->links() }}
+        @if(isset($request))
+			{{ $turmas->appends($request)->links() }}
+		@else
+			{{ $turmas->links() }}
+		@endif
     </div>
 @endsection

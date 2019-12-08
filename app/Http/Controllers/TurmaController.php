@@ -23,7 +23,47 @@ class TurmaController extends Controller
             ->join('cursos','cursos.id', '=', 'disciplinas.curso_id')
             ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
             ->select('turmas.*','disciplinas.nome as disciplina','cursos.nome as curso','periodos_letivos.ano as ano','periodos_letivos.semestre as semestre')
-            ->where('professor_id','=',auth()->user()->id)->paginate(5);
+            ->where('professor_id','=',auth()->user()->id)
+            ->orderBy('turmas_has_professores.created_at', 'desc')
+            ->paginate(5);
+            $periodos_letivos = \App\Periodo_Letivo::all();
+            $cursos = \App\Curso::all();
+            $disciplinas = \App\Disciplina::all();
+            return view('turma', ['turmas' => $turmas, 'periodos_letivos' => $periodos_letivos, 'cursos' => $cursos, 'disciplinas' => $disciplinas]);
+        }
+        return redirect()->route('login');
+    }
+
+    public function buscar(Request $request){
+        if(auth()->check()){
+            $check_curso = $request->curso;
+            $check_disciplina = $request->disciplina;
+            $check_turno = $request->turno;
+            $check_periodo_letivo = $request->periodo_letivo;
+
+            $turmas = DB::table('turmas_has_professores')
+            ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
+            ->join('disciplinas','disciplinas.id', '=', 'turmas.disciplina_id')
+            ->join('cursos','cursos.id', '=', 'disciplinas.curso_id')
+            ->join('periodos_letivos','periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
+            ->select('turmas.*','disciplinas.nome as disciplina','cursos.nome as curso','periodos_letivos.ano as ano','periodos_letivos.semestre as semestre')
+            ->when($check_curso,function($q) use ($request){
+                $q->where('cursos.id', $request->curso);   
+            })
+            ->when($check_disciplina,function($q) use ($request){
+                $q->where('disciplinas.id', $request->disciplina);   
+            })
+            ->when($check_turno,function($q) use ($request){
+                $q->where('turmas.turno', $request->turno);   
+            })
+            ->when($check_periodo_letivo,function($q) use ($request){
+                $q->where('periodos_letivos.id', $request->periodo_letivo);   
+            })
+            ->where(function($q) use ($request){
+                $q->where('professor_id','=',auth()->user()->id);   
+            })
+            ->orderBy('turmas_has_professores.created_at', 'desc')
+            ->paginate(5);
             $periodos_letivos = \App\Periodo_Letivo::all();
             $cursos = \App\Curso::all();
             $disciplinas = \App\Disciplina::all();

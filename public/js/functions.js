@@ -81,6 +81,23 @@ $(document).ready(function(){
             }
         })
     })
+
+    $('form#turma select[name="curso"]').on('change', function(){
+        var curso = $(this).val();
+        $.ajax({
+            url: '/api/curso',
+            type: 'POST',
+            data: { curso: curso },
+            success: function (retorno){
+                $('form#turma select[name="disciplina"]').empty();
+                $('form#turma select[name="disciplina"]').removeAttr("disabled");
+                $('form#turma select[name="disciplina"]').append("<option selected disabled >"+'Selecione'+"</option>");
+                for(let i in retorno){
+                    $('form#turma select[name="disciplina"]').append("<option value="+retorno[i].id+">"+retorno[i].nome+"</option>");
+                }
+            }
+        })
+    })
     
 
 })

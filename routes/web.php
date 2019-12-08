@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::put('/questoes','QuestaoController@desabilitar');
 Route::post('/questoes/buscar','QuestaoController@buscar')->name('questoes');
 Route::get('/questoes/buscar','QuestaoController@buscar')->name('questoes');
+Route::post('/turma/buscar','TurmaController@buscar')->name('turma');
+Route::get('/turma/buscar','TurmaController@buscar')->name('turma');
 Route::put('/turma/detalhe','TurmaController@detalhe');
 Route::resource('/questoes','QuestaoController');
 Route::resource('/periodos_letivos', 'PeriodoLetivoController');
