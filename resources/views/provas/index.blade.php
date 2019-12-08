@@ -61,6 +61,12 @@
                     </div>
                     <a class="btn btn-info btn-lg float-right text-white" data-toggle="modal" data-target="#confirm">Criar prova</a>
                 </div>
+            </div>
+    </form>
+    <form action="{{ route('prova') }}" method="POST">
+    @csrf
+        <div class="form-group">
+            <div class="row justify-content-start">
                 <div class="col-sm-3">
                     <label>Curso: </label>
                     <select class="form-control" name="curso">
@@ -91,12 +97,13 @@
             </div>                    
                 <div class="row justify-content-center m-3">
                     <div class="col-2">
-                        <a href="" class="btn btn-success">Buscar</a>
+                        <button class="btn btn-success" type="submit">Buscar</button>
                     </div>
                     <div class="col-2">
-                        <a style="color:#fff;" class="btn btn-secondary" href="">Limpar filtros</a>
+                        <input class="btn btn-secondary" type="reset" value="Limpar filtros">
                     </div>
                 </div>
+            </div>
         </div>
     </form>
     <div class="row justify-content-center mt-5">
@@ -164,6 +171,10 @@
 		@endforeach
 	</table>
     <div class="row justify-content-center text-center mx-auto w-25">
-         {{ $provas->links() }}
+         @if(isset($request))
+			{{ $provas->appends($request)->links() }}
+		@else
+			{{ $provas->links() }}
+		@endif
     </div>
 @endsection

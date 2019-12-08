@@ -23,6 +23,8 @@ Route::post('/questoes/buscar','QuestaoController@buscar')->name('questoes');
 Route::get('/questoes/buscar','QuestaoController@buscar')->name('questoes');
 Route::post('/turma/buscar','TurmaController@buscar')->name('turma');
 Route::get('/turma/buscar','TurmaController@buscar')->name('turma');
+Route::post('/prova/buscar','ProvaController@buscar')->name('prova');
+Route::get('/prova/buscar','ProvaController@buscar')->name('prova');
 Route::put('/turma/detalhe','TurmaController@detalhe');
 Route::resource('/questoes','QuestaoController');
 Route::resource('/periodos_letivos', 'PeriodoLetivoController');
