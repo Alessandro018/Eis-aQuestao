@@ -16,17 +16,63 @@ class QuestaoController extends Controller
             $questoes = DB::table('questoes')
             ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
             ->join('professores', 'professores.id', '=', 'questoes.professor_id')
-            ->select('questoes.*', 'disciplinas.nome','professores.nome as nome_professor')->Paginate(5);
+            ->select('questoes.*', 'disciplinas.nome','professores.nome as nome_professor')->orderBy('questoes.created_at', 'desc')->Paginate(5);
             $professor_disciplina = DB::table('turmas_has_professores')
             ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
             ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')
             ->select('disciplinas.nome', 'disciplinas.id')
             ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
-            return view('questoes.index', ['questoes' => $questoes, 'professor_disciplina' => $professor_disciplina]);
+            $cursos = \App\Curso::all();
+            $disciplinas = \App\Disciplina::all();
+            return view('questoes.index', ['disciplinas' => $disciplinas, 'questoes' => $questoes, 'professor_disciplina' => $professor_disciplina, 'cursos' => $cursos]);
         }
         return redirect()->route('login');
     }
 
+    public function buscar(Request $request)
+    {
+        if(auth()->check())
+        {
+            $check_curso = $request->curso;
+            $check_disciplina = $request->disciplina;
+            $check_nivel = $request->nivel;
+            $check_autor = $request->autor;
+            $check_search = $request->search;
+
+            $questoes = DB::table('questoes')
+            ->join('disciplinas', 'disciplinas.id', '=', 'questoes.disciplina_id')
+            ->join('cursos', 'cursos.id', '=', 'disciplinas.curso_id')
+            ->join('professores', 'professores.id', '=', 'questoes.professor_id')
+            ->select('questoes.*', 'disciplinas.nome','professores.nome as nome_professor')
+            ->when($check_curso,function($q) use ($request){
+                $q->where('cursos.id', $request->curso);   
+            })
+            ->when($check_disciplina,function($q) use ($request){
+                $q->where('disciplinas.id', $request->disciplina);   
+            })
+            ->when($check_nivel,function($q) use ($request){
+                $q->where('questoes.nivel', $request->nivel);   
+            })
+            ->when($check_autor,function($q) use ($request){
+                $q->where('professores.nome', $request->autor);   
+            })
+            ->when($check_search,function($q) use ($request){
+                $q->where('questoes.pergunta','LIKE', '%'.$request->search.'%');   
+            })
+            ->orderBy('questoes.created_at', 'desc')
+            ->Paginate(5);
+            $professor_disciplina = DB::table('turmas_has_professores')
+            ->join('turmas', 'turmas.id', '=', 'turmas_has_professores.turma_id')
+            ->join('disciplinas', 'disciplinas.id', '=', 'turmas.disciplina_id')
+            ->select('disciplinas.nome', 'disciplinas.id')
+            ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
+            $cursos = \App\Curso::all();
+            $disciplinas = \App\Disciplina::all();
+            return view('questoes.index', ['disciplinas' => $disciplinas, 'questoes' => $questoes, 'professor_disciplina' => $professor_disciplina, 'cursos' => $cursos]);
+
+        }
+        return redirect()->route('login');
+    }
 
     public function store(Request $request)
     {

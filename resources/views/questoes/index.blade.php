@@ -76,23 +76,31 @@
 	</div>
 </div>
 </div>
-	<div class="row align-items-center">
+<form action="{{ route('questoes') }}" method="POST">
+	@csrf
+	<div id="curso" class="row align-items-center">
 		<div class="col-sm-3">
 			<label>Curso: </label>
 			<select class="form-control" name="curso">
-				<option value="">Selecione</option>
+				<option selected disabled value="">Selecione</option>
+				@foreach($cursos as $curso)
+					<option value="{{$curso->id}}">{{$curso->nome}}</option>
+				@endforeach
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label>Disciplina: </label>
 			<select class="form-control" name="disciplina">
-				<option value="">Selecione</option>
+				<option  value="">Selecione</option>
+				@foreach($disciplinas as $disciplina)
+					<option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
+				@endforeach
 			</select>
 		</div>
 		<div class="col-sm-3">
 			<label>Nível: </label>
 			<select class="form-control" name="nivel">
-				<option value="todos">Selecione</option>
+				<option value="">Selecione</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -102,22 +110,23 @@
 	<div class="row align-items-center">
 		<div class="col-sm-3">
 				<label>Autor:</label>
-				<input type="text" class="form-control" name="autor" >
+				<input type="text" class="form-control" maxlength="50" name="autor" >
 			</div>
 			<div class="col-sm-6">
 				<label>Pesquisa livre: </label>
-				<input type="text" class="form-control" name="search" >
+				<input type="text" class="form-control" maxlength="1000" name="search" >
 			</div>
 		</div>
-	</div>
+
 	<div class="row justify-content-center m-3">
 		<div class="col-2">
-			<a class="btn btn-success" href="">Buscar</a>
+			<button class="btn btn-success" type="submit">Buscar</button>
 		</div>
 		<div class="col-2">
-			<a class="btn btn-secondary" href="">Limpar filtros</a>
+			<input class="btn btn-secondary" type="reset" value="Limpar filtros">
 		</div>
 	</div>
+</form>
 	<div class="row justify-content-center mt-5">
 		@if ($errors->any())
 			<div class="alert alert-danger text-center w-50">

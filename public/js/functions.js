@@ -64,6 +64,23 @@ $(document).ready(function(){
         // })
         // console.log(value);
     })
+
+    $('div#curso select[name="curso"]').on('change', function(){
+        var curso = $(this).val();
+        $.ajax({
+            url: '/api/curso',
+            type: 'POST',
+            data: { curso: curso },
+            success: function (retorno){
+                $('div#curso select[name="disciplina"]').empty();
+                $('div#curso select[name="disciplina"]').removeAttr("disabled");
+                $('div#curso select[name="disciplina"]').append("<option selected disabled >"+'Selecione'+"</option>");
+                for(let i in retorno){
+                    $('div#curso select[name="disciplina"]').append("<option value="+retorno[i].id+">"+retorno[i].nome+"</option>");
+                }
+            }
+        })
+    })
     
 
 })
