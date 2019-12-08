@@ -68,7 +68,8 @@ class QuestaoController extends Controller
             ->where('turmas_has_professores.professor_id', auth()->user()->id)->get();
             $cursos = \App\Curso::all();
             $disciplinas = \App\Disciplina::all();
-            return view('questoes.index', ['disciplinas' => $disciplinas, 'questoes' => $questoes, 'professor_disciplina' => $professor_disciplina, 'cursos' => $cursos]);
+            $test=$request->all();
+            return view('questoes.index', ['test' => $test, 'disciplinas' => $disciplinas, 'questoes' => $questoes, 'professor_disciplina' => $professor_disciplina, 'cursos' => $cursos]);
 
         }
         return redirect()->route('login');

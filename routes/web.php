@@ -20,6 +20,7 @@ Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::put('/questoes','QuestaoController@desabilitar');
 Route::post('/questoes/buscar','QuestaoController@buscar')->name('questoes');
+Route::get('/questoes/buscar','QuestaoController@buscar')->name('questoes');
 Route::put('/turma/detalhe','TurmaController@detalhe');
 Route::resource('/questoes','QuestaoController');
 Route::resource('/periodos_letivos', 'PeriodoLetivoController');

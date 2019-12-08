@@ -201,7 +201,11 @@
 		@endforeach
 	</table>
 	<div class="row justify-content-center text-center mx-auto w-25">
-		{{ $questoes->links() }}
+		@if(isset($request))
+			{{ $questoes->appends($request)->links() }}
+		@else
+			{{ $questoes->links() }}
+		@endif
 	</div>
 </div>
 @endsection
