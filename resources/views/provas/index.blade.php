@@ -65,7 +65,7 @@
     </form>
     <form action="{{ route('prova') }}" method="POST">
     @csrf
-        <div class="form-group">
+        <div id="prova" class="form-group">
             <div class="row justify-content-start">
                 <div class="col-sm-3">
                     <label>Curso: </label>

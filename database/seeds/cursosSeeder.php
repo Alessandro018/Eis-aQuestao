@@ -17,9 +17,6 @@ class cursosSeeder extends Seeder
             ],
             1 => [
                 'nome' => 'Logística'
-            ],
-            2 => [
-                'nome' => 'Gestão da qualidade'
             ]
         ];
         DB::table('cursos')->insert($curso);
