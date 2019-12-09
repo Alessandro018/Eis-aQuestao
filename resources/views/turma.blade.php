@@ -15,6 +15,7 @@
             </ul>
         </div>
     @endif
+    <div class="container">
     <h3 class="text-center">Minhas turmas</h3>
     <div class="form-group">
         <div class="row justify-content-start">
@@ -160,4 +161,5 @@
 			{{ $turmas->links() }}
 		@endif
     </div>
+    </div>    
 @endsection
