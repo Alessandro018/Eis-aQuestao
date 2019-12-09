@@ -106,6 +106,9 @@ td {
     border-radius: 10%;
     width: 70px;
 }
+.text-orange{
+    color: #ED9C2E;
+}
 .alert-warning{
     color: black;
     background: #f8d45f;
@@ -141,4 +144,14 @@ td {
 .img-width-3{
     width: 300px;
     height: 300px;
+}
+.feature-title{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: #a4a4a4;
+    text-align: center;
+    font-size: 20px;
 }
