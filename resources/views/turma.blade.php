@@ -56,9 +56,10 @@
                                             <option value="Noite">Noite</option>
                                         </select>
                                         <br>
-                                        <label>Selecione o arquivo</label>
+                                        <label>Selecione um arquivo</label>
+                                        <span class="text-info">.xlsx</span>
                                         <input name="file" class="form-control-file" type="file" required accept=".xls,.xlsx">
-                                        <span>.xml ou .xlsx</span>
+                                        <span>Com: <span class="text-info">nome | email | matrícula</span> dos estudantes.</span>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
