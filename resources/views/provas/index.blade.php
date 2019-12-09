@@ -4,7 +4,7 @@
     <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <h3 class="text-center">Minhas provas</h3>
-        <div class="form-group">
+        <div class="container">
             <div class="row justify-content-start">
                 <div class="col-sm-6 offset-sm-6">
                     <div class="modal fade" id="confirm">
@@ -129,6 +129,7 @@
             </div>
         @endif
     </div>
+    <div class="container">
     <table class="table table-sm mt-4 text-center">
     <thead class="thead-dark">
 		<tr>
@@ -176,5 +177,6 @@
 		@else
 			{{ $provas->links() }}
 		@endif
+    </div>
     </div>
 @endsection
