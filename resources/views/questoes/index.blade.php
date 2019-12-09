@@ -2,8 +2,9 @@
  
 @section('content')
 
-<div class='content'>	
+
 <h3 class="text-center">Minhas questões</h3>
+<div class="container">
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
 	<button type="button" class="btn btn-info btn-lg float-right text-white" data-toggle="modal" data-target="#exampleModalLong">Criar questão</button>
@@ -159,7 +160,8 @@
 			</div>
 		@endif
 	</div>
-
+	</div>
+	<div class="container">
 	<table class="table table-sm mt-4 text-center">
 	<thead class="thead-dark">
 		<tr>
@@ -207,5 +209,5 @@
 			{{ $questoes->links() }}
 		@endif
 	</div>
-</div>
+	</div>
 @endsection
