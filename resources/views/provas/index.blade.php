@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">Criar prova</button>
+                    <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">Criar prova +</button>
                 </div>
             </div>
     </form>
@@ -97,7 +97,7 @@
             </div>                    
                 <div class="row justify-content-center m-3">
                     <div class="col-2">
-                        <button class="btn btn-success" type="submit">Buscar</button>
+                        <button class="btn btn-orange" type="submit">Buscar</button>
                     </div>
                     <div class="col-2">
                         <input class="btn btn-secondary" type="reset" value="Limpar filtros">
