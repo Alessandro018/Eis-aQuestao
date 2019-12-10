@@ -20,7 +20,7 @@
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
-                <a class="btn btn-info btn-lg float-right text-white" data-toggle="modal" data-target="#confirm">Importar dados</a>
+            <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">Importar dados</button>
                 <div class="modal fade" id="confirm">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -148,7 +148,7 @@
                         @csrf
                         @method('PUT')
                         <input type="hidden" value="{{$turma->id}}" name="id">
-                            <button type="submit" class="btn btn-dark">Detalhe</button>
+                            <button type="submit" class="btn btn-secondary">Detalhe</button>
                     </form>
                 </td>
             </tr>
