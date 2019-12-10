@@ -3,11 +3,11 @@
 @section('content')
 
 
-<h3 class="text-center">Minhas questões</h3>
+<h3 class="text-center mt-4">Minhas questões</h3>
 <div class="container">
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
-	<button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#exampleModalLong">Criar questão +</button>
+	<button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#exampleModalLong">+ Criar questão</button>
 	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
