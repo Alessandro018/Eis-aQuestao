@@ -119,7 +119,7 @@
             </div>
             <div class="row justify-content-md-center mt-3 text-center">
                 <div class="col-sm-2">
-                    <button class="btn btn-success" type="submit">Buscar</button>
+                    <button class="btn btn-orange" type="submit">Buscar</button>
                 </div>
                 <div class="col-sm-2">
                     <input class="btn btn-secondary" type="reset" value="Limpar filtros">
