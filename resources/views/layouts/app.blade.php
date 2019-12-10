@@ -81,7 +81,7 @@
         <div class="second-bar">
            <div class="container">
                 <div class="logo float-left w-25 ml-n5 mt-n4">
-                    <a href="#"><img class="w-75" src="{{ asset('img/footer-logo.png') }}"></a>
+                    <a href="{{ url('/') }}"><img class="w-75" src="{{ asset('img/footer-logo.png') }}"></a>
                 <ul>
                     <li>© 2019 Eis a Questão </li>
                 </ul>
