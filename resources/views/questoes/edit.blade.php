@@ -66,7 +66,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <input type="hidden" name="professor_id" value="{{ Auth::user()->id }}">
             <button type="submit" class="btn btn-orange">Salvar</button>
-            <a class="btn btn-outline-secondary" href="{{ route('questoes.index') }}">Cancelar</a>
+            <a class="btn btn-outline-dark" href="{{ route('questoes.index') }}">Cancelar</a>
         </div>
 
     </form>
