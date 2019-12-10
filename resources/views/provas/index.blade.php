@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-info btn-lg float-right text-white" data-toggle="modal" data-target="#confirm">Criar prova</a>
+                    <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">Criar prova</button>
                 </div>
             </div>
     </form>
@@ -150,7 +150,7 @@
                 <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
 					@csrf
                     @method('DELETE')
-                        <button type="button" id="editar" class="btn btn-outline-primary" value="{{$prova}}"data-toggle="modal" data-target="#modal_{{ $prova->id }}">Editar</button>
+                        <button type="button" id="editar" class="btn btn-outline-secondary" value="{{$prova}}"data-toggle="modal" data-target="#modal_{{ $prova->id }}">Editar</button>
                         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
 
                         <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
