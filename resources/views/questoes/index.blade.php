@@ -7,7 +7,7 @@
 <div class="container">
 <div class="row justify-content-start">
 <div class="col-sm-6 offset-sm-6">
-	<button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#exampleModalLong">Criar questão</button>
+	<button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#exampleModalLong">Criar questão +</button>
 	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -121,7 +121,7 @@
 
 	<div class="row justify-content-center m-3">
 		<div class="col-2">
-			<button class="btn btn-success" type="submit">Buscar</button>
+			<button class="btn btn-orange" type="submit">Buscar</button>
 		</div>
 		<div class="col-2">
 			<input class="btn btn-secondary" type="reset" value="Limpar filtros">
@@ -195,7 +195,7 @@
 								<button type="submit" class="btn btn-dark">Desabilitar</button>
 							@else
 								<input type="hidden" value="Habilitado" name="situacao">
-								<button type="submit" class="btn btn-success">Habilitar</button>
+								<button type="submit" class="btn btn-orange">Habilitar</button>
 							@endif
 						</form>		
 					</td>
