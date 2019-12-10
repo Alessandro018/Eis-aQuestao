@@ -12,7 +12,8 @@
         <div class="card-deck">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center text-dark">Correção com QRcode</h5>
+                    <h5 class="card-title text-center text-dark"><strong>Correção com QRcode 
+                    </strong></h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Correção automática de provas e gabaritos. Garante maior flexibilidade e praticidade para o professor na hora de corrigir as provas.
@@ -21,7 +22,8 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center text-dark">Provas geradas em PDF</h5>
+                    <h5 class="card-title text-center text-dark"><strong>Provas geradas em PDF
+                    </strong> </h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Desta maneira, o professor pode criar provas individuais com questões embaralhadas prontas para impressão.</p>
@@ -29,7 +31,7 @@
             </div>
             <div class="card">
                 <div class="card-header pt-2 pb-1">
-                    <h5 class="mb-1 card-title text-center text-dark">Questões por níveis de dificuldade</h5>
+                    <h5 class="mb-1 card-title text-center text-dark"><strong>Questões por níveis de dificuldade</strong></h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Através desta ferramenta, o professor pode criar provas contendo questões com vários níveis de dificuldade.</p>
@@ -37,7 +39,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center text-dark">Banco de Questões</h5>
+                    <h5 class="card-title text-center text-dark"><strong>Banco de Questões</strong></h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Permite que professores criem questões que ficarão armazenadas e poderão ser facilmente utilizadas para criação de novas provas.</p>
