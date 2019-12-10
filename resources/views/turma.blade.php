@@ -16,11 +16,11 @@
         </div>
     @endif
     <div class="container">
-    <h3 class="text-center">Minhas turmas</h3>
+    <h3 class="text-center mt-4">Minhas turmas</h3>
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
-            <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">Importar dados +</button>
+            <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">+ Importar dados</button>
                 <div class="modal fade" id="confirm">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
