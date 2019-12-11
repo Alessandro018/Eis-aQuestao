@@ -150,8 +150,8 @@
                 <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
 					@csrf
                     @method('DELETE')
-                        <button type="button" id="editar" class="btn btn-outline-secondary" value="{{$prova}}"data-toggle="modal" data-target="#modal_{{ $prova->id }}">Editar</button>
-                        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
+                        <button type="button" id="editar" class="btn btn-secondary" value="{{$prova}}"data-toggle="modal" data-target="#modal_{{ $prova->id }}">Editar</button>
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
 
                         <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
                             <div class="modal-dialog modal-md">
