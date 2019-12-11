@@ -28,12 +28,13 @@
     <h2>Estudantes</h2>
     <div class="form-group">
         <table class="table table-sm mt-3">
-            <tr>
-                <th>Nome</th>
-                <th>Matrícula</th>
-                <th>Email</th>
-
-            </tr>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Matrícula</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
             @foreach($detalhes as $detalhe)
                 <tr>
                     <td>{{$detalhe->nome}}</td>
