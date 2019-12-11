@@ -39,7 +39,7 @@
                                             @endforeach
                                         </select>
                                         <label>Disciplina</label>
-                                        <select class="form-control" name="disciplina" disabled required>
+                                        <select class="form-control" name="disciplina" disabled required >
                                             <option selected>Selecione o curso</option>
                                         </select>
                                         <label>Período letivo</label>
@@ -58,9 +58,9 @@
                                         </select>
                                         <br>
                                         <label>Selecione um arquivo</label>
-                                        <span class="text-info">.xlsx</span>
-                                        <input name="file" class="form-control-file" type="file" required accept=".xls,.xlsx">
-                                        <span>Com: <span class="text-info">nome | email | matrícula</span> dos estudantes.</span>
+                                        <span class="text-orange">.xlsx</span>
+                                        <input name="file" class="form-control-file" type="file" required accept=".xls,.xlsx"  >
+                                        <span>Com: <span class="text-orange">nome | email | matrícula</span> dos estudantes.</span>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
