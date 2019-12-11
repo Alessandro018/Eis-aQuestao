@@ -25,9 +25,33 @@
             <select name="nivel" class="custom-select" required="" id="exampleFormControlSelect1">
                 @for ($i=1; $i<=3; $i++)
                     @if ($questao->nivel == $i)
-                        <option selected>{{ $i }}</option>
+                        <option value="{{$i}}" selected>
+                            @if($i==1)
+                                Fácil
+                            @endif
+                            @if($i==2)
+                                Médio
+                            @endif
+                            @if($i==3)
+                                Díficil
+                            @endif
+                        </option>
                     @else
-                    <option>{{ $i }}</option>
+                        @if($i==1)
+                            <option value="{{$i}}">
+                                Fácil
+                            </option>
+                        @endif
+                        @if($i==2)
+                            <option value="{{$i}}">
+                                Médio
+                            </option>
+                        @endif
+                        @if($i==3)
+                            <option value="{{$i}}">
+                                Díficil
+                            </option>
+                        @endif
                     @endif
                 @endfor
             </select>
@@ -51,16 +75,20 @@
             </select>
         </div>
         <div class="form-group">
-            <input type="hidden" name="tipo" value="fechada"> 
+            <input type="hidden" name="tipo" value="fechada">
                 @foreach ($questao->alternativas as $key => $alternativa)
-                    @if ($alternativa->correta ==1)
-                        <input type="radio" name="correta" value="correta{{$key+1}}" checked>
-                    @else
-                        <input type="radio" name="correta" value="correta{{$key+1}}">
-                    @endif
-                    <label>{{$key+1}})</label>
-                    <textarea class="form-control" maxlength="255" name="alternativa{{$key+1}}"
-                placeholder="Alternativa" required >{{$alternativa->resposta}}</textarea>
+                    <div class="input-group mt-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                            @if ($alternativa->correta ==1)
+                                <input type="radio" name="correta"  aria-label="Radio button for following text input" value="correta{{$key+1}}">
+                            @else
+                                <input type="radio" name="correta" checked aria-label="Radio button for following text input" value="correta{{$key+1}}">
+                            @endif
+                            </div>
+                        </div>
+                        <textarea class="form-control" maxlength="255" name="alternativa{{$key+1}}" aria-label="Text input with radio button"  placeholder="Alternativa {{$key+1}}" required >{{$alternativa->resposta}}</textarea>
+                    </div>
                 @endforeach
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
