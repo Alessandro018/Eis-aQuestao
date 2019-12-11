@@ -35,3 +35,4 @@ Route::get('/logout', function(){
         Auth::logout();
         return redirect()->route('login');
     });
+Route::get('/sobre', 'SobreController@index')->name('sobre');

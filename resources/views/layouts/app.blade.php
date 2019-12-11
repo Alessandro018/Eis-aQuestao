@@ -63,7 +63,7 @@
                 <div class="col-sm-4">
                     <h5 class="link-color">Sobre Nós</h5>
                     <ul>
-                        <li><a href="#">Contatos</a></li>
+                        <li><a href="{{ asset('sobre') }}">Contatos</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
