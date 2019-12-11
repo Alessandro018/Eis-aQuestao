@@ -1,68 +1,68 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ action('ProvaController@store') }}" enctype="multipart/form-data" method="POST">
+    <form enctype="multipart/form-data" method="POST">
         @csrf
         <h3 class="text-center mt-4">Minhas provas</h3>
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-sm-6 offset-sm-6">
-                    <div class="modal fade" id="confirm">
-                        <div class="modal-dialog modal-md">
-                            <div class="modal-content">
-                                <form action="{{ action('TurmaController@store') }}" id="prova" method="POST">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <h4>
-                                            Criar prova
-                                        </h4>
-                                        <div>
-                                            <label class="mt-2">Curso</label>
-                                            <select class="form-control" name="curso" required>
-                                                <option selected disabled>Selecione</option>
-                                                @foreach($cursos as $curso)
-                                                    <option value="{{$curso->id}}">{{$curso->nome}}</option>
-                                                @endforeach
-                                            </select>
-                                            <label class="mt-2">Turma</label>
-                                            <select class="form-control" name="turma_id" disabled required>
-                                                <option selected>Selecione o curso</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <label>Quantidade de questões</label>
-                                            <div class="row">
-                                                <div class="col-sm">
-                                                    <label>Nível 1</label>
-                                                    <input type="number" class="form-control" name="questoes_nivel_1" value="0" min="0" max="50" required>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <label>Nível 2</label>
-                                                    <input type="number" class="form-control" name="questoes_nivel_2" value="0" min="0" max="50" required>
-                                                </div><div class="col-sm">
-                                                    <label>Nível 3</label>
-                                                    <input type="number" class="form-control" name="questoes_nivel_3" value="0" min="0" max="50" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <label>Cabeçalho</label>
-                                            <textarea class="w-100" name="cabecalho" style="resize:none;border-radius: 4px;"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <input type="hidden" name="professor" value="{{ Auth::user()->id }}">
-                                        <button type="submit" class="btn btn-orange">Criar</button>
-                                        <button type="button" class="btn btn-outline-dark " data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">+ Criar prova</button>
+                    <button type="button" data-action-text="Criar" data-action="{{ action('ProvaController@store') }}" class="criar_prova btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">+ Criar prova</button>
                 </div>
             </div>
     </form>
+    <div class="modal fade" id="confirm">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <form id="prova" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <h4>
+                            Criar prova
+                        </h4>
+                        <div>
+                            <label class="mt-2">Curso</label>
+                            <select class="form-control" name="curso" required>
+                                <option selected disabled>Selecione</option>
+                                @foreach($cursos as $curso)
+                                    <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                                @endforeach
+                            </select>
+                            <label class="mt-2">Turma</label>
+                            <select class="form-control" name="turma_id" disabled required>
+                                <option selected>Selecione o curso</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label>Quantidade de questões</label>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label>Fáceis</label>
+                                    <input type="number" class="form-control" name="questoes_nivel_1" value="0" min="0" max="50" required>
+                                </div>
+                                <div class="col-sm">
+                                    <label>Médias</label>
+                                    <input type="number" class="form-control" name="questoes_nivel_2" value="0" min="0" max="50" required>
+                                </div><div class="col-sm">
+                                    <label>Difíceis</label>
+                                    <input type="number" class="form-control" name="questoes_nivel_3" value="0" min="0" max="50" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label>Cabeçalho</label>
+                            <textarea class="w-100" name="cabecalho" style="resize:none;border-radius: 4px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="professor" value="{{ Auth::user()->id }}">
+                        <button type="submit" class="action_btn btn btn-orange">Criar</button>
+                        <button type="button" class="btn btn-outline-dark " data-dismiss="modal" class="btn btn-default">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <form action="{{ route('prova') }}" method="POST">
     @csrf
         <div id="prova" class="form-group">
@@ -150,7 +150,17 @@
                 <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
 					@csrf
                     @method('DELETE')
-                        <button type="button" id="editar" class="btn btn-secondary" value="{{$prova}}"data-toggle="modal" data-target="#modal_{{ $prova->id }}">Editar</button>
+                        <button type="button" class="editar_prova btn btn-secondary" 
+                            data-action-text="Atualizar" 
+                            data-action="{{ action('ProvaController@update', $prova->id) }}" 
+                            data-toggle="modal" 
+                            data-target="#confirm"
+                            data-questoes-1="{{$prova->questoes_nivel_1}}"
+                            data-questoes-2="{{$prova->questoes_nivel_2}}"
+                            data-questoes-3="{{$prova->questoes_nivel_3}}"
+                            data-curso-id="{{$prova->turma->disciplina->curso_id}}"
+                            data-turma-id="{{$prova->turma_id}}"
+                        >Editar</button>
                         <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm_{{ $prova->id }}">Excluir</button>
 
                         <div class="modal fade" id="confirm_{{ $prova->id }}" role="dialog">
