@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container text-center">
+    <div class="container text-center mt-4">
     <h2>Detalhes das turmas</h2>
     <div class="form-group">
         <table class="table table-sm mt-3">
@@ -26,7 +26,7 @@
                 </tr>
         </table>
     </div>
-    <h2>Estudantes</h2>
+    <h2 class="mt-5">Estudantes</h2>
     <div class="form-group">
         <table class="table table-sm mt-3">
             <thead class="thead-dark">
