@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <div class="container">
     <h2>Detalhe da turma</h2>
     <div class="form-group">
         <table class="table table-sm mt-3">
@@ -45,5 +46,6 @@
         </table>
     </div>
     <div class="nav justify-content-center">
+    </div>
     </div>
 @endsection
