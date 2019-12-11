@@ -17,6 +17,9 @@
                 <form id="prova" method="POST">
                     @csrf
                     <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                         <h4>
                             Criar prova
                         </h4>
