@@ -13,6 +13,12 @@ class Prova extends Model
         'cabecalho',
         'questoes_nivel_1',
         'questoes_nivel_2',
-        'questoes_nivel_3'
+        'questoes_nivel_3',
+        'created_at'
     ];
+
+    public function turma()
+    {
+        return $this->hasOne('App\Turma', 'id');
+    }
 }
