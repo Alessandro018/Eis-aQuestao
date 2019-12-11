@@ -47,7 +47,7 @@
                             </div>
                         </li>
                     @else
-                        <li class="nav-item"><a class="btn text-dark btn-orange" href="{{ route('login') }}">Entrar</a></li>
+                        <li class="nav-item"><a class="btn text-dark btn-orange" href="{{ route('login') }}"><strong>Entrar</strong></a></li>
                     @endif
                 </ul>
             </div>
