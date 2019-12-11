@@ -2,7 +2,8 @@
             
 @section('content')
 
-<h1 class="display-5 mt-5 text-center">Sobre Nós</h1>
+<h1 class="display-5 mt-5 text-center">Desenvolvedores</h1>
+<p></p>
 
 <div class="container mt-5">
     <div class="row justify-content-md-center">
