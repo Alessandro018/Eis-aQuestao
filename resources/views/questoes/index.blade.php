@@ -186,7 +186,7 @@
 					<td>{{ $questao->situacao }}</td>
 					<td>
 						<form action="{{ action('QuestaoController@desabilitar') }}" method="POST">
-							<a class="btn btn-outline-secondary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
+							<a class="btn btn-secondary" href="{{ action('QuestaoController@edit',$questao->id) }}">Editar</a>
 							@csrf
 							@method('PUT')
 							<input type="hidden" value="{{$questao->id}}" name="id">
