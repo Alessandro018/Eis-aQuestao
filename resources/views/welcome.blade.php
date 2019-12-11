@@ -39,7 +39,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center text-dark"><strong>Banco de Questões</strong></h5>
+                    <h5 class="card-title text-center text-dark"><strong>Banco de questões</strong></h5>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Permite que professores criem questões que ficarão armazenadas e poderão ser facilmente utilizadas para criação de novas provas.</p>
