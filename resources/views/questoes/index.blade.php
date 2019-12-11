@@ -29,9 +29,9 @@
 				</div>
 				<select name="nivel" class="custom-select" required="" id="exampleFormControlSelect1">
 					<option selected="" disabled="">Nível...</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
+					<option value="1">Fácil</option>
+					<option value="2">Médio</option>
+					<option value="3">Difícil</option>
 				</select>
 			</div>
 		<div class="input-group mb-3">
@@ -102,9 +102,9 @@
 			<label>Nível: </label>
 			<select class="form-control" name="nivel">
 				<option value="">Selecione</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
+				<option value="1">Fácil</option>
+				<option value="2">Médio</option>
+				<option value="3">Difícil</option>
 			</select>
 		</div>
 	</div>
@@ -181,7 +181,17 @@
 			@endif
 					<td>{{ $questao->pergunta }}</td>
 					<td>{{ $questao->nome }}</td>
-					<td>{{ $questao->nivel }}</td>
+					<td>
+						@if($questao->nivel==1)
+							Fácil
+						@endif
+						@if($questao->nivel==2)
+							Médio
+						@endif
+						@if($questao->nivel==3)
+							Difícil
+						@endif
+					</td>
 					<td>{{ $questao->nome_professor }}</td>
 					<td>{{ $questao->situacao }}</td>
 					<td>
