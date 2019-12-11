@@ -19,6 +19,11 @@ class Turma extends Model
         return $this->hasMany('App\Disciplina', 'id', 'disciplina_id');
     }
 
+    public function disciplina()
+    {
+        return $this->hasOne('App\Disciplina', 'id', 'disciplina_id');
+    }
+
     public function periodo()
     {
         return $this->hasOne('App\Periodo_Letivo', 'id', 'periodo_letivo_id');
