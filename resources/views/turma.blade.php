@@ -148,7 +148,7 @@
                         @csrf
                         @method('PUT')
                         <input type="hidden" value="{{$turma->id}}" name="id">
-                            <button type="submit" class="btn btn-secondary">Detalhe</button>
+                            <button type="submit" class="btn btn-secondary">Detalhes</button>
                     </form>
                 </td>
             </tr>
