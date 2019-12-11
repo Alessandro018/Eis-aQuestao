@@ -3,7 +3,7 @@
 @section('content')
 
 <img class="d-block w-100" src="{{ asset('img/layout.png') }}" alt="Card image">
-<h1 class="display-5 text-center mt-5">Características do Eis a Questão</h1>
+<h1 class="display-5 text-center mt-5">Saiba mais sobre o Eis a questão</h1>
 <div class="feature-title">
     <p>O Eis a Questão é um sistema que possibilita a criação e correção automática de provas objetivas.</p>
 </div>
