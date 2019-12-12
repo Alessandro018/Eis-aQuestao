@@ -6,7 +6,7 @@
         <table class="table table-sm mt-3">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Professores</th>
+                    <th scope="col">Professore</th>
                     <th scope="col">Curso</th>
                     <th scope="col">Disciplina</th>
                     <th scope="col">Periodo letivo</th>

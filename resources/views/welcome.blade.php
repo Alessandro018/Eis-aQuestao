@@ -12,11 +12,11 @@
         <div class="card-deck">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-center text-dark"><strong>Correção com QRcode 
+                    <h5 class="card-title text-center text-dark"><strong>Correção com QR code 
                     </strong></h5>
                 </div>
                 <div class="card-body">
-                    <p class="text-dark">Correção automática de provas e gabaritos. Garante maior flexibilidade e praticidade para o professor na hora de corrigir as provas.
+                    <p class="text-dark">Correção automática de provas e gabaritos. Garantindo maior flexibilidade e praticidade para o professor na hora de corrigir as provas.
                     </p>
                 </div>
             </div>
