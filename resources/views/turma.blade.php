@@ -20,7 +20,7 @@
     <div class="form-group">
         <div class="row justify-content-start">
             <div class="col-sm-6 offset-sm-6">
-            <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm"> Importar dados</button>
+            <button type="button" class="btn btn-lg float-right btn-orange" data-toggle="modal" data-target="#confirm">+ Criar turma</button>
                 <div class="modal fade" id="confirm">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -31,7 +31,7 @@
                                  <span aria-hidden="true">&times;</span>
                                  </button>
                                     <h4>
-                                        Importar dados
+                                        Criar turma
                                     </h4>
 
                                     <div>
@@ -62,9 +62,9 @@
                                         </select>
                                         <br>
                                         <label>Selecione um arquivo</label>
-                                        <span class="text-orange">.xlsx</span>
+                                        <span class="text-primary">.xlsx</span>
                                         <input name="file" class="form-control-file" type="file" required accept=".xls,.xlsx"  >
-                                        <span>Com: <span class="text-orange">nome | email | matrícula</span> dos estudantes.</span>
+                                        <span>Com: <span class="text-primary">nome | email | matrícula</span> dos estudantes.</span>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
