@@ -134,7 +134,7 @@
     </div>
     <div class="container">
     <table class="table table-sm mt-4 text-center">
-    <thead class="thead-dark">
+    <thead class="thead-Grey">
 		<tr>
 			<th>Disciplina</th>
 			<th>Período letivo</th>
