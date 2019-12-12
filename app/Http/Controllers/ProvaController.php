@@ -24,7 +24,7 @@ class ProvaController extends Controller
             ->join('turmas_has_professores', 'turmas_has_professores.turma_id', 'turmas.id')
             ->join('periodos_letivos', 'periodos_letivos.id', '=', 'turmas.periodo_letivo_id')
             ->join('disciplinas', 'disciplinas.id', 'turmas.disciplina_id')
-            ->select('*','provas.created_at')
+            ->select('*','provas.id', 'provas.created_at')
             ->where('turmas_has_professores.professor_id', auth()->user()->id)
             ->orderBy('provas.created_at', 'desc')
             ->paginate(5);
@@ -194,5 +194,49 @@ class ProvaController extends Controller
     {
         Prova::find($id)->delete();
         return redirect('/prova')->with('success', 'Prova excluída com sucesso');
+    }
+    public function generate($id) {
+        $prova = Prova::find($id);
+        $provas = [];
+        $turma = $prova->turma;
+        $estudantes = $turma->estudantes();
+        $questoes = $turma->disciplina->questoes;
+        
+        $q1 = $questoes->filter(function($v) {
+            return $v->nivel == 1;
+        });
+        $q2 = $questoes->filter(function($v) {
+            return $v->nivel == 2;
+        });
+        $q3 = $questoes->filter(function($v) {
+            return $v->nivel == 3;
+        });
+
+        foreach($estudantes as $estudante) {
+            $p = [
+                'cabecalho' => $prova->cabecalho,
+                'questoes' => [[], [], []]
+            ];
+            $_q1 = $q1->shuffle();
+            $_q2 = $q2->shuffle();
+            $_q3 = $q3->shuffle();
+
+            for($i = 0; $i < $prova->questoes_nivel_1; $i++) {
+                $q = $_q1->pop();
+                $p['questoes'][0][$q->id] = ['pergunta' => $q->pergunta, 'alternativas' => $q->alternativas->shuffle()];
+            }
+
+            for($i = 0; $i < $prova->questoes_nivel_2; $i++) {
+                $q = $_q2->pop();
+                $p['questoes'][1][$q->id] = ['pergunta' => $q->pergunta, 'alternativas' => $q->alternativas->shuffle()];
+            }
+
+            for($i = 0; $i < $prova->questoes_nivel_3; $i++) {
+                $q = $_q3->pop();
+                $p['questoes'][2][$q->id] = ['pergunta' => $q->pergunta, 'alternativas' => $q->alternativas->shuffle()];
+            }
+            $provas[] = $p;
+        }
+        return PDF::loadView('provas.pdf', ['provas' => $provas])->stream('teste.pdf');
     }
 }

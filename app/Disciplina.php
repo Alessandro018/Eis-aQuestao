@@ -12,4 +12,9 @@ class Disciplina extends Model
         'nome', 'curso_id'
     ];
 
+    public function questoes()
+    {
+        return $this->hasMany('App\Questao', 'disciplina_id');
+    }
+
 }

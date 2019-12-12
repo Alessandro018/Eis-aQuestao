@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Estudante;
 
 class Turma extends Model
 {
@@ -22,6 +23,14 @@ class Turma extends Model
     public function disciplina()
     {
         return $this->hasOne('App\Disciplina', 'id', 'disciplina_id');
+    }
+
+    public function estudantes()
+    {
+        $estudantes = Estudante::join('turmas_has_estudantes', 'estudante_id', 'estudantes.id')
+            ->where('turma_id', '=', $this->id)
+            ->get();
+        return $estudantes;
     }
 
     public function periodo()

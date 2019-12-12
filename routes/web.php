@@ -22,6 +22,7 @@ Route::put('/questoes','QuestaoController@desabilitar');
 Route::post('/questoes/buscar','QuestaoController@buscar')->name('questoes');
 Route::get('/questoes/buscar','QuestaoController@buscar')->name('questoes');
 Route::post('/turma/buscar','TurmaController@buscar')->name('turma');
+Route::post('/prova/generate/{id}','ProvaController@generate')->name('turma');
 Route::get('/turma/buscar','TurmaController@buscar')->name('turma');
 Route::post('/prova/buscar','ProvaController@buscar')->name('prova');
 Route::get('/prova/buscar','ProvaController@buscar')->name('prova');

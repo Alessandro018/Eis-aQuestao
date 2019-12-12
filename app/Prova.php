@@ -19,6 +19,6 @@ class Prova extends Model
 
     public function turma()
     {
-        return $this->hasOne('App\Turma', 'id');
+        return $this->hasOne('App\Turma', 'id', 'turma_id');
     }
 }
