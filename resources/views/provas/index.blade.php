@@ -16,7 +16,6 @@
             <div class="modal-content">
                 <form id="prova" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -153,9 +152,9 @@
             <td>
                 <form action="{{ action('ProvaController@generate', $prova->id) }}" method="POST">
                     @csrf
-                    <input type="submit" class="btn btn-warning" value="Gerar prova">
+                    <input type="submit" class="btn btn-orange2" value="Gerar prova">
                 </form>
-                <form action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
+                <form class="mt-2" action="{{ action('ProvaController@destroy',$prova->id) }}" method="POST">
 					@csrf
                     @method('DELETE')
                         <button type="button" class="editar_prova btn btn-secondary" 
