@@ -81,7 +81,7 @@
                     <h5 class="card-title">Alisson</h5>
                     <a href="https://github.com/AlissonThyago" class="card-link text-dark"><i class="fa fa-github"></i></a>
                     <a href="#" class="card-link text-dark"><i class="fa fa-linkedin"></i></a>
-                    <a href="mailto:mailto:alissonthiagoamorim@gmail.com" class="card-link text-dark"><i class="fa fa-envelope"></i></a>
+                    <a href="mailto:alissonthiagoamorim@gmail.com" class="card-link text-dark"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
             <div class="card">
@@ -90,7 +90,7 @@
                     <h5 class="card-title">Ricardo</h5>
                     <a href="https://github.com/ricardomlp" class="card-link text-dark"><i class="fa fa-github"></i></a>
                     <a href="#" class="card-link text-dark"><i class="fa fa-linkedin"></i></a>
-                    <a href="mailto:#" class="card-link text-dark"><i class="fa fa-envelope"></i></a>
+                    <a href="mailto:cranioscaner@gmail.com" class="card-link text-dark"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
             <div class="card">
