@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container text-center mt-4">
-    <h2>Detalhes das turmas</h2>
+    <h2>Detalhes das Turmas</h2>
     <div class="form-group">
         <table class="table table-sm mt-3">
             <thead class="thead-dark">
@@ -10,7 +10,7 @@
                     <th scope="col">Curso</th>
                     <th scope="col">Disciplina</th>
                     <th scope="col">Periodo letivo</th>
-                    <th scope="col">turno</th>
+                    <th scope="col">Turno</th>
                 </tr>
             </thead>
                 <tr>
