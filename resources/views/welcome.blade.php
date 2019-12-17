@@ -5,7 +5,7 @@
 <img class="d-block w-100" src="{{ asset('img/layout.png') }}" alt="Card image">
 <h1 class="display-5 text-center mt-5">Características do Eis a questão</h1>
 <div class="feature-title">
-    <p class="card-text">O Eis a Questão é um sistema que possibilita a criação e correção automática de provas objetivas.</p>
+    <p class="card-text">O Eis a Questão é um sistema que possibilita a criação e correção automática de provas, usando um banco de questões criadas com critérios de nivelamento, e geração de provas com questões embaralhadas.</p>
 </div>
 <div class="container mt-5">
     <div class="row justify-content-md-center">
